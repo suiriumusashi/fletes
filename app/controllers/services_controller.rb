@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   # GET /services
@@ -27,7 +28,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
 
     respond_to do |format|
-      if @service.save
+      if @service.save!
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else

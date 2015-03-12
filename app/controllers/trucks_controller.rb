@@ -1,4 +1,5 @@
 class TrucksController < ApplicationController
+  load_and_authorize_resource
   before_action :set_truck, only: [:show, :edit, :update, :destroy]
 
   # GET /trucks

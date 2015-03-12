@@ -1,4 +1,5 @@
 class LoadsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_load, only: [:show, :edit, :update, :destroy]
 
   # GET /loads
