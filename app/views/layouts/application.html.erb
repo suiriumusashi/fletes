@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fletes</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if notice %>
+  <p class="alert alert-success">Haz ingresado correctamente</p>
+<% end %>
+<% if alert%>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+<nav id="menu-off">
+  <ul>
+    <% if user_signed_in? %>
+       Hola: <strong><%= current_user.email %></strong>
+       <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> |
+       <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+    <% else %>
+      <div class="page-cont">
+        <%= link_to "/" ,:class => 'li-standar' do%>
+          <li>Inicio</li>
+        <% end %>
+        <%= link_to "" ,:class => 'li-standar' do%>
+          <li>Nosotros</li>
+        <% end %>
+        <%= link_to "" ,:class => 'li-standar' do%>
+          <li>Contactanos</li>
+        <% end %>
+        <%= link_to "tel:6181111111" ,:class => 'li-standar' do%>
+          <li>Llamanos</li>
+        <% end %>
+      </div>
+
+      <div class="sessions-cont">
+        <%= link_to new_user_registration_path, :class => 'link_sign' do%>
+        <li>Registrate</li>
+       <% end %>
+       <%= link_to new_user_session_path, :class => 'link_log' do%>
+        <li>Inicia Sesion</li>
+       <%end%>
+      </div>
+    <% end %>
+  </ul>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>

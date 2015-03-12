@@ -1,0 +1,53 @@
+<%= form_for(@publication) do |f| %>
+  <% if @publication.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+      <ul>
+      <% @publication.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :day_pickup %><br>
+    <%= f.text_field :day_pickup %>
+  </div>
+  <div class="field">
+    <%= f.label :time_pickup %><br>
+    <%= f.text_field :time_pickup %>
+  </div>
+  <div class="field">
+    <%= f.label :day_delivery %><br>
+    <%= f.text_field :day_delivery %>
+  </div>
+  <div class="field">
+    <%= f.label :time_delivery %><br>
+    <%= f.text_field :time_delivery %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :estimated_price %><br>
+    <%= f.text_field :estimated_price %>
+  </div>
+  <div class="field">
+    <%= f.label :final_price %><br>
+    <%= f.text_field :final_price %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
