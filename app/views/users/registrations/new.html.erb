@@ -22,6 +22,15 @@
     <%= f.label :last_name, "Apellido" %><br />
     <%= f.text_field :last_name, autocomplete: "off"%>
   </div>
+  
+  <div class="field">
+    <%= f.select(:role) do %>
+      <% [['Transportista', "transportista"], ['Cliente', "cliente"]].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
+  </div>
+
 
   <div class="field">
     <%= f.label :password, "Contraseña" %>

@@ -30,10 +30,12 @@ class Ability
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     user ||= User.new
-       if user.role == "admin"
-         can :manage, :all
+       if user.role == "transportista"
+         can :create, Publication
+         can :manage, [:dashboard, :tool]
+         can [:read, :update, :destroy], Publication
        else
-         can :manage, Publication
+         can :manage, Service
        end
 
   end
