@@ -23,6 +23,12 @@
     <%= f.text_field :last_name, autocomplete: "off"%>
   </div>
 
+
+  <div class="field">
+    <%= f.label :phone, "Telefono" %><br />
+    <%= f.text_field :phone, autocomplete: "off"%>
+  </div>
+
   <div class="field">
     <%= f.label :password, "Contraseña" %>
     <% if @validatable %>
