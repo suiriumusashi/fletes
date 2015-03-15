@@ -26,10 +26,10 @@ class PublicationsController < ApplicationController
   # POST /publications.json
   def create
     @publication = Publication.new(publication_params)
-
+    @publication.user_id = current_user.id 
     respond_to do |format|
       if @publication.save
-        format.html { redirect_to @publication, notice: 'Publication was successfully created.' }
+        format.html { redirect_to @publication, notice: 'Se ha creado correctamente la publicacion.' }
         format.json { render :show, status: :created, location: @publication }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class PublicationsController < ApplicationController
   def update
     respond_to do |format|
       if @publication.update(publication_params)
-        format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
+        format.html { redirect_to @publication, notice: 'Se ha modificado correctamente la publicacion.' }
         format.json { render :show, status: :ok, location: @publication }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class PublicationsController < ApplicationController
   def destroy
     @publication.destroy
     respond_to do |format|
-      format.html { redirect_to publications_url, notice: 'Publication was successfully destroyed.' }
+      format.html { redirect_to publications_url, notice: 'La publicacion ha sido eliminada correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +70,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :day_pickup, :time_pickup, :day_delivery, :time_delivery, :description, :estimated_price, :final_price, :status)
+      params.require(:publication).permit(:title, :day_pickup, :time_pickup, :day_delivery, :time_delivery, :description, :estimated_price, :final_price, :status, :user_id)
     end
 end

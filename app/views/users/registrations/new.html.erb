@@ -47,6 +47,7 @@
   </div>
 
   <div class="field">
+    <%= f.hidden_field :avatar, :value => "default_user.png"%>
     <%= f.label :password_confirmation, "Repetir la contraseña" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>

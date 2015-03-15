@@ -2,32 +2,48 @@
 <html>
 <head>
   <title>Fletes</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="/assets/jquery-ui/jquery-ui.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <% if notice %>
-  <p class="alert alert-success">Haz ingresado correctamente</p>
+  <p id="alert-success"><%=notice%></p>
 <% end %>
 <% if alert%>
-  <p class="alert alert-danger"><%= alert %></p>
+  <p id="alert-danger"><%= alert %></p>
 <% end %>
 
 <nav id="menu-off">
   <ul>
     <% if user_signed_in? %>
        <div class="page-cont">
-         <li class="">Hola: <strong><%= current_user.email %></strong></li>
+         <!-- <li class="">Hola: <strong><%= current_user.email %></strong></li> -->
           <%= link_to "/" ,:class => 'li-standar' do%>
            <li>Inicio</li>
           <% end %>
-
-          <%= link_to publications_path, :class => 'li-standar' do%>
-            <li>Mis publicaciones</li>
-         <%end%> 
-
+          
+          <%if current_user.role == "cliente"%>
+            <%= link_to publications_path, :class => 'li-standar' do%>
+              <li>Publicaciones</li>
+            <%end%> 
+          <%else%>
+            <%= link_to offers_pub_path, :class => 'li-standar' do%>
+              <li>Ofertas</li>
+            <%end%> 
+          <%end%>
+      </div>
+      <a href="#" class="show-actions-user">
+        <figure>
+          <%= image_tag current_user.avatar, :alt => "Avatar", :title => "Avatar"%>
+        </figure>
+      </a>
+      <div class="cont-actions-user">
+        <a href="">
+          <li>Cambiar avatar</li>
+        </a>
          <%= link_to edit_user_registration_path, :class => 'li-standar' do%>
             <li>Editar perfil</li>
          <%end%> 
@@ -36,7 +52,6 @@
             <li>Cerrar Sesion</li>
          <%end%>
       </div>
-
     <% else %>
 
       <div class="page-cont">
@@ -69,5 +84,13 @@
 
 <%= yield %>
 
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<script>
+  $(function() {
+    $( "#datepick" ).datepicker();
+    $( "#datedeliv" ).datepicker();
+  });
+</script>
 </body>
 </html>

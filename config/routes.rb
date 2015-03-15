@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :publications
 
+  get 'offers' => 'publications#index', as: "offers_pub"
+
   resources :ratings
 
   resources :loads
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
-    
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

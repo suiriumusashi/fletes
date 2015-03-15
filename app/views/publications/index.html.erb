@@ -1,43 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Publications</h1>
+<main id="publications-cont">
+  <section class="cont">
+    <h1 class="title-publications">Listado de Publicaciones</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Day pickup</th>
-      <th>Time pickup</th>
-      <th>Day delivery</th>
-      <th>Time delivery</th>
-      <th>Description</th>
-      <th>Estimated price</th>
-      <th>Final price</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @publications.each do |publication| %>
-      <tr>
-        <td><%= publication.title %></td>
-        <td><%= publication.day_pickup %></td>
-        <td><%= publication.time_pickup %></td>
-        <td><%= publication.day_delivery %></td>
-        <td><%= publication.time_delivery %></td>
-        <td><%= publication.description %></td>
-        <td><%= publication.estimated_price %></td>
-        <td><%= publication.final_price %></td>
-        <td><%= publication.status %></td>
-        <td><%= link_to 'Show', publication %></td>
-        <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
-        <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+      <% if publication.user_id == current_user.id && current_user.role == "cliente"%>
+        <article class="publication">
+          <h1><%= publication.title %></h1>
+          <div>
+            <h2>Recoleccion</h2>
+            <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
+          </div>
+          <div>
+            <h2>Entrega</h2>
+            <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
+          </div>
+          <div>
+            <h2>Dispuesto a pagar</h2>
+            <h3>$<%= publication.estimated_price %></h3>
+          </div>
+          <%= link_to 'Ver más', publication, :class => "link_go" %>
+         <!--  <%= link_to 'Editar', edit_publication_path(publication) %>
+          <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %> -->
+        </article>
+      <% end %>
+
+      <%if current_user.role == "transportista"%>
+        <article class="publication">
+          <h1><%= publication.title %></h1>
+          <div>
+            <h2>Recoleccion</h2>
+            <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
+          </div>
+          <div>
+            <h2>Entrega</h2>
+            <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
+          </div>
+          <div>
+            <h2>Dispuesto a pagar</h2>
+            <h3>$<%= publication.estimated_price %></h3>
+          </div>
+        </article>
+      <% end %>
+
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Publication', new_publication_path %>
+  </section>
+</main>
+<%if current_user.role == "cliente"%>
+  <%= link_to 'New Publication', new_publication_path %>
+<%end%>

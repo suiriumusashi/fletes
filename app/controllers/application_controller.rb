@@ -28,10 +28,10 @@ class ApplicationController < ActionController::Base
         #Redireccionamiento de devise
 
         def after_sign_in_path_for(resource)
-          "/dashboard"
+          "/"
         end
 
         def after_update_path_for(resource)
-          "/dashboard"
+          "/"
         end
 end

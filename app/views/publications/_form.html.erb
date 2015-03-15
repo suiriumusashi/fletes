@@ -1,53 +1,51 @@
-<%= form_for(@publication) do |f| %>
-  <% if @publication.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+<main id="cont-forms-controllers">
+  <section class="cont">
+    <%= form_for(@publication) do |f| %>
+      <% if @publication.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
 
-      <ul>
-      <% @publication.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @publication.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :day_pickup %><br>
-    <%= f.text_field :day_pickup %>
-  </div>
-  <div class="field">
-    <%= f.label :time_pickup %><br>
-    <%= f.text_field :time_pickup %>
-  </div>
-  <div class="field">
-    <%= f.label :day_delivery %><br>
-    <%= f.text_field :day_delivery %>
-  </div>
-  <div class="field">
-    <%= f.label :time_delivery %><br>
-    <%= f.text_field :time_delivery %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :estimated_price %><br>
-    <%= f.text_field :estimated_price %>
-  </div>
-  <div class="field">
-    <%= f.label :final_price %><br>
-    <%= f.text_field :final_price %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="cont_fields">
+        <%= f.label :title, "Titulo de la publicacion." %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="cont_fields">
+        <%= f.label :day_pickup, "Dia de recoleccion." %><br>
+        <%= f.text_field :day_pickup, :id => "datepick" %>
+      </div>
+      <div class="cont_fields">
+        <%= f.label :time_pickup, "Hora de recoleccion." %><br>
+        <%= f.text_field :time_pickup %>
+      </div>
+      <div class="cont_fields">
+        <%= f.label :day_delivery, "Dia de entrega." %><br>
+        <%= f.text_field :day_delivery, :id => "datedeliv" %>
+      </div>
+      <div class="cont_fields">
+        <%= f.label :time_delivery, "Hora de entrega." %><br>
+        <%= f.text_field :time_delivery %>
+      </div>
+      <div class="cont_fields">
+        <%= f.label :description, "Descripcion del transporte (Favor de especificar todo en este campo)." %><br>
+        <%= f.text_area :description %>
+      </div>
+      <div class="cont_fields">
+        <%= f.label :estimated_price, "Cuanto estas dispuesto a pagar" %><br>
+        <%= f.text_field :estimated_price %>
+      </div>
+
+        <%= f.hidden_field :status, :value => "on" %>
+        <%= f.hidden_field :user_id%>
+       <%= f.submit "Guardar", :class => "submit-log-in-user" %>
+    <% end %>
+
+  </section>
+</main>
