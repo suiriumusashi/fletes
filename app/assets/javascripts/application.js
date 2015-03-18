@@ -20,6 +20,17 @@
 		e.preventDefault();
 		$(".cont-actions-user").slideToggle(200);
 	});
+
+	$(".active-content-action-pub").click(function(){
+		object = $(this).parent(".active-actions-pub");
+		if ($(object).find("span").attr("class") === "icon-more-vert active-content-action-pub") {
+			$(object).find("span").attr("class","icon-close active-content-action-pub");
+		}else{
+			$(object).find("span").attr("class","icon-more-vert active-content-action-pub");
+		}
+		$(object).find(".cont-actions-pub").slideToggle(200);
+	});
+
 	setInterval(function(){ 
 		$("#alert-success, #alert-danger").animate({
 			 opacity: 0

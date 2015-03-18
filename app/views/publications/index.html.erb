@@ -8,6 +8,14 @@
 
       <% if publication.user_id == current_user.id && current_user.role == "cliente"%>
         <article class="publication">
+          <div class="active-actions-pub">
+            <span class="icon-more-vert active-content-action-pub" ></span>
+            <div class="cont-actions-pub">
+              <%= link_to 'Editar', edit_publication_path(publication) %>
+              <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %>
+            </div>
+          </div>
+          
           <h1><%= publication.title %></h1>
           <div>
             <h2>Recoleccion</h2>
@@ -22,8 +30,6 @@
             <h3>$<%= publication.estimated_price %></h3>
           </div>
           <%= link_to 'Ver más', publication, :class => "link_go" %>
-         <!--  <%= link_to 'Editar', edit_publication_path(publication) %>
-          <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %> -->
         </article>
       <% end %>
 
@@ -46,8 +52,10 @@
       <% end %>
 
     <% end %>
+    <%if current_user.role == "cliente"%>
+      <%= link_to  new_publication_path, :class => "link-more-publication" do%>
+        <span class="icon-plus"></span>
+      <%end%>
+    <%end%>
   </section>
 </main>
-<%if current_user.role == "cliente"%>
-  <%= link_to 'New Publication', new_publication_path %>
-<%end%>

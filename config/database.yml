@@ -15,7 +15,7 @@ default: &default
   pool: 5
   database: fletes
   username: root
-  password: root
+  password: 
   host: localhost
   #socket: /var/run/mysqld/mysqld.sock
   socket: /tmp/mysql.sock
