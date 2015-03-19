@@ -41,8 +41,12 @@
       <strong>Final price:</strong>
       <%= @publication.final_price %>
     </p>
-
-    <%= link_to 'Edit', edit_publication_path(@publication) %> |
-    <%= link_to 'Back', publications_path %>
+    <%= link_to publications_path, :class => "back-publication-show" do%>
+      <span class="icon-reply"></span>
+    <%end%>
+    <%= link_to edit_publication_path(@publication), :class => "edit-publication-show" do%>
+      <span class="icon-edit"></span>
+    <%end%>
+   
   </section>
 </main>

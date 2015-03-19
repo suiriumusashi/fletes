@@ -1,4 +1,4 @@
-class AddAdminIdToSales < ActiveRecord::Migration
+ class AddAdminIdToSales < ActiveRecord::Migration
   def change
     add_column :sales, :admin_id, :string
     add_index :sales, :admin_id

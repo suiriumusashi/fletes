@@ -1,4 +1,9 @@
-<%= render 'form' %>
-
-<%= link_to 'Show', @publication %> |
-<%= link_to 'Back', publications_path %>
+	<%= render 'form' %>
+	<%= link_to publications_path, :class => "link-back-edit" do%>
+		<span class="icon-reply"></span>
+	<% end %>
+	<%= link_to @publication, :class => "link-show-edit" do%>
+		<span class="icon-remove-red-eye"></span>
+	<% end %> 
+  </section> .
+</main>

@@ -20,6 +20,46 @@
         <%= f.text_field :last_name, autocomplete: "off"%>
       </div>
 
+      <div class="cont_fields">
+        <%= f.label :last_name, "Apellido" %><br />
+        <%= f.text_field :last_name, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :last_name, "Apellido" %><br />
+        <%= f.text_field :last_name, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :phone, "Telefono" %><br />
+        <%= f.text_field :phone, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :street, "Calle" %><br />
+        <%= f.text_field :street, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :colony, "Colonia" %><br />
+        <%= f.text_field :colony, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :postal, "Codigo Postal" %><br />
+        <%= f.text_field :postal, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :company, "Nombre compañia o Razon social" %><br />
+        <%= f.text_field :company, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :rfc, "RFC" %><br />
+        <%= f.text_field :rfc, autocomplete: "off"%>
+      </div>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
@@ -44,10 +84,12 @@
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <h3>Cancelar mi cuenta</h3>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <p><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro" }, method: :delete, :class => "submit-edit-user" %></p>
 
-    <%= link_to "Back", :back %>
+    <%= link_to :back, :class => "link-back-edit-user" do%>
+      <span class="icon-reply"></span>
+    <% end %>
  </section>
 </main>

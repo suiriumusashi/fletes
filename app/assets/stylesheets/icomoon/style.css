@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-sfpptw');
-	src:url('fonts/icomoon.eot?#iefix-sfpptw') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-sfpptw') format('woff'),
-		url('fonts/icomoon.ttf?-sfpptw') format('truetype'),
-		url('fonts/icomoon.svg?-sfpptw#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-9ohwqs');
+	src:url('fonts/icomoon.eot?#iefix-9ohwqs') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-9ohwqs') format('woff'),
+		url('fonts/icomoon.ttf?-9ohwqs') format('truetype'),
+		url('fonts/icomoon.svg?-9ohwqs#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -47,10 +47,6 @@
 	content: "\e605";
 }
 
-.icon-gps-fixed:before {
-	content: "\e606";
-}
-
 .icon-keyboard-backspace:before {
 	content: "\e607";
 }
@@ -61,6 +57,10 @@
 
 .icon-dehaze:before {
 	content: "\e609";
+}
+
+.icon-edit:before {
+	content: "\e606";
 }
 
 .icon-navigate-before:before {

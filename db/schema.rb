@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20150313071858) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user",                   limit: 255
     t.string   "role",                   limit: 255
   end
 
@@ -127,13 +126,11 @@ ActiveRecord::Schema.define(version: 20150313071858) do
     t.datetime "updated_at"
     t.string   "first_name",             limit: 255
     t.string   "last_name",              limit: 255
-    t.string   "user",                   limit: 255
     t.string   "avatar",                 limit: 255
     t.string   "phone",                  limit: 255
     t.string   "street",                 limit: 255
     t.string   "colony",                 limit: 255
-    t.integer  "number",                 limit: 4
-    t.string   "town",                   limit: 255
+    t.integer  "postal",                 limit: 4
     t.string   "company",                limit: 255
     t.string   "rfc",                    limit: 255
     t.text     "description",            limit: 65535

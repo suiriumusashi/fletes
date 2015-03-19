@@ -187,7 +187,8 @@ body
 		max-width 1100px
 		background white
 		margin -10em auto 1em auto
-		padding 0 0 2em 0
+		padding 1em 0 2em 0
+		position relative
 		text-align center
 		& .title-sign-in-user
 			background gris_claro
@@ -256,6 +257,20 @@ body
 				&:hover
 					background azul
 					color white
+		& .link-back-edit
+			color azul
+			font-size 1.6em
+			left .4em
+			position absolute
+			text-decoration none
+			top .4em
+		& .link-show-edit
+			color azul
+			font-size 1.6em
+			right .4em
+			position absolute
+			text-decoration none
+			top .4em
 
 #cont-info-controllers
 	border-top 15em solid azul_claro
@@ -269,11 +284,26 @@ body
 		background white
 		margin -10em auto 1em auto
 		padding 2em
+		position relative
 		& p
 			border-bottom 2px dotted azul
 			padding   1em 0
 			& strong
 				color gris
+		& .back-publication-show
+			color azul
+			font-size 1.6em
+			left .4em
+			position absolute
+			text-decoration none
+			top .4em
+		& .edit-publication-show
+			color azul
+			font-size 1.6em
+			right .4em
+			position absolute
+			text-decoration none
+			top .4em
 
 #edit-user-cont
 	border-top 15em solid azul_claro
@@ -286,7 +316,15 @@ body
 		background white
 		margin -10em auto 1em auto
 		padding 0 0 2em 0
+		position relative
 		text-align center
+		& .link-back-edit-user
+			color azul
+			font-size 1.6em
+			left .4em
+			position absolute
+			text-decoration none
+			top .5em
 		& .title-edit-user
 			background gris_claro
 			color gris
@@ -316,6 +354,86 @@ body
 					border-radius .4em
 					box-sizing border-box
 					color azul
+					font-size 1.1em
+					outline none
+					margin .5em 0
+					padding .4em .5em
+					width 100%
+			& .submit-edit-user
+				background none
+				border 2px solid azul
+				border-radius .3em
+				cursor pointer
+				color azul
+				font-size 1.1em
+				padding .4em 1.4em
+				transition all .5s ease
+				margin-top 1em
+				&:hover
+					background azul
+					color white
+				
+#create-user-cont
+	border-top 15em solid azul_claro
+	padding-bottom 10em
+	height 100%
+	width 100%
+	& .cont
+		box-shadow 0px 0px 10px rgba(0, 0, 0, .4)
+		max-width 1100px
+		background white
+		margin -10em auto 1em auto
+		padding 0 0 2em 0
+		position relative
+		text-align center
+		& .link-back-edit-user
+			color azul
+			font-size 1.6em
+			left .4em
+			position absolute
+			text-decoration none
+			top .5em
+		& .title-edit-user
+			background gris_claro
+			color gris
+			font-size 1.6em
+			margin 0 0 1em 0
+			padding .5em 0
+			width 100%
+		& form
+			margin 0 auto
+			max-width 900px
+			& .cont_fields
+				text-align left
+				& label
+					color azul
+					display inline-block
+					text-align left
+					font-size 1.1em
+					margin-top 1em
+					margin-left 1em
+				& a
+					color azul
+					display inline-block
+					font-size 1.1em
+				& input
+					background white
+					border 2px solid #999
+					border-radius .4em
+					box-sizing border-box
+					color azul
+					font-size 1.1em
+					outline none
+					margin .5em 0
+					padding .4em .5em
+					width 100%
+				& select
+					background white
+					border 2px solid #999
+					border-radius .4em
+					box-sizing border-box
+					color azul
+					height 40px
 					font-size 1.1em
 					outline none
 					margin .5em 0

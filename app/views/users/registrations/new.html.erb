@@ -1,60 +1,57 @@
-<h2>Sign up</h2>
+<main id="create-user-cont">
+  <section class="cont">
+    <h1 class="title-edit-user">Registrate</h1>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+        <div class="cont_fields">
+          <%= f.label :email, "Correo electronico" %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
 
-  <div class="field">
-    <%= f.label :user, "Usuario" %><br />
-    <%= f.text_field :user, autocomplete: "off"%>
-  </div>
+        <div class="cont_fields">
+          <%= f.label :first_name, "Nombre" %><br />
+          <%= f.text_field :first_name, autocomplete: "off"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :email, "Correo electronico" %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <div class="cont_fields">
+          <%= f.label :last_name, "Apellido" %><br />
+          <%= f.text_field :last_name, autocomplete: "off"%>
+        </div>
+        
+        <div class="cont_fields">
+        <%= f.label :role, "Tipo de usuario" %><br />
+          <%= f.select(:role) do %>
+            <% [['Transportista', "transportista"], ['Cliente', "cliente"]].each do |c| -%>
+              <%= content_tag(:option, c.first, value: c.last) %>
+            <% end %>
+          <% end %>
+        </div>
 
-  <div class="field">
-    <%= f.label :first_name, "Nombre" %><br />
-    <%= f.text_field :first_name, autocomplete: "off"%>
-  </div>
 
-  <div class="field">
-    <%= f.label :last_name, "Apellido" %><br />
-    <%= f.text_field :last_name, autocomplete: "off"%>
-  </div>
-  
-  <div class="field">
-    <%= f.select(:role) do %>
-      <% [['Transportista', "transportista"], ['Cliente', "cliente"]].each do |c| -%>
-        <%= content_tag(:option, c.first, value: c.last) %>
+
+        <div class="cont_fields">
+          <%= f.label :phone, "Telefono" %><br />
+          <%= f.text_field :phone, autocomplete: "off"%>
+        </div>
+
+        <div class="cont_fields">
+          <%= f.label :password, "Contraseña" %>
+          <% if @validatable %>
+          <em>(Minimo <%= @minimum_password_length %> caracteres)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="cont_fields">
+          <%= f.hidden_field :avatar, :value => "default_user.png"%>
+          <%= f.label :password_confirmation, "Repetir la contraseña" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Registrarme", :class => "submit-edit-user" %>
+        </div>
       <% end %>
-    <% end %>
-  </div>
 
-
-
-  <div class="field">
-    <%= f.label :phone, "Telefono" %><br />
-    <%= f.text_field :phone, autocomplete: "off"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "Contraseña" %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.hidden_field :avatar, :value => "default_user.png"%>
-    <%= f.label :password_confirmation, "Repetir la contraseña" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+      <%= render "users/shared/links" %>
