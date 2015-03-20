@@ -25,8 +25,12 @@ Rails.application.routes.draw do
   resources :services
 
   devise_for :admins, :controllers => { registrations: "admins/registrations" }
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  as :admin do 
+    get '/administrator' => 'devise/sessions#new', as: "administrator"
+  end
 
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

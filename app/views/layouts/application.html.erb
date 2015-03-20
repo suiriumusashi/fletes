@@ -54,8 +54,49 @@
             <li>Cerrar Sesion</li>
          <%end%>
       </div>
-    <% else %>
+    <% elsif admin_signed_in? %>
+       <div class="page-cont">
+          <%= link_to "/" ,:class => 'li-standar' do%>
+           <li>Inicio</li>
+          <% end %>
+          
+          <%if current_admin.role == "super"%>
+            <%= link_to publications_path, :class => 'li-standar' do%>
+              <li>Publicaciones</li>
+            <%end%> 
+            <%= link_to services_path, :class => 'li-standar' do%>
+              <li>Servicios</li>
+            <%end%> 
+            <%= link_to trucks_path, :class => 'li-standar' do%>
+              <li>Tipos de Camion</li>
+            <%end%> 
+            <%= link_to loads_path, :class => 'li-standar' do%>
+              <li>Cargas</li>
+            <%end%>
+          <%else%>
+            <%= link_to offers_pub_path, :class => 'li-standar' do%>
+              <li>Ofertas</li>
+            <%end%> 
+          <%end%>
+      </div>
+      <a href="#" class="show-actions-user">
+        <figure>
+          <%= image_tag "default_user.png", :alt => "Avatar", :title => "Avatar"%>
+        </figure>
+      </a>
+      <div class="cont-actions-user">
+        <a href="">
+          <li>Cambiar avatar</li>
+        </a>
+         <%= link_to edit_admin_registration_path, :class => 'li-standar' do%>
+            <li>Editar perfil</li>
+         <%end%> 
 
+         <%= link_to destroy_admin_session_path, method: :delete, :class => 'li-standar' do%>
+            <li>Cerrar Sesion</li>
+         <%end%>
+      </div>
+    <% else %>
       <div class="page-cont">
         <%= link_to "/" ,:class => 'li-standar' do%>
           <li>Inicio</li>
@@ -79,7 +120,6 @@
         <li>Inicia Sesion</li>
        <%end%>
       </div>
-
     <% end %>
   </ul>
 </nav>

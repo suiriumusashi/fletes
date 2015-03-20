@@ -1,6 +1,10 @@
-<h1>Editing Load</h1>
+	<%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @load %> |
-<%= link_to 'Back', loads_path %>
+	<%= link_to loads_path, :class => "link-back-edit" do%>
+		<span class="icon-reply"></span>
+	<% end %>
+	<%= link_to @load, :class => "link-show-edit" do%>
+		<span class="icon-remove-red-eye"></span>
+	<% end %> 
+</section> 
+</main>

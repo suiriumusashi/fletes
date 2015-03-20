@@ -6,56 +6,101 @@
 
     <% @publications.each do |publication| %>
 
-      <% if publication.user_id == current_user.id && current_user.role == "cliente"%>
-        <article class="publication">
-          <div class="active-actions-pub">
-            <span class="icon-more-vert active-content-action-pub" ></span>
-            <div class="cont-actions-pub">
-              <%= link_to 'Editar', edit_publication_path(publication) %>
-              <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %>
+      
+      
+      <%if defined? current_admin.role %>
+        <% if current_admin.role == "super"%>
+          <article class="publication">
+            <div class="active-actions-pub">
+              <span class="icon-more-vert active-content-action-pub" ></span>
+              <div class="cont-actions-pub">
+                <%= link_to 'Editar', edit_publication_path(publication) %>
+                <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %>
+              </div>
             </div>
-          </div>
-          
-          <h1><%= publication.title %></h1>
-          <div>
-            <h2>Recoleccion</h2>
-            <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
-          </div>
-          <div>
-            <h2>Entrega</h2>
-            <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
-          </div>
-          <div>
-            <h2>Dispuesto a pagar</h2>
-            <h3>$<%= publication.estimated_price %></h3>
-          </div>
-          <%= link_to 'Ver más', publication, :class => "link_go" %>
-        </article>
+            
+            <h1><%= publication.title %></h1>
+            <div>
+              <h2>Recoleccion</h2>
+              <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
+            </div>
+            <div>
+              <h2>Entrega</h2>
+              <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
+            </div>
+            <div>
+              <h2>Dispuesto a pagar</h2>
+              <h3>$<%= publication.estimated_price %></h3>
+            </div>
+            <%= link_to 'Ver más', publication, :class => "link_go" %>
+          </article>
+        <% end %>
       <% end %>
 
-      <%if current_user.role == "transportista"%>
-        <article class="publication">
-          <h1><%= publication.title %></h1>
-          <div>
-            <h2>Recoleccion</h2>
-            <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
-          </div>
-          <div>
-            <h2>Entrega</h2>
-            <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
-          </div>
-          <div>
-            <h2>Dispuesto a pagar</h2>
-            <h3>$<%= publication.estimated_price %></h3>
-          </div>
-        </article>
+      
+    <%if defined? current_user.role %>
+      <% if publication.user_id == current_user.id && current_user.role == "cliente"%>
+          <article class="publication">
+            <div class="active-actions-pub">
+              <span class="icon-more-vert active-content-action-pub" ></span>
+              <div class="cont-actions-pub">
+                <%= link_to 'Editar', edit_publication_path(publication) %>
+                <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %>
+              </div>
+            </div>
+            
+            <h1><%= publication.title %></h1>
+            <div>
+              <h2>Recoleccion</h2>
+              <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
+            </div>
+            <div>
+              <h2>Entrega</h2>
+              <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
+            </div>
+            <div>
+              <h2>Dispuesto a pagar</h2>
+              <h3>$<%= publication.estimated_price %></h3>
+            </div>
+            <%= link_to 'Ver más', publication, :class => "link_go" %>
+          </article>
+        <% end %>
+      <% end %>
+      <%if defined? current_user.role %>
+        <%if current_user.role == "transportista"%>
+          <article class="publication">
+            <h1><%= publication.title %></h1>
+            <div>
+              <h2>Recoleccion</h2>
+              <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
+            </div>
+            <div>
+              <h2>Entrega</h2>
+              <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
+            </div>
+            <div>
+              <h2>Dispuesto a pagar</h2>
+              <h3>$<%= publication.estimated_price %></h3>
+            </div>
+          </article>
+        <% end %>
       <% end %>
 
     <% end %>
-    <%if current_user.role == "cliente"%>
-      <%= link_to  new_publication_path, :class => "link-more-publication" do%>
-        <span class="icon-plus"></span>
+    <%if defined? current_user.role %>
+      <%if current_user.role == "cliente"%>
+        <%= link_to  new_publication_path, :class => "link-more-publication" do%>
+          <span class="icon-plus"></span>
+        <%end%>
       <%end%>
-    <%end%>
+    <% end %>
+    <%if defined? current_admin.role %>
+      <%if current_admin.role == "super"%>
+        <%= link_to  new_publication_path, :class => "link-more-publication" do%>
+          <span class="icon-plus"></span>
+        <%end%>
+      <%end%>
+    <% end %>
+    
   </section>
 </main>

@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
 	  params[resource] &&= send(method) if respond_to?(method, true)
 	end
 
+  def current_ability
+    if admin_signed_in?
+      @current_ability ||= Ability.new(current_admin)
+    else
+      @current_ability ||= Ability.new(current_user)
+    end
+  end
+
 	#end
 
   	# before_filter :configure_permitted_parameters, if: :devise_controller?

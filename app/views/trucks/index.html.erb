@@ -1,27 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Trucks</h1>
+<main id="services-cont">
+  <section class="cont">
+    <h1 class="title-publications">Listado tipos de camiones</h1>
+    
+        <% @trucks.each do |truck| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <article class="register">
+            <div class="name"><%= truck.name %></div>
+            <div class="actions">
+              <%= link_to truck, :class => "link-action" do%>
+                <span class="icon-remove-red-eye"></span>
+              <% end %>
+              <%= link_to edit_truck_path(truck), :class => "link-action" do %>
+                <span class="icon-edit"></span>
+              <% end %>
+              <%= link_to truck, method: :delete, data: { confirm: 'Are you sure?' }, :class => "link-action" do %>
+                <span class="icon-cancel"></span>
+              <% end %>
+            </div>
+          </article>
 
-  <tbody>
-    <% @trucks.each do |truck| %>
-      <tr>
-        <td><%= truck.name %></td>
-        <td><%= link_to 'Show', truck %></td>
-        <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Truck', new_truck_path %>
+        <% end %>
+        <%= link_to  new_truck_path, :class => "link-more-services" do%>
+          <span class="icon-plus"></span>
+        <%end%>
+  </section>
+</main>

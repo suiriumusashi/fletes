@@ -1,9 +1,18 @@
+<main id="cont-info-controllers">
+  <section class="cont">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Range:</strong>
+  <strong>Rango de la carga:</strong>
   <%= @load.range %>
 </p>
 
-<%= link_to 'Edit', edit_load_path(@load) %> |
-<%= link_to 'Back', loads_path %>
+	<%= link_to loads_path, :class => "back-publication-show" do%>
+      <span class="icon-reply"></span>
+    <%end%>
+    <%= link_to edit_load_path(@load), :class => "edit-publication-show" do%>
+      <span class="icon-edit"></span>
+    <%end%>
+   
+  </section>
+</main>

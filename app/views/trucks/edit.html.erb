@@ -1,6 +1,10 @@
-<h1>Editing Truck</h1>
-
 <%= render 'form' %>
 
-<%= link_to 'Show', @truck %> |
-<%= link_to 'Back', trucks_path %>
+<%= link_to trucks_path, :class => "link-back-edit" do%>
+		<span class="icon-reply"></span>
+	<% end %>
+	<%= link_to @truck, :class => "link-show-edit" do%>
+		<span class="icon-remove-red-eye"></span>
+	<% end %> 
+</section> 
+</main>

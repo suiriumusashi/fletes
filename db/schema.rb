@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313071858) do
+ActiveRecord::Schema.define(version: 20150320023639) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20150313071858) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role",                   limit: 255
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
@@ -140,5 +142,25 @@ ActiveRecord::Schema.define(version: 20150313071858) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_loads", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4
+    t.integer "load_id", limit: 4
+  end
+
+  create_table "users_ratings", id: false, force: :cascade do |t|
+    t.integer "user_id",   limit: 4
+    t.integer "rating_id", limit: 4
+  end
+
+  create_table "users_services", id: false, force: :cascade do |t|
+    t.integer "user_id",    limit: 4
+    t.integer "service_id", limit: 4
+  end
+
+  create_table "users_trucks", id: false, force: :cascade do |t|
+    t.integer "user_id",  limit: 4
+    t.integer "truck_id", limit: 4
+  end
 
 end
