@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320023639) do
+ActiveRecord::Schema.define(version: 20150408213135) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -34,15 +34,6 @@ ActiveRecord::Schema.define(version: 20150320023639) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
-  create_table "cities", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "state_id",   limit: 4
-  end
-
-  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
-
   create_table "inboxes", force: :cascade do |t|
     t.string   "subject",    limit: 255
     t.string   "message",    limit: 255
@@ -61,12 +52,19 @@ ActiveRecord::Schema.define(version: 20150320023639) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "loads_users", id: false, force: :cascade do |t|
+    t.integer "load_id", limit: 4
+    t.integer "user_id", limit: 4
+  end
+
   create_table "publications", force: :cascade do |t|
     t.string   "title",           limit: 255
     t.string   "day_pickup",      limit: 255
     t.string   "time_pickup",     limit: 255
     t.string   "day_delivery",    limit: 255
     t.string   "time_delivery",   limit: 255
+    t.string   "origin",          limit: 255
+    t.string   "destiny",         limit: 255
     t.text     "description",     limit: 65535
     t.string   "estimated_price", limit: 255
     t.string   "final_price",     limit: 255
@@ -82,6 +80,11 @@ ActiveRecord::Schema.define(version: 20150320023639) do
     t.integer  "value",      limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "ratings_users", id: false, force: :cascade do |t|
+    t.integer "rating_id", limit: 4
+    t.integer "user_id",   limit: 4
   end
 
   create_table "sales", force: :cascade do |t|
@@ -101,16 +104,20 @@ ActiveRecord::Schema.define(version: 20150320023639) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "states", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "services_users", id: false, force: :cascade do |t|
+    t.integer "service_id", limit: 4
+    t.integer "user_id",    limit: 4
   end
 
   create_table "trucks", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "trucks_users", id: false, force: :cascade do |t|
+    t.integer "truck_id", limit: 4
+    t.integer "user_id",  limit: 4
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,7 +137,11 @@ ActiveRecord::Schema.define(version: 20150320023639) do
     t.string   "last_name",              limit: 255
     t.string   "avatar",                 limit: 255
     t.string   "phone",                  limit: 255
+    t.string   "city",                   limit: 255
+    t.string   "state",                  limit: 255
     t.string   "street",                 limit: 255
+    t.integer  "number_in",              limit: 4
+    t.integer  "number_out",             limit: 4
     t.string   "colony",                 limit: 255
     t.integer  "postal",                 limit: 4
     t.string   "company",                limit: 255
@@ -142,25 +153,5 @@ ActiveRecord::Schema.define(version: 20150320023639) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "users_loads", id: false, force: :cascade do |t|
-    t.integer "user_id", limit: 4
-    t.integer "load_id", limit: 4
-  end
-
-  create_table "users_ratings", id: false, force: :cascade do |t|
-    t.integer "user_id",   limit: 4
-    t.integer "rating_id", limit: 4
-  end
-
-  create_table "users_services", id: false, force: :cascade do |t|
-    t.integer "user_id",    limit: 4
-    t.integer "service_id", limit: 4
-  end
-
-  create_table "users_trucks", id: false, force: :cascade do |t|
-    t.integer "user_id",  limit: 4
-    t.integer "truck_id", limit: 4
-  end
 
 end

@@ -21,23 +21,33 @@
       </div>
 
       <div class="cont_fields">
-        <%= f.label :last_name, "Apellido" %><br />
-        <%= f.text_field :last_name, autocomplete: "off"%>
-      </div>
-
-      <div class="cont_fields">
-        <%= f.label :last_name, "Apellido" %><br />
-        <%= f.text_field :last_name, autocomplete: "off"%>
-      </div>
-
-      <div class="cont_fields">
         <%= f.label :phone, "Telefono" %><br />
         <%= f.text_field :phone, autocomplete: "off"%>
       </div>
 
       <div class="cont_fields">
+        <%= f.label :state, "Estado" %><br />
+        <%= f.text_field :state, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :city, "Ciudad" %><br />
+        <%= f.text_field :city, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
         <%= f.label :street, "Calle" %><br />
         <%= f.text_field :street, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :number_out, "Numero exterior" %><br />
+        <%= f.text_field :number_out, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :number_in, "Numero interior" %><br />
+        <%= f.text_field :number_in, autocomplete: "off"%>
       </div>
 
       <div class="cont_fields">
@@ -60,9 +70,44 @@
         <%= f.text_field :rfc, autocomplete: "off"%>
       </div>
 
+      <div class="cont_fields">
+        <%= f.label :description, "Describe brevemente tu empresa o tu personalidad." %><br>
+        <%= f.text_area :description %>
+      </div>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
+
+      <fieldset>
+      <legend>Servicios que ofrece</legend>
+       <%for service in Service.all%>
+          <div>
+              <%= check_box_tag "user[service_ids][]", service.id, @user.services.include?(service)%>
+              <%= service.name%>
+          </div>
+        <% end -%>
+      </fieldset>
+
+      <fieldset>
+      <legend>Tipos de camiones</legend>
+       <%for truck in Truck.all%>
+          <div>
+              <%= check_box_tag "user[truck_ids][]", truck.id, @user.trucks.include?(truck)%>
+              <%= truck.name%>
+          </div>
+        <% end -%>
+      </fieldset>
+
+      <fieldset>
+      <legend>Cargas que soportan</legend>
+       <%for load in Load.all%>
+          <div>
+              <%= check_box_tag "user[load_ids][]", load.id, @user.loads.include?(load)%>
+              <%= load.range%>
+          </div>
+        <% end -%>
+      </fieldset>
 
       <div class="cont_fields">
         <%= f.label :password, "Contraseña" %> <i>(Si no deseas cambiar tu contraseña dejala en blanco)</i><br />
@@ -84,6 +129,8 @@
       </div>
     <% end %>
 
+
+
     <h3>Cancelar mi cuenta</h3>
 
     <p><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro" }, method: :delete, :class => "submit-edit-user" %></p>
@@ -91,5 +138,6 @@
     <%= link_to :back, :class => "link-back-edit-user" do%>
       <span class="icon-reply"></span>
     <% end %>
+   
  </section>
 </main>

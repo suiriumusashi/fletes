@@ -359,6 +359,18 @@ body
 					margin .5em 0
 					padding .4em .5em
 					width 100%
+				& textarea
+					background white
+					border 2px solid #999
+					border-radius .4em
+					box-sizing border-box
+					color azul
+					font-size 1.1em
+					height 150px
+					outline none
+					margin .5em 0
+					padding .4em .5em
+					width 100%
 			& .submit-edit-user
 				background none
 				border 2px solid azul
@@ -588,6 +600,8 @@ body
 						width 100%
 						&:nth-child(1)
 							border-bottom 1px solid azul
+						&:nth-child(3)
+							border-top 1px solid azul
 			& div
 				display inline-block
 				margin .4em
@@ -659,6 +673,52 @@ body
 				& .link-action
 					color azul
 					text-decoration none
+					
+
+#clients-cont
+	border-top 15em solid azul_claro
+	padding-bottom 10em
+	height 100%
+	width 100%
+	& .cont
+		box-shadow 0px 0px 10px rgba(0, 0, 0, .4)
+		max-width 1100px
+		background white
+		margin -10em auto 1em auto
+		padding 0 0 2em 0
+		text-align center
+		& .title-publications
+			background gris_claro
+			color gris
+			font-size 1.6em
+			margin 0 0 1em 0
+			padding .5em 0
+			width 100%
+		& .register
+			background white
+			box-shadow 0px 1px 3px rgba(0,0,0,0.4)
+			margin .5em auto
+			padding .1em 0
+			width 90%
+			&:hover
+				background #FAFAFA
+			& .data
+				display inline-block
+				color azul
+				font-weight bold
+				text-align left
+				width 95%
+				& p
+					display inline-block
+					width 25%
+					&:nth-child(2)
+						width 38%
+					&:nth-child(4)
+						width 10%
+					& a
+						color azul
+						text-decoration none
+			
 		
 #notice
 	position absolute

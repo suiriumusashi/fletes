@@ -1,0 +1,39 @@
+<main id="cont-info-controllers">
+  <section class="cont">
+	<p>
+		<strong>Nombre: </strong>
+		<%= @client.first_name %> <%= @client.last_name %>
+	</p>	
+	<p>
+		<strong>Correo electronico: </strong>
+		<%= @client.email %>
+	</p>
+	<p>
+		<strong>Telefono: </strong>
+		<%= @client.phone %>
+	</p>
+	<p>
+		<strong>Calle y Numero: </strong>
+		<%= @client.street %>
+	</p>
+	<p>
+		<strong>Colonia: </strong>
+		<%= @client.colony %>
+	</p>
+	<p>
+		<strong>Codigo postal: </strong>
+		<%= @client.postal %>
+	</p>
+	<p>
+		<strong>Compañia: </strong>
+		<%= @client.company %>
+	</p>
+	<p>
+		<strong>RFC: </strong>
+		<%= @client.rfc %>
+	</p>
+    <%= link_to :back, :class => "back-publication-show" do%>
+      <span class="icon-reply"></span>
+    <%end%>
+	</section>
+</main>

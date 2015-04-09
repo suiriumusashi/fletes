@@ -61,6 +61,12 @@
           <% end %>
           
           <%if current_admin.role == "super"%>
+            <%= link_to clients_list_path, :class => 'li-standar' do%>
+              <li>Clientes</li>
+            <%end%>
+            <%= link_to drivers_list_path, :class => 'li-standar' do%>
+              <li>Transportistas</li>
+            <%end%> 
             <%= link_to publications_path, :class => 'li-standar' do%>
               <li>Publicaciones</li>
             <%end%> 

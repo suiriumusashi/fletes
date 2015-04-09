@@ -6,6 +6,8 @@ class CreatePublications < ActiveRecord::Migration
       t.string :time_pickup
       t.string :day_delivery
       t.string :time_delivery
+      t.string :origin
+      t.string :destiny
       t.text :description
       t.string :estimated_price
       t.string :final_price

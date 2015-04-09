@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   
   root :to => 'home#index'
 
+  get 'clients' => 'clients#index', as: "clients_list"
+  get 'clients/:id' => 'clients#show'
+
+  get 'drivers' => 'drivers#index', as: "drivers_list"
+  get 'drivers/:id' => 'drivers#show'
+  
   resources :dashboard
 
   resources :cities

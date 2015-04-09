@@ -14,6 +14,7 @@
             <div class="active-actions-pub">
               <span class="icon-more-vert active-content-action-pub" ></span>
               <div class="cont-actions-pub">
+                <a href="/clients/<%= publication.user_id %>" class="link-action">Cliente</a>
                 <%= link_to 'Editar', edit_publication_path(publication) %>
                 <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %>
               </div>
