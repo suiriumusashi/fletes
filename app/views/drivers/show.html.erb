@@ -25,6 +25,14 @@
 		<%= @client.postal %>
 	</p>
 	<p>
+		<strong>Ciudad ultima vez: </strong>
+		<%= @client.city %>
+	</p>
+	<p>
+		<strong>Estado ultima vez: </strong>
+		<%= @client.state %>
+	</p>
+	<p>
 		<strong>Compañia: </strong>
 		<%= @client.company %>
 	</p>
@@ -32,6 +40,22 @@
 		<strong>RFC: </strong>
 		<%= @client.rfc %>
 	</p>
+	<p>
+		<strong>Servicios que ofrece: </strong>
+		<%= @client.services.collect(&:name).join(" | ") %>
+	</p>
+	<p>
+		<strong>Camiones con los que cuenta: </strong>
+		<%= @client.trucks.collect(&:name).join(" | ") %>
+	</p>
+
+	<p>
+		<strong>Cargas que soportan: </strong>
+		<%= @client.loads.collect(&:range).join(" | ") %>
+	</p>
+    
+    
+    
     <%= link_to :back, :class => "back-publication-show" do%>
       <span class="icon-reply"></span>
     <%end%>

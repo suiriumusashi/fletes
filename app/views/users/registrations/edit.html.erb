@@ -78,37 +78,37 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
+      <%if current_user.role == "transportista"%>
+        <fieldset>
+        <legend>Servicios que ofrece</legend>
+         <%for service in Service.all%>
+            <div>
+                <%= check_box_tag "user[service_ids][]", service.id, @user.services.include?(service)%>
+                <%= service.name%>
+            </div>
+          <% end -%>
+        </fieldset>
 
-      <fieldset>
-      <legend>Servicios que ofrece</legend>
-       <%for service in Service.all%>
-          <div>
-              <%= check_box_tag "user[service_ids][]", service.id, @user.services.include?(service)%>
-              <%= service.name%>
-          </div>
-        <% end -%>
-      </fieldset>
+        <fieldset>
+        <legend>Tipos de camiones</legend>
+         <%for truck in Truck.all%>
+            <div>
+                <%= check_box_tag "user[truck_ids][]", truck.id, @user.trucks.include?(truck)%>
+                <%= truck.name%>
+            </div>
+          <% end -%>
+        </fieldset>
 
-      <fieldset>
-      <legend>Tipos de camiones</legend>
-       <%for truck in Truck.all%>
-          <div>
-              <%= check_box_tag "user[truck_ids][]", truck.id, @user.trucks.include?(truck)%>
-              <%= truck.name%>
-          </div>
-        <% end -%>
-      </fieldset>
-
-      <fieldset>
-      <legend>Cargas que soportan</legend>
-       <%for load in Load.all%>
-          <div>
-              <%= check_box_tag "user[load_ids][]", load.id, @user.loads.include?(load)%>
-              <%= load.range%>
-          </div>
-        <% end -%>
-      </fieldset>
-
+        <fieldset>
+        <legend>Cargas que soportan</legend>
+         <%for load in Load.all%>
+            <div>
+                <%= check_box_tag "user[load_ids][]", load.id, @user.loads.include?(load)%>
+                <%= load.range%>
+            </div>
+          <% end -%>
+        </fieldset>
+      <% end -%>
       <div class="cont_fields">
         <%= f.label :password, "Contraseña" %> <i>(Si no deseas cambiar tu contraseña dejala en blanco)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>

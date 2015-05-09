@@ -17,10 +17,18 @@
 <% if alert%>
   <p id="alert-danger"><%= alert %></p>
 <% end %>
-
 <nav id="menu-off">
   <ul>
     <% if user_signed_in? %>
+    
+      <%
+        if current_user.role == "transportista"
+          @user = User.find(current_user.id)
+          @user.update(city: params[:city], state: params[:state])
+        end
+      %>
+
+
        <div class="page-cont">
          <!-- <li class="">Hola: <strong><%= current_user.email %></strong></li> -->
           <%= link_to "/" ,:class => 'li-standar' do%>

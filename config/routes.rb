@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   devise_for :admins, :controllers => { registrations: "admins/registrations" }
   as :admin do 
     get '/administrator' => 'devise/sessions#new', as: "administrator"
+    get '/vendedor' => 'devise/registrations#new', as: "vendedor"
   end
 
   devise_for :users, :controllers => { registrations: 'registrations' }
