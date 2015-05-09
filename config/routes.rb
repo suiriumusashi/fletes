@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'clients/:id' => 'clients#show'
 
   get 'drivers' => 'drivers#index', as: "drivers_list"
+  get 'search/drivers' => 'drivers#search'
   get 'drivers/:id' => 'drivers#show'
+
   
   resources :dashboard
 
