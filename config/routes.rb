@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'search/drivers' => 'drivers#search'
   get 'drivers/:id' => 'drivers#show'
 
+  get 'nosotros' => 'home#about'
+
   
   resources :dashboard
 

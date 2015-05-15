@@ -22,7 +22,7 @@
         <div class="cont_fields">
         <%= f.label :role, "Tipo de usuario" %><br />
           <%= f.select(:role) do %>
-            <% [['Transportista', "transportista"], ['Cliente', "cliente"]].each do |c| -%>
+            <% [['Transportista', "transportista"]].each do |c| -%>
               <%= content_tag(:option, c.first, value: c.last) %>
             <% end %>
           <% end %>
@@ -55,3 +55,5 @@
       <% end %>
 
       <%= render "users/shared/links" %>
+</section>
+</main>

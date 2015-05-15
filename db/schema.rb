@@ -14,144 +14,144 @@
 ActiveRecord::Schema.define(version: 20150408213135) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role",                   limit: 255
-    t.string   "first_name",             limit: 255
-    t.string   "last_name",              limit: 255
+    t.string   "role"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "inboxes", force: :cascade do |t|
-    t.string   "subject",    limit: 255
-    t.string   "message",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "admin_id",   limit: 255
-    t.string   "user_id",    limit: 255
+    t.string   "subject"
+    t.string   "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "admin_id"
+    t.string   "user_id"
   end
 
-  add_index "inboxes", ["admin_id"], name: "index_inboxes_on_admin_id", using: :btree
-  add_index "inboxes", ["user_id"], name: "index_inboxes_on_user_id", using: :btree
+  add_index "inboxes", ["admin_id"], name: "index_inboxes_on_admin_id"
+  add_index "inboxes", ["user_id"], name: "index_inboxes_on_user_id"
 
   create_table "loads", force: :cascade do |t|
-    t.string   "range",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "range"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "loads_users", id: false, force: :cascade do |t|
-    t.integer "load_id", limit: 4
-    t.integer "user_id", limit: 4
+    t.integer "load_id"
+    t.integer "user_id"
   end
 
   create_table "publications", force: :cascade do |t|
-    t.string   "title",           limit: 255
-    t.string   "day_pickup",      limit: 255
-    t.string   "time_pickup",     limit: 255
-    t.string   "day_delivery",    limit: 255
-    t.string   "time_delivery",   limit: 255
-    t.string   "origin",          limit: 255
-    t.string   "destiny",         limit: 255
-    t.text     "description",     limit: 65535
-    t.string   "estimated_price", limit: 255
-    t.string   "final_price",     limit: 255
-    t.string   "status",          limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "user_id",         limit: 4
+    t.string   "title"
+    t.string   "day_pickup"
+    t.string   "time_pickup"
+    t.string   "day_delivery"
+    t.string   "time_delivery"
+    t.string   "origin"
+    t.string   "destiny"
+    t.text     "description"
+    t.string   "estimated_price"
+    t.string   "final_price"
+    t.string   "status"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
   end
 
-  add_index "publications", ["user_id"], name: "index_publications_on_user_id", using: :btree
+  add_index "publications", ["user_id"], name: "index_publications_on_user_id"
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "value",      limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ratings_users", id: false, force: :cascade do |t|
-    t.integer "rating_id", limit: 4
-    t.integer "user_id",   limit: 4
+    t.integer "rating_id"
+    t.integer "user_id"
   end
 
   create_table "sales", force: :cascade do |t|
-    t.string   "date_sale",      limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "admin_id",       limit: 255
-    t.string   "publication_id", limit: 255
+    t.string   "date_sale"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "admin_id"
+    t.string   "publication_id"
   end
 
-  add_index "sales", ["admin_id"], name: "index_sales_on_admin_id", using: :btree
-  add_index "sales", ["publication_id"], name: "index_sales_on_publication_id", using: :btree
+  add_index "sales", ["admin_id"], name: "index_sales_on_admin_id"
+  add_index "sales", ["publication_id"], name: "index_sales_on_publication_id"
 
   create_table "services", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "services_users", id: false, force: :cascade do |t|
-    t.integer "service_id", limit: 4
-    t.integer "user_id",    limit: 4
+    t.integer "service_id"
+    t.integer "user_id"
   end
 
   create_table "trucks", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trucks_users", id: false, force: :cascade do |t|
-    t.integer "truck_id", limit: 4
-    t.integer "user_id",  limit: 4
+    t.integer "truck_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255,   default: "",    null: false
-    t.string   "encrypted_password",     limit: 255,   default: "",    null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,     default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",             limit: 255
-    t.string   "last_name",              limit: 255
-    t.string   "avatar",                 limit: 255
-    t.string   "phone",                  limit: 255
-    t.string   "city",                   limit: 255
-    t.string   "state",                  limit: 255
-    t.string   "street",                 limit: 255
-    t.integer  "number_in",              limit: 4
-    t.integer  "number_out",             limit: 4
-    t.string   "colony",                 limit: 255
-    t.integer  "postal",                 limit: 4
-    t.string   "company",                limit: 255
-    t.string   "rfc",                    limit: 255
-    t.text     "description",            limit: 65535
-    t.boolean  "mails_sent",             limit: 1,     default: false
-    t.string   "role",                   limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "avatar"
+    t.string   "phone"
+    t.string   "city"
+    t.string   "state"
+    t.string   "street"
+    t.integer  "number_in"
+    t.integer  "number_out"
+    t.string   "colony"
+    t.integer  "postal"
+    t.string   "company"
+    t.string   "rfc"
+    t.text     "description"
+    t.boolean  "mails_sent",             default: false
+    t.string   "role"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

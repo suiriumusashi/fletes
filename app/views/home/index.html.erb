@@ -7,8 +7,24 @@
 </head>
 <body>
 
-	<header id="home-header">
-	</header>
+		<header id="galeria">
+			<a href="#" class="btn-gl" id="anterior">
+				<%= image_tag "btn-left.png", :alt => "Left", :title => "Left"%>
+			</a>
+			<div class="galeria">
+				<ul>
+					<li>
+						<%= image_tag "slide1.png", :alt => "Slide1", :title => "Slide1"%>
+					</li>
+					<li>
+						<%= image_tag "slide2.png", :alt => "Slide2", :title => "Slide2"%>
+					</li>
+				</ul>
+			</div>
+			<a href="#" class="btn-gl" id="siguiente">
+				<%= image_tag "btn-right.png", :alt => "Right", :title => "Right"%>
+			</a>
+		</header>
 
 	<section id="container-home">
 		<article class="features">
