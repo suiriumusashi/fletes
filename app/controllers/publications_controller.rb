@@ -26,7 +26,11 @@ class PublicationsController < ApplicationController
   # POST /publications.json
   def create
     @publication = Publication.new(publication_params)
-    @publication.user_id = current_user.id 
+    if admin_signed_in?
+      @publication.user_id = current_admin.id
+    else
+      @publication.user_id = current_user.id
+    end
     respond_to do |format|
       if @publication.save
         format.html { redirect_to @publication, notice: 'Se ha creado correctamente la publicacion.' }

@@ -80,8 +80,12 @@
               <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
             </div>
             <div>
-              <h2>Dispuesto a pagar</h2>
-              <h3>$<%= publication.estimated_price %></h3>
+              <h2>Lugar de Recoleccion</h2>
+              <p><%= publication.origin %></p>
+            </div>
+            <div>
+              <h2>Lugar de entrega</h2>
+              <p><%= publication.destiny %> a las <%= publication.time_delivery %></p>
             </div>
           </article>
         <% end %>
