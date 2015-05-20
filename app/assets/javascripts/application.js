@@ -92,7 +92,7 @@
                 var visible = Math.floor(incremento/incremento)
                 var primerElemento = 1;
                 var estaMoviendo = false;
-                var tiempo = 4000;
+                var tiempo = 7000;
                 var $pause = false
             }
             
@@ -186,5 +186,18 @@
 		window.scrollTo(0, 0);  
 		$("#cortina, #politicas, #terminos, #nosotros").hide();
 	});
+
+    $(".rapido").click(function(){
+        $(".description-rapido").toggle();
+    });
+
+    $(".economico").click(function(){
+        $(".description-economico").toggle();
+    });
+
+    $(".nacional").click(function(){
+        $(".description-nacional").toggle();
+    });
+
 
 })()

@@ -15,39 +15,39 @@
 
       <div class="cont_fields">
         <%= f.label :title, "Titulo de la publicacion." %><br>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :day_pickup, "Dia de recoleccion." %><br>
-        <%= f.text_field :day_pickup, :id => "datepick" %>
+        <%= f.text_field :day_pickup, :id => "datepick", :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :time_pickup, "Hora de recoleccion." %><br>
-        <%= f.text_field :time_pickup %>
+        <%= f.text_field :time_pickup, :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :day_delivery, "Dia de entrega." %><br>
-        <%= f.text_field :day_delivery, :id => "datedeliv" %>
+        <%= f.text_field :day_delivery, :id => "datedeliv", :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :time_delivery, "Hora de entrega." %><br>
-        <%= f.text_field :time_delivery %>
+        <%= f.text_field :time_delivery, :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :origin, "Ciudad de recoleccion." %><br>
-        <%= f.text_field :origin %>
+        <%= f.text_field :origin, :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :destiny, "Ciudad de entrega." %><br>
-        <%= f.text_field :destiny %>
+        <%= f.text_field :destiny, :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :description, "Descripcion del transporte (Favor de especificar todo en este campo)." %><br>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, :required => true%>
       </div>
       <div class="cont_fields">
         <%= f.label :estimated_price, "Cuanto estas dispuesto a pagar" %><br>
-        <%= f.text_field :estimated_price %>
+        <%= f.text_field :estimated_price, :required => true%>
       </div>
 
         <%= f.hidden_field :status, :value => "on" %>

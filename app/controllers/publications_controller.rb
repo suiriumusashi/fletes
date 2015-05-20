@@ -27,7 +27,7 @@ class PublicationsController < ApplicationController
   def create
     @publication = Publication.new(publication_params)
     if admin_signed_in?
-      @publication.user_id = current_admin.id
+      @publication.user_id = 0
     else
       @publication.user_id = current_user.id
     end
