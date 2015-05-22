@@ -199,5 +199,9 @@
         $(".description-nacional").toggle();
     });
 
+    $(".close-recomend").click(function(){
+        $(".alert-registration").slideToggle()
+    })
+
 
 })()

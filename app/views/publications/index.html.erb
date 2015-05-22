@@ -14,7 +14,11 @@
             <div class="active-actions-pub">
               <span class="icon-more-vert active-content-action-pub" ></span>
               <div class="cont-actions-pub">
-                <a href="/clients/<%= publication.user_id %>" class="link-action">Cliente</a>
+                <% if publication.user_id == 0%>
+                  <a href="">Por Admin</a>
+                <% else %>
+                  <a href="/clients/<%= publication.user_id %>" class="link-action">Cliente</a>
+                <% end %>
                 <%= link_to 'Editar', edit_publication_path(publication) %>
                 <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %>
               </div>
@@ -85,7 +89,7 @@
             </div>
             <div>
               <h2>Lugar de entrega</h2>
-              <p><%= publication.destiny %> a las <%= publication.time_delivery %></p>
+              <p><%= publication.destiny %></p>
             </div>
           </article>
         <% end %>

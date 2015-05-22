@@ -50,7 +50,54 @@
         <%= f.text_field :estimated_price, :required => true%>
       </div>
 
-        <%= f.hidden_field :status, :value => "on" %>
+      <div class="boxes">
+        <h4>Selecciones el tipo de servicio que requiere</h4>
+          <ul class="forms-backstage-list">
+            <%for service in Service.all%>
+                <li>
+                  <%= check_box_tag "publication[service_ids][]", service.id, @publication.services.include?(service)%>
+                  <%= f.label service.name %>
+                </li>
+            <% end -%>
+          </ul>
+      </div>
+
+      <div class="boxes">
+        <h4>Selecciones el tipo de camion que requiere</h4>
+          <ul class="forms-backstage-list">
+            <%for truck in Truck.all%>
+                <li>
+                  <%= check_box_tag "publication[truck_ids][]", truck.id, @publication.trucks.include?(truck)%>
+                  <%= f.label truck.name %>
+                </li>
+            <% end -%>
+          </ul>
+      </div>
+
+      <div class="boxes">
+        <h4>Seleccione el peso de la carga</h4>
+          <ul class="forms-backstage-list">
+            <%for load in Load.all%>
+                <li>
+                  <%= check_box_tag "publication[load_ids][]", load.id, @publication.loads.include?(load)%>
+                  <%= f.label load.range %>
+                </li>
+            <% end -%>
+          </ul>
+      </div>
+      
+      <div class="boxes">
+      <h4>Seleccionar el estado de la publicacion</h4>
+        <div >
+          <%= f.radio_button :status, "1" %>
+          <%= f.label :status, "Activada" %>
+        </div>
+        <div>
+          <%= f.radio_button :status, "0" %>
+          <%= f.label :status, "Finalizada" %>
+        </div>
+      </div>
+
         <%= f.hidden_field :user_id%>
        <%= f.submit "Guardar", :class => "submit-log-in-user" %>
     <% end %>

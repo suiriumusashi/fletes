@@ -1,4 +1,12 @@
 <main id="edit-user-cont">
+  <div class="alert-registration">
+    <span class="ion-android-cancel close-recomend"></span>
+    <h1>Recomendacion</h1>
+    <p>Detectamos que aun no actualizas tus datos.
+     Permitenos porder encontrarte viajes, lo unico que requieres es llenar todos los campos que se te pide y a su vez que sean correctos.
+     En esta tarea tardas maximo 5 minutos te pedimos te tomes ese tiempo para asi poder ofrecerte un servicio de calidad.
+    </p>
+  </div>
   <section class="cont">
     <h1 class="title-edit-user">Editar Usuario</h1>
 
@@ -26,12 +34,12 @@
       </div>
 
       <div class="cont_fields">
-        <%= f.label :state, "Estado" %><br />
+        <%= f.label :state, "Estado Actual (Mediante GPS)" %><br />
         <%= f.text_field :state, autocomplete: "off"%>
       </div>
 
       <div class="cont_fields">
-        <%= f.label :city, "Ciudad" %><br />
+        <%= f.label :city, "Ciudad Actual (Mediante GPS)" %><br />
         <%= f.text_field :city, autocomplete: "off"%>
       </div>
 

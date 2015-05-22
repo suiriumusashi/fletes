@@ -47,6 +47,29 @@
       $<%= @publication.estimated_price %>
     </p>
 
+    <p>
+    <strong>Servicios que se requieren: </strong>
+      <%= @publication.services.collect(&:name).join("  |  ") %>
+    </p>
+    <p>
+      <strong>Camiones que se requieren: </strong>
+      <%= @publication.trucks.collect(&:name).join("  |  ") %>
+    </p>
+
+    <p>
+      <strong>Pesos estimados de la carga: </strong>
+      <%= @publication.loads.collect(&:range).join("  |  ") %>
+    </p>
+
+    <p>
+      <strong>Estado de la publicacion: </strong>
+      <%  if @publication.status == "1" %>
+        Activada
+      <% else %>
+        Finalizada
+      <% end %>
+    </p>
+
     <%= link_to publications_path, :class => "back-publication-show" do%>
       <span class="icon-reply"></span>
     <%end%>

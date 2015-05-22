@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408213135) do
+ActiveRecord::Schema.define(version: 20150521231539) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 20150408213135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "loads_publications", id: false, force: :cascade do |t|
+    t.integer "publication_id"
+    t.integer "load_id"
+  end
+
+  add_index "loads_publications", ["load_id"], name: "index_loads_publications_on_load_id"
+  add_index "loads_publications", ["publication_id"], name: "index_loads_publications_on_publication_id"
+
   create_table "loads_users", id: false, force: :cascade do |t|
     t.integer "load_id"
     t.integer "user_id"
@@ -75,6 +83,22 @@ ActiveRecord::Schema.define(version: 20150408213135) do
   end
 
   add_index "publications", ["user_id"], name: "index_publications_on_user_id"
+
+  create_table "publications_services", id: false, force: :cascade do |t|
+    t.integer "publication_id"
+    t.integer "service_id"
+  end
+
+  add_index "publications_services", ["publication_id"], name: "index_publications_services_on_publication_id"
+  add_index "publications_services", ["service_id"], name: "index_publications_services_on_service_id"
+
+  create_table "publications_trucks", id: false, force: :cascade do |t|
+    t.integer "publication_id"
+    t.integer "truck_id"
+  end
+
+  add_index "publications_trucks", ["publication_id"], name: "index_publications_trucks_on_publication_id"
+  add_index "publications_trucks", ["truck_id"], name: "index_publications_trucks_on_truck_id"
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "value"
@@ -149,6 +173,12 @@ ActiveRecord::Schema.define(version: 20150408213135) do
     t.text     "description"
     t.boolean  "mails_sent",             default: false
     t.string   "role"
+    t.string   "celphone"
+    t.string   "phone_extra"
+    t.string   "phone_extra_two"
+    t.string   "city_origin"
+    t.string   "state_origin"
+    t.string   "update_profile",         default: "0"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

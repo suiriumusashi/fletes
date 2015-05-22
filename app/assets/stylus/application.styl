@@ -267,6 +267,24 @@ main
 		& form
 			margin 0 auto
 			max-width 900px
+			& .boxes
+				width 100%
+				& ul
+					& li
+						background white
+						box-shadow 0px 0px 1px rgba(0, 0, 0, .35)
+						list-style none
+						display inline-block
+						padding .4em 1em
+						margin 1em
+				& div
+					background white
+					box-shadow 0px 0px 1px rgba(0, 0, 0, .35)
+					list-style none
+					display inline-block
+					padding .8em 1em
+					margin 1em
+					width 200px
 			& .cont_fields
 				text-align left
 				& label
@@ -450,6 +468,35 @@ main
 				&:hover
 					background azul
 					color white
+
+
+.alert-registration
+	background white
+	box-shadow 0px 0px 3px rgba(0, 0, 0, .35)
+	border-radius .5em
+	position fixed
+	left 1em
+	top 6em
+	overflow hidden
+	width 300px
+	z-index 10000
+	& .close-recomend
+		cursor pointer
+		color white
+		position absolute
+		top .1em
+		right .3em
+		font-size 1.3em
+	& h1
+		color white
+		background azul
+		text-align center
+		margin 0
+		padding .3em 0
+		width 100%
+	& p
+		color #4A4A4A
+		padding .5em 1.5em
 				
 #create-user-cont
 	border-top 15em solid azul_claro

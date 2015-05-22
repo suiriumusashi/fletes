@@ -45,6 +45,9 @@ class PublicationsController < ApplicationController
   # PATCH/PUT /publications/1
   # PATCH/PUT /publications/1.json
   def update
+    params[:publication][:service_ids] ||= []
+    params[:publication][:truck_ids] ||= []
+    params[:publication][:load_ids] ||= []
     respond_to do |format|
       if @publication.update(publication_params)
         format.html { redirect_to @publication, notice: 'Se ha modificado correctamente la publicacion.' }
@@ -74,6 +77,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :day_pickup, :time_pickup, :day_delivery, :origin, :destiny, :time_delivery, :description, :estimated_price, :final_price, :status, :user_id)
+      params.require(:publication).permit(:title, :day_pickup, :time_pickup, :day_delivery, :origin, :destiny, :time_delivery, :description, :estimated_price, :final_price, :status, :user_id, {:service_ids => []}, {:truck_ids => []}, {:load_ids => []})
     end
 end
