@@ -94,6 +94,23 @@ main
 			text-align center
 			margin 0 3em
 			max-width 180px
+			position relative
+			& .boxes-pasos
+				display none
+				color azul
+				background white
+				position absolute
+				top 0
+				left 0
+				padding 3em .3em 0 .3em
+				height 150px
+				width 100%
+				.close-des
+					cursor pointer
+					position absolute
+					right .3em
+					top .3em
+					font-size 1.3em
 			& img
 				width 100%
 			& figcaption
@@ -686,13 +703,35 @@ main
 			display inline-block
 			margin 1em
 			max-width 460px
+			padding 3em 0 0 0
 			position relative
+			& .activate-publication
+				color white
+				box-shadow 1px -1px 2px rgba(0, 0, 0, .45)
+				position absolute
+				top 0
+				left 0
+				background #00D76B
+				padding 1em 0
+				text-align center
+				width 100%
+			& .desactivate-publication
+				color white
+				box-shadow 1px -1px 2px rgba(0, 0, 0, .45)
+				position absolute
+				top 0
+				left 0
+				background rojo
+				padding 1em 0
+				text-align center
+				width 100%
 			& .active-actions-pub
+				color white
 				cursor pointer
 				font-size 1.9em
 				right .2em
 				position absolute
-				top .2em
+				top -.1em
 				width auto
 				& .cont-actions-pub
 					display none

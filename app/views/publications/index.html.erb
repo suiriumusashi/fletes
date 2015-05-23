@@ -11,6 +11,11 @@
       <%if defined? current_admin.role %>
         <% if current_admin.role == "super"%>
           <article class="publication">
+            <% if publication.status == "1"%>
+              <span class="ion-android-checkbox activate-publication"> Activada</span>
+            <% else %>
+              <span class="ion-android-cancel desactivate-publication"> Concluida</span>
+            <% end %>
             <div class="active-actions-pub">
               <span class="icon-more-vert active-content-action-pub" ></span>
               <div class="cont-actions-pub">
@@ -42,10 +47,15 @@
         <% end %>
       <% end %>
 
-      
+
     <%if defined? current_user.role %>
       <% if publication.user_id == current_user.id && current_user.role == "cliente"%>
           <article class="publication">
+            <% if publication.status == "1"%>
+              <span class="ion-android-checkbox activate-publication"> Activada</span>
+            <% else %>
+              <span class="ion-android-cancel desactivate-publication"> Concluida</span>
+            <% end %>
             <div class="active-actions-pub">
               <span class="icon-more-vert active-content-action-pub" ></span>
               <div class="cont-actions-pub">
@@ -74,6 +84,11 @@
       <%if defined? current_user.role %>
         <%if current_user.role == "transportista"%>
           <article class="publication">
+            <% if publication.status == "1"%>
+              <span class="ion-android-checkbox activate-publication"> Activada</span>
+            <% else %>
+              <span class="ion-android-cancel desactivate-publication"> Concluida</span>
+            <% end %>
             <h1><%= publication.title %></h1>
             <div>
               <h2>Recoleccion</h2>
