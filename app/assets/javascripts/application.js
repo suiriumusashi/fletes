@@ -203,5 +203,17 @@
         $(".alert-registration").slideToggle()
     })
 
+    $(".uno").click(function(){
+        $(".description-uno").toggle();
+    });
+
+    $(".dos").click(function(){
+        $(".description-dos").toggle();
+    });
+
+    $(".tres").click(function(){
+        $(".description-tres").toggle();
+    });
+
 
 })()
