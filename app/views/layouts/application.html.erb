@@ -35,13 +35,22 @@
           <%= link_to "/" ,:class => 'li-standar' do%>
            <li>Inicio</li>
           <% end %>
+          <%= link_to "" ,:class => 'li-standar open-nosotros' do%>
+            <li>Nosotros</li>
+          <% end %>
+          <%= link_to "" ,:class => 'open-contact li-standar' do%>
+            <li>Contactanos</li>
+          <% end %>
+          <%= link_to "tel:6181450007" ,:class => 'li-standar' do%>
+            <li>Llamanos</li>
+          <% end %>
           
           <%if current_user.role == "cliente"%>
-            <%= link_to publications_path, :class => 'li-standar' do%>
+            <%= link_to publications_path, :class => 'li-standar bg-white' do%>
               <li>Publicaciones</li>
             <%end%> 
           <%else%>
-            <%= link_to offers_pub_path, :class => 'li-standar' do%>
+            <%= link_to offers_pub_path, :class => 'li-standar bg-white' do%>
               <li>Ofertas</li>
             <%end%> 
           <%end%>
@@ -119,7 +128,7 @@
         <%= link_to "" ,:class => 'li-standar open-nosotros' do%>
           <li>Nosotros</li>
         <% end %>
-        <%= link_to "mailto:dejazgaga@hotmail.com" ,:class => 'li-standar' do%>
+        <%= link_to "" ,:class => 'open-contact li-standar' do%>
           <li>Contactanos</li>
         <% end %>
         <%= link_to "tel:6181450007" ,:class => 'li-standar' do%>
@@ -152,7 +161,7 @@
             <a href="#nosotros" class="open-nosotros">Nosotros</a>
           </p>
           <p class="right-slide">
-            <a href="mailto:dejazgaga@hotmail.com">Contactanos</a>
+            <a href="" class="open-contact">Contactanos</a>
           </p>
           <p>
             <a href="tel:6181450007">Telefono</a>
@@ -204,6 +213,26 @@
     <p>Ser reconocidos a nivel no solo nacional si no a nivel internacional como una empresa que ofrece
 
       servicios económicos, de calidad, confianza y rapidez con precios únicos en su ramo.</p>
+  </div>
+</div>
+
+<div id="contacto">
+<a href="" class="close"><span class="ion-close-circled"></span></a>
+  <h1>Contactanos</h1>
+  <div>
+    <h2>Telefonos</h2>
+    <p>Oficina 1.28.50.78</p>
+    <p>618.145.00.07</p>
+  </div>
+  <div>
+    <h2>Correos electronicos</h2>
+    <p>contacto@fletetodo.com</p>
+    <p>ventas@fletetodo.com</p>
+  </div>
+  <div>
+    <h2>Diraccion</h2>
+    <p>Blvd. Felipe Pescador #717 B pre local 1 bis </p>
+    <p>Zona Centro c.p.34000  Durango Dgo Mex.</p>
   </div>
 </div>
 

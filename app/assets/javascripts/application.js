@@ -92,7 +92,7 @@
                 var visible = Math.floor(incremento/incremento)
                 var primerElemento = 1;
                 var estaMoviendo = false;
-                var tiempo = 7000;
+                var tiempo = 8000;
                 var $pause = false
             }
             
@@ -181,10 +181,16 @@
         $("#cortina, #nosotros").show();
     });
 
+    $(".open-contact").click(function(e){
+        e.preventDefault();
+        window.scrollTo(0, 0);  
+        $("#cortina, #contacto").show();
+    });
+
 	$(".close, #cortina").click(function(e){
 		e.preventDefault();
 		window.scrollTo(0, 0);  
-		$("#cortina, #politicas, #terminos, #nosotros").hide();
+		$("#cortina, #politicas, #terminos, #nosotros, #contacto").hide();
 	});
 
     $(".rapido").click(function(){
