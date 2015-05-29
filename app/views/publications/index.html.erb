@@ -4,6 +4,47 @@
   <section class="cont">
     <h1 class="title-publications">Listado de Publicaciones</h1>
 
+    <%if defined? current_user.role %>
+        <%if current_user.role == "transportista" && current_user.update_profile == "1"%>
+          <% @publications.each do |publication| %>
+            <article class="publication">
+              <% if publication.status == "1"%>
+                <span class="ion-android-checkbox activate-publication"> Activada</span>
+              <% else %>
+                <span class="ion-android-cancel desactivate-publication"> Concluida</span>
+              <% end %>
+              <h1><%= publication.title %></h1>
+              <div>
+                <h2>Recoleccion</h2>
+                <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
+              </div>
+              <div>
+                <h2>Entrega</h2>
+                <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
+              </div>
+              <div>
+                <h2>Lugar de Recoleccion</h2>
+                <p><%= publication.origin %></p>
+              </div>
+              <div>
+                <h2>Lugar de entrega</h2>
+                <p><%= publication.destiny %></p>
+              </div>
+              <div>
+                <h2>Peso aproximado de la carga</h2>
+                <p><%= publication.loads.collect(&:range).join("  |  ") %></p>
+              </div>
+            </article>
+          <% end %>
+         <% else %>
+          <h1 class="red">
+            Registra tus datos completamente para poder acceder a este apartado.
+          </h1>
+        <% end %>
+      
+      <% end %>
+
+
     <% @publications.each do |publication| %>
 
       
@@ -81,35 +122,6 @@
           </article>
         <% end %>
       <% end %>
-      <%if defined? current_user.role %>
-        <%if current_user.role == "transportista"%>
-          <article class="publication">
-            <% if publication.status == "1"%>
-              <span class="ion-android-checkbox activate-publication"> Activada</span>
-            <% else %>
-              <span class="ion-android-cancel desactivate-publication"> Concluida</span>
-            <% end %>
-            <h1><%= publication.title %></h1>
-            <div>
-              <h2>Recoleccion</h2>
-              <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
-            </div>
-            <div>
-              <h2>Entrega</h2>
-              <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
-            </div>
-            <div>
-              <h2>Lugar de Recoleccion</h2>
-              <p><%= publication.origin %></p>
-            </div>
-            <div>
-              <h2>Lugar de entrega</h2>
-              <p><%= publication.destiny %></p>
-            </div>
-          </article>
-        <% end %>
-      <% end %>
-
     <% end %>
     <%if defined? current_user.role %>
       <%if current_user.role == "cliente"%>

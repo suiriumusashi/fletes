@@ -21,7 +21,23 @@
 <nav id="menu-off">
   <ul>
     <% if user_signed_in? %>
-    
+
+      <% if current_user.role == "transportista" %>
+        <% if current_user.update_profile == "0" || current_user.update_profile == nil %>
+          <div class="alert-registration">
+            <span class="ion-android-cancel close-recomend"></span>
+            <h1>Alerta</h1>
+            <p>Detectamos que aun no actualizas tus datos.
+             Permitenos porder encontrarte viajes, lo unico que requieres es llenar todos los campos que se te pide y a su vez que sean correctos.
+             En esta tarea tardas maximo 5 minutos te pedimos te tomes ese tiempo para asi poder ofrecerte un servicio de calidad.
+            </p>
+            <%= link_to edit_user_registration_path, :class => 'register' do%>
+            Editar perfil
+            <%end%> 
+          </div>
+        <% end %>
+      <% end %>
+
       <%
         if current_user.role == "transportista"
           @user = User.find(current_user.id)

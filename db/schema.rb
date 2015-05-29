@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 20150521231539) do
     t.string   "phone_extra_two"
     t.string   "city_origin"
     t.string   "state_origin"
+    t.text     "state_more"
     t.string   "update_profile",         default: "0"
   end
 

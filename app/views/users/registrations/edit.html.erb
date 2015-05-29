@@ -1,12 +1,4 @@
 <main id="edit-user-cont">
-  <div class="alert-registration">
-    <span class="ion-android-cancel close-recomend"></span>
-    <h1>Recomendacion</h1>
-    <p>Detectamos que aun no actualizas tus datos.
-     Permitenos porder encontrarte viajes, lo unico que requieres es llenar todos los campos que se te pide y a su vez que sean correctos.
-     En esta tarea tardas maximo 5 minutos te pedimos te tomes ese tiempo para asi poder ofrecerte un servicio de calidad.
-    </p>
-  </div>
   <section class="cont">
     <h1 class="title-edit-user">Editar Usuario</h1>
 
@@ -15,42 +7,62 @@
 
       <div class="cont_fields">
         <%= f.label :email, "Correo electronico" %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true, :required => true %>
       </div>
 
       <div class="cont_fields">
         <%= f.label :first_name, "Nombre" %><br />
-        <%= f.text_field :first_name, autocomplete: "off"%>
+        <%= f.text_field :first_name, autocomplete: "off", :required => true%>
       </div>
 
       <div class="cont_fields">
         <%= f.label :last_name, "Apellido" %><br />
-        <%= f.text_field :last_name, autocomplete: "off"%>
+        <%= f.text_field :last_name, autocomplete: "off", :required => true%>
       </div>
 
       <div class="cont_fields">
-        <%= f.label :phone, "Telefono" %><br />
-        <%= f.text_field :phone, autocomplete: "off"%>
+        <%= f.label :phone, "Telefono Oficina" %><br />
+        <%= f.text_field :phone, autocomplete: "off", :required => true%>
       </div>
 
       <div class="cont_fields">
-        <%= f.label :state, "Estado Actual (Mediante GPS)" %><br />
+        <%= f.label :celphone, "Telefono Celular" %><br />
+        <%= f.text_field :celphone, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :phone_extra, "Telefono Extra" %><br />
+        <%= f.text_field :phone_extra, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :state, "Estado" %><br />
+        <%= f.text_field :state_origin, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :city, "Ciudad" %><br />
+        <%= f.text_field :city_origin, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :state, "Estado Actual (Automatico Mediante Geolocalizacion)" %><br />
         <%= f.text_field :state, autocomplete: "off"%>
       </div>
 
       <div class="cont_fields">
-        <%= f.label :city, "Ciudad Actual (Mediante GPS)" %><br />
+        <%= f.label :city, "Ciudad Actual (Automatico Mediante Geolocalizacion)" %><br />
         <%= f.text_field :city, autocomplete: "off"%>
       </div>
 
       <div class="cont_fields">
         <%= f.label :street, "Calle" %><br />
-        <%= f.text_field :street, autocomplete: "off"%>
+        <%= f.text_field :street, autocomplete: "off", :required => true%>
       </div>
 
       <div class="cont_fields">
         <%= f.label :number_out, "Numero exterior" %><br />
-        <%= f.text_field :number_out, autocomplete: "off"%>
+        <%= f.text_field :number_out, autocomplete: "off", :required => true%>
       </div>
 
       <div class="cont_fields">
@@ -60,12 +72,12 @@
 
       <div class="cont_fields">
         <%= f.label :colony, "Colonia" %><br />
-        <%= f.text_field :colony, autocomplete: "off"%>
+        <%= f.text_field :colony, autocomplete: "off", :required => true%>
       </div>
 
       <div class="cont_fields">
         <%= f.label :postal, "Codigo Postal" %><br />
-        <%= f.text_field :postal, autocomplete: "off"%>
+        <%= f.text_field :postal, autocomplete: "off", :required => true%>
       </div>
 
       <div class="cont_fields">
@@ -78,9 +90,11 @@
         <%= f.text_field :rfc, autocomplete: "off"%>
       </div>
 
+      <%= f.hidden_field :update_profile, :value => "1"%>
+
       <div class="cont_fields">
         <%= f.label :description, "Describe brevemente tu empresa o tu personalidad." %><br>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, :required => true %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
