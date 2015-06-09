@@ -19,7 +19,7 @@
 		        </div>
         	</article>
 		<% @clients.each do |client| %>
-			<article class="register">
+			<article class="register <% if client.update_profile == '0' %> no-red<% end %>" >
 				<div class="data">
 					<p><%= client.first_name %> <%= client.last_name %></p> 
 		          	<p><%= client.email %></p>
