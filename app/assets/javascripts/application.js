@@ -187,10 +187,16 @@
         $("#cortina, #contacto").show();
     });
 
+    $(".open-ayuda").click(function(e){
+        e.preventDefault();
+        window.scrollTo(0, 0);  
+        $("#cortina, #ayuda").show();
+    });
+
 	$(".close, #cortina").click(function(e){
 		e.preventDefault();
 		window.scrollTo(0, 0);  
-		$("#cortina, #politicas, #terminos, #nosotros, #contacto").hide();
+		$("#cortina, #politicas, #terminos, #nosotros, #contacto, #ayuda").hide();
 	});
 
     $(".rapido").click(function(){
@@ -261,6 +267,36 @@
         $("#contacto .direccion").hide()
         $("#contacto .telefonos").show()
     })
+
+
+    $(".l-sugerencias").click(function(){
+        $(".l-quejas").removeAttr("id")
+        $(".l-soporte").removeAttr("id")
+        $(".l-sugerencias").attr("id", "l-link")
+        $("#ayuda .quejas").hide()
+        $("#ayuda .soporte").hide()
+        $("#ayuda .sugerencias").show()
+    })
+
+    $(".l-soporte").click(function(){
+        $(".l-quejas").removeAttr("id")
+        $(".l-sugerencias").removeAttr("id")
+        $(".l-soporte").attr("id", "l-link")
+        $("#ayuda .quejas").hide()
+        $("#ayuda .sugerencias").hide()
+        $("#ayuda .soporte").show()
+    })
+
+    $(".l-quejas").click(function(){
+        $(".l-sugerencias").removeAttr("id")
+        $(".l-soporte").removeAttr("id")
+        $(".l-quejas").attr("id", "l-link")
+        $("#ayuda .sugerencias").hide()
+        $("#ayuda .soporte").hide()
+        $("#ayuda .quejas").show()
+    })
+
+    
 
 
 })()
