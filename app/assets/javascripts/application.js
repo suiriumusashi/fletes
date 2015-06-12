@@ -221,5 +221,46 @@
         $(".description-tres").toggle();
     });
 
+    $(".l-vision").click(function(){
+        $(".l-mision").removeAttr("id")
+        $(".l-vision").attr("id", "l-link")
+        $("#nosotros .mision").hide()
+        $("#nosotros .vision").show()
+    })
+
+    $(".l-mision").click(function(){
+        $(".l-vision").removeAttr("id")
+        $(".l-mision").attr("id", "l-link")
+        $("#nosotros .vision").hide()
+        $("#nosotros .mision").show()
+    })
+
+    $(".l-email").click(function(){
+        $(".l-telefono").removeAttr("id")
+        $(".l-direccion").removeAttr("id")
+        $(".l-email").attr("id", "l-link")
+        $("#contacto .telefonos").hide()
+        $("#contacto .direccion").hide()
+        $("#contacto .email").show()
+    })
+
+    $(".l-direccion").click(function(){
+        $(".l-telefono").removeAttr("id")
+        $(".l-email").removeAttr("id")
+        $(".l-direccion").attr("id", "l-link")
+        $("#contacto .telefonos").hide()
+        $("#contacto .email").hide()
+        $("#contacto .direccion").show()
+    })
+
+    $(".l-telefono").click(function(){
+        $(".l-email").removeAttr("id")
+        $(".l-direccion").removeAttr("id")
+        $(".l-telefono").attr("id", "l-link")
+        $("#contacto .email").hide()
+        $("#contacto .direccion").hide()
+        $("#contacto .telefonos").show()
+    })
+
 
 })()
