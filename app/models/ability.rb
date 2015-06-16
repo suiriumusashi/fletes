@@ -101,7 +101,7 @@ class Ability
           end
            if user.role == "transportista"
             #can :manage, [:dashboard, :tool]
-            can :read, Publication
+            can :manage , Publication
            end
         when Admin
           if user.role == "super"

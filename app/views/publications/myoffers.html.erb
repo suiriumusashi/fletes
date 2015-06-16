@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<main id="publications-cont">
+  <section class="cont">
+    <h1 class="title-publications">Fuiste seleccionado en los siguientes viajes</h1>
+
+    <%if defined? current_user.role %>
+        <%if current_user.role == "transportista" && current_user.update_profile == "1"%>
+        <% current_user.publications.each do |publication| %>
+          <article class="publication">
+            <% if publication.status == "1"%>
+              <span class="ion-android-checkbox activate-publication"> Activada</span>
+            <% else %>
+              <span class="ion-android-cancel desactivate-publication"> Concluida</span>
+            <% end %>
+       
+            
+            <h1><%= publication.title %></h1>
+            <div>
+              <h2>Recoleccion</h2>
+              <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
+            </div>
+            <div>
+              <h2>Entrega</h2>
+              <p><%= publication.day_delivery %> a las <%= publication.time_delivery %></p>
+            </div>
+            <div>
+              <h2>Dispuesto a pagar</h2>
+              <h3>$<%= publication.estimated_price %></h3>
+            </div>
+            <%= link_to 'Ver más', publication, :class => "link_go" %>
+          </article>
+          <% end %>
+        <% end %>
+     <% end %>
+
+
+    
+  </section>
+</main>

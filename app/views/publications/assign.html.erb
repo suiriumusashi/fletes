@@ -17,7 +17,7 @@
           
     <%for user in User.where(role: 'transportista')%>
       <% @a = @a + 1 %>
-      <article class="register <% if user.update_profile == '0' %> no-red<% end %>" >
+      <article class="register <% if user.update_profile == '0' %> no-red<% end %> open-more-info" >
         <div class="data">
           <p class="number"><%= @a %></p>
           <p><%= user.first_name %> <%= user.last_name %></p> 
@@ -28,7 +28,7 @@
                   <p><%= user.phone %></p>
                 <% end %>
                 <p class="number">
-                      <%= check_box_tag "publication[user_ids][]", user.id, @publication.users.include?(user)%>
+                      <%= check_box_tag "publication[user_ids][]", user.id, @publication.users.include?(user), :class => "check-no"%>
 
                 </p>
             </div>

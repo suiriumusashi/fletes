@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :publications
   get 'assign/:id' => 'publications#assign', as: "assign"
   get 'offers' => 'publications#index', as: "offers_pub"
+  get 'myoffers' => 'publications#myoffers', as: "my_offers"
 
   resources :ratings
 

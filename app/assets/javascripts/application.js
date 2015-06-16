@@ -302,7 +302,11 @@
         $("#ayuda .quejas").show()
     })
 
-    
+    $(".open-more-info").click(function(){
+        $ventana = $(this).find(".plus");
+        $ventana.toggle()
+    })
+
 
 
 })()

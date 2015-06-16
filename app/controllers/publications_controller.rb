@@ -25,6 +25,9 @@ class PublicationsController < ApplicationController
   def assign
   end
 
+  def myoffers
+  end
+
   # POST /publications
   # POST /publications.json
   def create
