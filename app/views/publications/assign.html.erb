@@ -50,20 +50,20 @@
               <div class="services">
                 <div>
                   <strong>Servicios que ofrece: </strong>
-                  <%= user.services.each do |service| %>
+                  <% user.services.each do |service| %>
                     <p> <%= service.name %> </p>
                   <% end %>
                 </div>
                 <div>
                   <strong>Camiones con los que cuenta: </strong>
-                  <%= user.trucks.each do |truck| %>
+                  <% user.trucks.each do |truck| %>
                     <p><%= truck.name %></p>
                   <% end %>
                 </div>
 
                 <div>
                   <strong>Cargas que soportan: </strong>
-                  <%= user.loads.each do |load| %>
+                  <% user.loads.each do |load| %>
                     <p><%= load.range %></p>
                   <% end %>
                 </div>
