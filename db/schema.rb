@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521231539) do
+ActiveRecord::Schema.define(version: 20150616011921) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -99,6 +99,11 @@ ActiveRecord::Schema.define(version: 20150521231539) do
 
   add_index "publications_trucks", ["publication_id"], name: "index_publications_trucks_on_publication_id"
   add_index "publications_trucks", ["truck_id"], name: "index_publications_trucks_on_truck_id"
+
+  create_table "publications_users", id: false, force: :cascade do |t|
+    t.integer "publication_id"
+    t.integer "user_id"
+  end
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "value"

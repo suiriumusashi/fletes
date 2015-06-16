@@ -193,10 +193,16 @@
         $("#cortina, #ayuda").show();
     });
 
+    $(".open-como").click(function(e){
+        e.preventDefault();
+        window.scrollTo(0, 0);  
+        $("#cortina, #comof").show();
+    });
+
 	$(".close, #cortina").click(function(e){
 		e.preventDefault();
 		window.scrollTo(0, 0);  
-		$("#cortina, #politicas, #terminos, #nosotros, #contacto, #ayuda").hide();
+		$("#cortina, #politicas, #terminos, #nosotros, #contacto, #ayuda, #comof").hide();
 	});
 
     $(".rapido").click(function(){

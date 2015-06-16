@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :inboxes
 
   resources :publications
-
+  get 'assign/:id' => 'publications#assign', as: "assign"
   get 'offers' => 'publications#index', as: "offers_pub"
 
   resources :ratings

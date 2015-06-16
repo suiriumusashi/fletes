@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
     has_and_belongs_to_many :trucks
     has_and_belongs_to_many :loads
     has_and_belongs_to_many :ratings
+    has_and_belongs_to_many :publications
+    
 end

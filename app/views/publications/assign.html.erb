@@ -1,0 +1,78 @@
+
+<main id="clients-cont">
+  <section class="cont">
+  <%= form_for(@publication) do |f| %>
+  <h1 class="title-publications">Listado de Transportistas</h1>
+      <article class="register">
+        <div class="data">
+          <p class="number">Nº</p>
+          <p>Nombre</p>
+                <p>Correo electronico</p>
+                <p>Telefono</p>
+                <p class="number">Asignar</p>
+            </div>
+          </article>
+
+        <% @a = 0 %>
+          
+    <%for user in User.where(role: 'transportista')%>
+      <% @a = @a + 1 %>
+      <article class="register <% if user.update_profile == '0' %> no-red<% end %>" >
+        <div class="data">
+          <p class="number"><%= @a %></p>
+          <p><%= user.first_name %> <%= user.last_name %></p> 
+                <p><%= user.email %></p>
+                <% if user.phone == nil%>
+                  <p>N/E</p>
+                <% else %>
+                  <p><%= user.phone %></p>
+                <% end %>
+                <p class="number">
+                      <%= check_box_tag "publication[user_ids][]", user.id, @publication.users.include?(user)%>
+
+                </p>
+            </div>
+            <div class="plus">
+              <div class="basic">
+                <p>
+                  <strong>Estado: </strong>
+                  <%= user.state_origin %>
+                </p>
+                <p>
+                  <strong>Ciudad: </strong>
+                  <%= user.city_origin %>
+                </p>
+                <p>
+                  <strong>Ultima vez: </strong>
+                   <%= user.state %>, <%= user.city %>
+                </p>
+              </div>
+              <div class="services">
+                <div>
+                  <strong>Servicios que ofrece: </strong>
+                  <%= user.services.each do |service| %>
+                    <p> <%= service.name %> </p>
+                  <% end %>
+                </div>
+                <div>
+                  <strong>Camiones con los que cuenta: </strong>
+                  <%= user.trucks.each do |truck| %>
+                    <p><%= truck.name %></p>
+                  <% end %>
+                </div>
+
+                <div>
+                  <strong>Cargas que soportan: </strong>
+                  <%= user.loads.each do |load| %>
+                    <p><%= load.range %></p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </article>
+        <% end %>
+        <input type="hidden" name="g" value="off">
+    <%= f.submit "Guardar", :class => "submit-log-in-user" %>
+    <% end %>
+  </section>
+</main>

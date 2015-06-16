@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_publication, only: [:show, :edit, :update, :destroy]
+  before_action :set_publication, only: [:show, :edit, :update, :destroy, :assign]
 
   # GET /publications
   # GET /publications.json
@@ -20,6 +20,9 @@ class PublicationsController < ApplicationController
 
   # GET /publications/1/edit
   def edit
+  end  
+
+  def assign
   end
 
   # POST /publications
@@ -45,9 +48,12 @@ class PublicationsController < ApplicationController
   # PATCH/PUT /publications/1
   # PATCH/PUT /publications/1.json
   def update
-    params[:publication][:service_ids] ||= []
-    params[:publication][:truck_ids] ||= []
-    params[:publication][:load_ids] ||= []
+    if params[:g] == "on"
+      params[:publication][:service_ids] ||= []
+      params[:publication][:truck_ids] ||= []
+      params[:publication][:load_ids] ||= []
+    end
+    
     respond_to do |format|
       if @publication.update(publication_params)
         format.html { redirect_to @publication, notice: 'Se ha modificado correctamente la publicacion.' }
@@ -77,6 +83,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :day_pickup, :time_pickup, :day_delivery, :origin, :destiny, :time_delivery, :description, :estimated_price, :final_price, :status, :user_id, {:service_ids => []}, {:truck_ids => []}, {:load_ids => []})
+      params.require(:publication).permit(:title, :day_pickup, :time_pickup, :day_delivery, :origin, :destiny, :time_delivery, :description, :estimated_price, :final_price, :status, :user_id, {:service_ids => []}, {:truck_ids => []}, {:load_ids => []}, {:user_ids => []})
     end
 end

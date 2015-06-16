@@ -964,13 +964,6 @@ main
 			margin 0 0 1em 0
 			padding .5em 0
 			width 100%
-		& .no-red
-			color #fff !important
-			background #D82F4A !important
-			& .data
-				color #fff !important
-				& p a
-					color #fff !important
 		& .register
 			background white
 			box-shadow 0px 1px 3px rgba(0,0,0,0.4)
@@ -997,8 +990,41 @@ main
 					& a
 						color azul
 						text-decoration none
-		
-
+			& .plus
+				border-top 2px solid azul
+				color azul
+				width 100%
+				& .basic
+					width 100%
+					& p
+						text-align left
+						display inline-block
+						width 30%
+				& .services
+					padding .4em 0
+					display -webkit-box
+					display -moz-box
+					display -ms-flexbox
+					display -webkit-flex
+					display flex
+					-webkit-flex-flow row wrap
+					text-align center
+					width 100%
+					& div
+						text-align left
+						margin 1em
+						min-width 290px
+		& .no-red
+			color #fff !important
+			background #D82F4A !important
+			& .data
+				color #fff !important
+			& .plus
+				border-top 2px solid white
+				color #fff !important
+				& p a
+					color #fff !important
+			
 
 #cortina
 	display none
@@ -1242,6 +1268,58 @@ main
 		padding 2em 0
 		text-align left
 		overflow hidden
+
+
+#comof
+	display none
+	box-shadow 0px 0px 7px rgba(0, 0, 0, .75)
+	background white
+	max-width 1000px
+	min-height 300px
+	position absolute
+	font-size 1.1em
+	top 0
+	left 0
+	right 0
+	margin 7em auto 2em auto
+	overflow hidden
+	width 100%
+	text-align center
+	z-index 10000
+	& .sub-menu
+		width 100%
+		& h1
+			color #c3c2b9
+			cursor pointer
+			background #F8F7EE 
+			display inline-block
+			font-size 1.2em
+			margin 0
+			padding 1em 0
+			width 50%
+			&:hover
+				background #f3f2e8
+		& #l-link
+			background white
+			color #000
+			box-shadow inset 0 6px 0 0 rojo
+			&:hover
+				background #fff
+	& p
+		color azul
+		letter-spacing 1px
+	& .transportista
+		margin 1.5em 2em
+		padding 2em 0
+		text-align left
+		span
+			display block
+			margin-top 1.3em
+	& .clientes
+		display none
+		margin 1.5em 2em
+		padding 2em 0
+		text-align left
 
 footer
 	display inline-block
