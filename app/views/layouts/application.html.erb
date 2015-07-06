@@ -22,7 +22,7 @@
   <ul class="content">
     <% if user_signed_in? %>
 
-      <% if current_user.role == "transportista" %>
+      <% if current_user.role == "transportista"  || current_user.role == "etransportista" %>
         <% if current_user.update_profile == "0" || current_user.update_profile == nil %>
           <div class="alert-registration">
             <span class="ion-android-cancel close-recomend"></span>
@@ -39,7 +39,7 @@
       <% end %>
 
       <%
-        if current_user.role == "transportista"
+        if current_user.role == "transportista"  || current_user.role == "etransportista"
           @user = User.find(current_user.id)
           @user.update(city: params[:city], state: params[:state])
         end

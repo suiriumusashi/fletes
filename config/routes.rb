@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :competitors
+
   root :to => 'home#index'
 
   get 'clients' => 'clients#index', as: "clients_list"

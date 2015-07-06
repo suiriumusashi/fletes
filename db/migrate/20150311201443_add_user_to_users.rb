@@ -15,6 +15,11 @@ class AddUserToUsers < ActiveRecord::Migration
   	add_column :users, :rfc, :string
   	add_column :users, :description, :text
   	add_column :users, :mails_sent, :boolean, default: false
-  	add_column :users, :role, :string 
+  	add_column :users, :responsible, :string
+    add_column :users, :trucks, :string
+    add_column :users, :trucks_number, :string
+    add_column :users, :other_service, :string
+    add_column :users, :regions, :string
+    add_column :users, :role, :string 
   end
 end

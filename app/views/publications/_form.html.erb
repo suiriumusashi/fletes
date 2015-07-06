@@ -46,9 +46,15 @@
         <%= f.text_area :description, :required => true%>
       </div>
       <div class="cont_fields">
-        <%= f.label :estimated_price, "Cuanto estas dispuesto a pagar" %><br>
+        <%= f.label :estimated_price, "Cuanto esta dispuesto a pagar el cliente" %><br>
         <%= f.text_field :estimated_price, :required => true%>
       </div>
+      <% if admin_signed_in? %>
+        <div class="cont_fields">
+          <%= f.label :final_price, "Precio Final" %><br>
+          <%= f.text_field :final_price, :required => true%>
+        </div>
+      <% end %>
 
       <div class="boxes">
         <h4>Selecciones el tipo de servicio que requiere</h4>

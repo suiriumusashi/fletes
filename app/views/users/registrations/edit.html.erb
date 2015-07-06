@@ -92,15 +92,31 @@
 
       <%= f.hidden_field :update_profile, :value => "1"%>
 
+
+      <% if current_user.role == "etransportista" %>
+        <div class="cont_fields">
+          <%= f.label :responsible, "Persona responsable de los viajes." %><br>
+          <%= f.text_field :responsible, :required => true %>
+        </div>
+        <div class="cont_fields">
+          <%= f.label :regions, "Ciudades Frecuentes separadas por comas." %><br>
+          <%= f.text_field :regions, :required => true, :placeholder => "ej. Durango, Monterrey, etc..." %>
+        </div>
+        <div class="cont_fields">
+          <%= f.label :trucks_number, "Cantidad de vehículos con los que cuenta la empresa." %><br>
+          <%= f.text_field :trucks_number, :required => true %>
+        </div>
+      <% end %>
+      
       <div class="cont_fields">
-        <%= f.label :description, "Describe brevemente tu empresa o tu personalidad." %><br>
+        <%= f.label :description, "Descrive brevemente tu empresa o tu personalidad." %><br>
         <%= f.text_area :description, :required => true %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
-      <%if current_user.role == "transportista"%>
+      <%if current_user.role == "transportista" || current_user.role == "etransportista"%>
         <fieldset>
         <legend>Servicios que ofrece</legend>
          <%for service in Service.all%>
@@ -109,7 +125,10 @@
                 <%= service.name%>
             </div>
           <% end -%>
+          
         </fieldset>
+
+        
 
         <fieldset>
         <legend>Tipos de camiones</legend>
@@ -120,6 +139,7 @@
             </div>
           <% end -%>
         </fieldset>
+        
 
         <fieldset>
         <legend>Cargas que soportan</legend>

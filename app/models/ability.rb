@@ -99,7 +99,7 @@ class Ability
            can :create, Publication
            can [:read, :update, :destroy, :show], Publication, :user_id => user.id 
           end
-           if user.role == "transportista"
+           if user.role == "transportista" || user.role == "etransportista"
             #can :manage, [:dashboard, :tool]
             can :manage , Publication
            end

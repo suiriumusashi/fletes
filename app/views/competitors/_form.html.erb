@@ -1,0 +1,33 @@
+<%= form_for(@competitor) do |f| %>
+  <% if @competitor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@competitor.errors.count, "error") %> prohibited this competitor from being saved:</h2>
+
+      <ul>
+      <% @competitor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :conform %><br>
+    <%= f.text_field :conform %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :users_id %><br>
+    <%= f.text_field :users_id %>
+  </div>
+  <div class="field">
+    <%= f.label :publications_id %><br>
+    <%= f.text_field :publications_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

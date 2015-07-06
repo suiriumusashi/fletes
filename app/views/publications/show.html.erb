@@ -42,9 +42,16 @@
       <%= @publication.description %>
     </p>
 
+    <% if admin_signed_in? %>
+        <p>
+          <strong>Presupuesto del cliente: </strong>
+          $<%= @publication.estimated_price %>
+        </p>
+    <% end %>
+
     <p>
       <strong>Presupuesto estimado: </strong>
-      $<%= @publication.estimated_price %>
+      $<%= @publication.final_price %>
     </p>
 
     <p>
@@ -72,12 +79,6 @@
 
     <%= link_to publications_path, :class => "back-publication-show" do%>
       <span class="icon-reply"></span>
-    <%end%>
-    <%if current_user.role == "transportista"%>
-    <% else %>
-     <%= link_to edit_publication_path(@publication), :class => "edit-publication-show" do%>
-    <% end %>
-      <span class="icon-edit"></span>
     <%end%>
    
   </section>

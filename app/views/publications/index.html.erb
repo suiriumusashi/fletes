@@ -5,7 +5,7 @@
     <h1 class="title-publications">Listado de Publicaciones</h1>
 
     <%if defined? current_user.role %>
-        <%if current_user.role == "transportista" && current_user.update_profile == "1"%>
+        <%if current_user.role == "transportista" || current_user.role == "etransportista" && current_user.update_profile == "1"%>
           <% @publications.each do |publication| %>
             <article class="publication">
               <% if publication.status == "1"%>

@@ -31,7 +31,7 @@
         <div class="cont_fields">
         <%= f.label :role, "Tipo de usuario" %><br />
           <%= f.select(:role) do %>
-            <% [['Transportista', "transportista"]].each do |c| -%>
+            <% [['Empresa Transportista', "etransportista"],['Transportista Independiente', "transportista"]].each do |c| -%>
               <%= content_tag(:option, c.first, value: c.last) %>
             <% end %>
           <% end %>

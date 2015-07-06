@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616011921) do
+ActiveRecord::Schema.define(version: 20150701001706) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20150616011921) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "competitors", force: :cascade do |t|
+    t.string   "conform"
+    t.string   "price"
+    t.integer  "users_id"
+    t.integer  "publications_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "competitors", ["publications_id"], name: "index_competitors_on_publications_id"
+  add_index "competitors", ["users_id"], name: "index_competitors_on_users_id"
 
   create_table "inboxes", force: :cascade do |t|
     t.string   "subject"
@@ -177,6 +189,11 @@ ActiveRecord::Schema.define(version: 20150616011921) do
     t.string   "rfc"
     t.text     "description"
     t.boolean  "mails_sent",             default: false
+    t.string   "responsible"
+    t.string   "trucks"
+    t.string   "trucks_number"
+    t.string   "other_service"
+    t.string   "regions"
     t.string   "role"
     t.string   "celphone"
     t.string   "phone_extra"

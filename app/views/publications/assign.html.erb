@@ -15,7 +15,7 @@
 
         <% @a = 0 %>
           
-    <%for user in User.where(role: 'transportista')%>
+    <%for user in User.where(role: ['transportista', 'etransportista'])%>
       <% @a = @a + 1 %>
       <article class="register <% if user.update_profile == '0' %> no-red<% end %> open-more-info" >
         <div class="data">

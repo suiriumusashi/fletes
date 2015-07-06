@@ -1,7 +1,7 @@
 class DriversController < ApplicationController
 	authorize_resource :class => false
 	def index
-		@clients = User.where(role: 'transportista')
+		@clients = User.where(role: ['transportista', 'etransportista'])
 	end
 
 	def show
