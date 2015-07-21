@@ -1,0 +1,84 @@
+<main id="cont-info-controllers">
+  <section class="cont">
+  	
+	<p>
+		<strong>Nombre: </strong>
+		<%= @client.first_name %> <%= @client.last_name %>
+	</p>	
+	<p>
+		<strong>Correo electronico: </strong>
+		<%= @client.email %>
+	</p>
+	<p>
+		<strong>Telefono: </strong>
+		<%= @client.phone %>
+	</p>
+	<p>
+		<strong>Celular: </strong>
+		<%= @client.celphone %>
+	</p>
+	<p>
+		<strong>Telefono Extra: </strong>
+		<%= @client.celphone %>
+	</p>
+	<p>
+		<strong>Estodo: </strong>
+		<%= @client.state_origin %>
+	</p>
+	<p>
+		<strong>Ciudad: </strong>
+		<%= @client.city_origin %>
+	</p>
+	<p>
+		<strong>Calle y Numero: </strong>
+		<%= @client.street %> # <%= @client.number_out %> <%= @client.number_in %>
+	</p>
+	<p>
+		<strong>Colonia: </strong>
+		<%= @client.colony %>
+	</p>
+	<p>
+		<strong>Codigo postal: </strong>
+		<%= @client.postal %>
+	</p>
+	<p>
+		<strong>Ciudad ultima vez: </strong>
+		<%= @client.city %>
+	</p>
+	<p>
+		<strong>Estado ultima vez : </strong>
+		<%= @client.state %>
+	</p>
+	<p>
+		<strong>Compañia: </strong>
+		<%= @client.company %>
+	</p>
+	<p>
+		<strong>RFC: </strong>
+		<%= @client.rfc %>
+	</p>
+	<p>
+		<strong>Descripcion: </strong>
+		<%= @client.description %>
+	</p>
+	<p>
+		<strong>Servicios que ofrece: </strong>
+		<%= @client.services.collect(&:name).join(" | ") %>
+	</p>
+	<p>
+		<strong>Camiones con los que cuenta: </strong>
+		<%= @client.trucks.collect(&:name).join(" | ") %>
+	</p>
+
+	<p>
+		<strong>Cargas que soportan: </strong>
+		<%= @client.loads.collect(&:range).join(" | ") %>
+	</p>
+    
+    
+    
+    <%= link_to :back, :class => "back-publication-show" do%>
+      <span class="icon-reply"></span>
+    <%end%>
+	</section>
+</main>

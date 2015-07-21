@@ -1,0 +1,187 @@
+<main id="edit-user-cont">
+  <section class="cont">
+    <figure>
+      <%= image_tag "logo.png", :alt => "Logo", :title => "Logo"%>
+    </figure>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="cont_fields">
+        <%= f.label :email, "Correo electronico" %><br />
+        <%= f.email_field :email, autofocus: true, :required => true %>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :first_name, "Nombre" %><br />
+        <%= f.text_field :first_name, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :last_name, "Apellido" %><br />
+        <%= f.text_field :last_name, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :phone, "Telefono Oficina" %><br />
+        <%= f.text_field :phone, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :celphone, "Telefono Celular" %><br />
+        <%= f.text_field :celphone, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :phone_extra, "Telefono Extra" %><br />
+        <%= f.text_field :phone_extra, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :state, "Estado" %><br />
+        <%= f.text_field :state_origin, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :city, "Ciudad" %><br />
+        <%= f.text_field :city_origin, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :state, "Estado Actual (Automatico Mediante Geolocalizacion)" %><br />
+        <%= f.text_field :state, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :city, "Ciudad Actual (Automatico Mediante Geolocalizacion)" %><br />
+        <%= f.text_field :city, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :street, "Calle" %><br />
+        <%= f.text_field :street, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :number_out, "Numero exterior" %><br />
+        <%= f.text_field :number_out, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :number_in, "Numero interior" %><br />
+        <%= f.text_field :number_in, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :colony, "Colonia" %><br />
+        <%= f.text_field :colony, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :postal, "Codigo Postal" %><br />
+        <%= f.text_field :postal, autocomplete: "off", :required => true%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :company, "Nombre compañia o Razon social" %><br />
+        <%= f.text_field :company, autocomplete: "off"%>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :rfc, "RFC" %><br />
+        <%= f.text_field :rfc, autocomplete: "off"%>
+      </div>
+
+      <%= f.hidden_field :update_profile, :value => "1"%>
+
+
+      <% if current_user.role == "etransportista" %>
+        <div class="cont_fields">
+          <%= f.label :responsible, "Persona responsable de los viajes." %><br>
+          <%= f.text_field :responsible, :required => true %>
+        </div>
+        <div class="cont_fields">
+          <%= f.label :regions, "Ciudades Frecuentes separadas por comas." %><br>
+          <%= f.text_field :regions, :required => true, :placeholder => "ej. Durango, Monterrey, etc..." %>
+        </div>
+        <div class="cont_fields">
+          <%= f.label :trucks_number, "Cantidad de vehículos con los que cuenta la empresa." %><br>
+          <%= f.text_field :trucks_number, :required => true %>
+        </div>
+      <% end %>
+      
+      <div class="cont_fields">
+        <%= f.label :description, "Descrive brevemente tu empresa o tu personalidad." %><br>
+        <%= f.text_area :description, :required => true %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+      <%if current_user.role == "transportista" || current_user.role == "etransportista"%>
+        <fieldset>
+        <legend>Servicios que ofrece</legend>
+         <%for service in Service.all%>
+            <div>
+                <%= check_box_tag "user[service_ids][]", service.id, @user.services.include?(service)%>
+                <%= service.name%>
+            </div>
+          <% end -%>
+          
+        </fieldset>
+
+        
+
+        <fieldset>
+        <legend>Tipos de camiones</legend>
+         <%for truck in Truck.all%>
+            <div>
+                <%= check_box_tag "user[truck_ids][]", truck.id, @user.trucks.include?(truck)%>
+                <%= truck.name%>
+            </div>
+          <% end -%>
+        </fieldset>
+        
+
+        <fieldset>
+        <legend>Cargas que soportan</legend>
+         <%for load in Load.all%>
+            <div>
+                <%= check_box_tag "user[load_ids][]", load.id, @user.loads.include?(load)%>
+                <%= load.range%>
+            </div>
+          <% end -%>
+        </fieldset>
+      <% end -%>
+      <div class="cont_fields">
+        <%= f.label :password, "Contraseña" %> <i>(Si no deseas cambiar tu contraseña dejala en blanco)</i><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :password_confirmation, "Repetir contraseña" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :current_password, "Contraseña actual"%> <i>(Necesitas colocar tu contraseña actual para poder hacer cambios)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Actualizar", :class => "submit-edit-user" %>
+      </div>
+    <% end %>
+
+
+
+    <h3>Cancelar mi cuenta</h3>
+
+    <p><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro" }, method: :delete, :class => "submit-edit-user" %></p>
+
+    <%= link_to :back, :class => "link-back-edit-user" do%>
+      <span class="icon-reply"></span>
+    <% end %>
+   
+ </section>
+</main>

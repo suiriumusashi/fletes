@@ -1,0 +1,17 @@
+<main id="cont-info-controllers">
+  <section class="cont">
+
+	<p>
+	  <strong>Nombre del Servicio:</strong>
+	  <%= @service.name %>
+	</p>
+
+	<%= link_to services_path, :class => "back-publication-show" do%>
+      <span class="icon-reply"></span>
+    <%end%>
+    <%= link_to edit_service_path(@service), :class => "edit-publication-show" do%>
+      <span class="icon-edit"></span>
+    <%end%>
+   
+  </section>
+</main>

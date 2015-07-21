@@ -1,0 +1,14 @@
+== Sistema de administracion de fletes
+
+Aplicacion creada en Ruby on Rails funciona para la administracion de clientes y camioneros cada uno de ellos con la posibilidad de registrarse.
+
+* Ruby version 2.2.0p0
+
+* Rails 4.2.0
+
+* Mysql2
+
+
+Ejecutar el sistema
+
+<tt>rails -s</tt>.

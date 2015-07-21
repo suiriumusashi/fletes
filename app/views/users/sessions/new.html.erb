@@ -1,0 +1,29 @@
+<main id="log-in-user-cont">
+  <section class="cont">
+    <figure>
+      <%= image_tag "logo.png", :alt => "Logo", :title => "Logo"%>
+    </figure>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="cont_fields">
+        <%= f.label :email, "Correo Electronico" %>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="cont_fields">
+        <%= f.label :password, "Contraseña" %> <%= link_to " (Olvidaste tu contraseña)", new_password_path(resource_name) %>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="cont_remember">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "Recuerdame" %>
+        </div>
+      <% end -%>
+
+      <%= f.submit "Entrar", :class => "submit-log-in-user" %>
+    
+    <% end %>
+  </section>
+</main>

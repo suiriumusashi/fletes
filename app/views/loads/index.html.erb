@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<main id="services-cont">
+  <section class="cont">
+    <h1 class="title-publications">Listado de Servicios</h1>
+    
+        <% @loads.each do |load| %>
+
+          <article class="register">
+            <div class="name"><%= load.range %></div>
+            <div class="actions">
+              <%= link_to load, :class => "link-action" do%>
+                <span class="icon-remove-red-eye"></span>
+              <% end %>
+              <%= link_to edit_load_path(load), :class => "link-action" do %>
+                <span class="icon-edit"></span>
+              <% end %>
+              <%= link_to load, method: :delete, data: { confirm: 'Are you sure?' }, :class => "link-action" do %>
+                <span class="icon-cancel"></span>
+              <% end %>
+            </div>
+          </article>
+
+        <% end %>
+        <%= link_to  new_load_path, :class => "link-more-services" do%>
+          <span class="icon-plus"></span>
+        <%end%>
+  </section>
+</main>

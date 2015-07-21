@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Conform:</strong>
+  <%= @competitor.conform %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @competitor.price %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @competitor.users %>
+</p>
+
+<p>
+  <strong>Publications:</strong>
+  <%= @competitor.publications %>
+</p>
+
+<%= link_to 'Edit', edit_competitor_path(@competitor) %> |
+<%= link_to 'Back', competitors_path %>

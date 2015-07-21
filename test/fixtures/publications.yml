@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  day_pickup: MyString
+  time_pickup: MyString
+  day_delivery: MyString
+  time_delivery: MyString
+  description: MyText
+  estimated_price: MyString
+  final_price: MyString
+  status: MyString
+
+two:
+  title: MyString
+  day_pickup: MyString
+  time_pickup: MyString
+  day_delivery: MyString
+  time_delivery: MyString
+  description: MyText
+  estimated_price: MyString
+  final_price: MyString
+  status: MyString

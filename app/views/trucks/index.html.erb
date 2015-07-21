@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<main id="services-cont">
+  <section class="cont">
+    <h1 class="title-publications">Listado tipos de camiones</h1>
+    
+        <% @trucks.each do |truck| %>
+
+          <article class="register">
+            <div class="name"><%= truck.name %></div>
+            <div class="actions">
+              <%= link_to truck, :class => "link-action" do%>
+                <span class="icon-remove-red-eye"></span>
+              <% end %>
+              <%= link_to edit_truck_path(truck), :class => "link-action" do %>
+                <span class="icon-edit"></span>
+              <% end %>
+              <%= link_to truck, method: :delete, data: { confirm: 'Are you sure?' }, :class => "link-action" do %>
+                <span class="icon-cancel"></span>
+              <% end %>
+            </div>
+          </article>
+
+        <% end %>
+        <%= link_to  new_truck_path, :class => "link-more-services" do%>
+          <span class="icon-plus"></span>
+        <%end%>
+  </section>
+</main>

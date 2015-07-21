@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fletes Durango | Rapido - Barato - Seguro</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body>
+
+		<header id="galeria">
+			<a href="#" class="btn-gl" id="anterior">
+				<%= image_tag "btn-left.png", :alt => "Left", :title => "Left"%>
+			</a>
+			<div class="galeria">
+				<ul>
+					<li><%= image_tag "slide-1.png", :alt => "Slide1", :title => "Slide1"%></li>
+					<li>
+						<%= image_tag "slide-2.png", :alt => "Slide2", :title => "Slide2"%>
+					</li>
+					<li>
+						<%= image_tag "slide-3.png", :alt => "Slide3", :title => "Slide3"%>
+					</li>
+					<li>
+						<%= image_tag "slide-4.png", :alt => "Slide4", :title => "Slide4"%>
+					</li>
+				</ul>
+			</div>
+			<a href="#" class="btn-gl" id="siguiente">
+				<%= image_tag "btn-right.png", :alt => "Right", :title => "Right"%>
+			</a>
+		</header>
+
+	<section id="container-home">
+		<article class="features">
+			<figure class="rapido">
+				<div class="boxes-descriptions description-rapido">
+					<span class="ion-android-close close-des"></span>
+					En fletetodo te ofrecemos fluidez y calidad en cualquiera de nuestros servicios, evitando largas esperas. 
+				</div>
+				<%= image_tag "rocket.png", :alt => "Rapido", :title => "Rapido"%>
+				<figcaption>
+					Rapido
+				</figcaption>
+			</figure>
+			<figure class="economico">
+				<div class="boxes-descriptions description-economico">
+				<span class="ion-android-close close-des"></span>
+					Buscamos dentro de nuestra base de datos la mejor oferta que incluya calidad, fluidez y un buen precio.
+				</div>
+				<%= image_tag "trate.png", :alt => "Economico", :title => "Economico"%>
+				<figcaption>
+					Economico
+				</figcaption>
+			</figure>
+			<figure class="nacional">
+				<div class="boxes-descriptions description-nacional">
+				<span class="ion-android-close close-des"></span>
+					Contamos con cobertura en toda la republica mexicana sin importar el lugar o el clima ahi estaremos puntuales.
+				</div>
+				<%= image_tag "word.png", :alt => "Nacional", :title => "Nacional"%>
+				<figcaption>
+					Nacional
+				</figcaption>
+			</figure>
+		</article>
+		<article class="steps">
+			<figure class="uno">
+				<div class="boxes-pasos description-uno">
+					<span class="ion-android-close close-des"></span>
+					Registrate completamente gratis y llena tu perfil al 100%. 
+				</div>
+				<%= image_tag "one.png", :alt => "Primero", :title => "Primero"%>
+				<figcaption>
+					Registrate.
+				</figcaption>
+			</figure>
+			<figure class="dos">
+				<div class="boxes-pasos description-dos">
+					<span class="ion-android-close close-des"></span>
+					Recibe notificaciones de viajes según tu perfil, haz tu cotización y escoge la que más te convenga.
+				</div>
+				<%= image_tag "two.png", :alt => "Segundo", :title => "Segundo"%>
+				<figcaption>
+					Haz Cotizaciones.
+				</figcaption>
+			</figure>
+			<figure class="tres">
+				<div class="boxes-pasos description-tres">
+					<span class="ion-android-close close-des"></span>
+					Al comienzo de tu servicio recibirás el 50% y al terminar el otro 50% restante en tu cuenta bancaria.
+				</div>
+				<%= image_tag "three.png", :alt => "Tercero", :title => "Tercero"%>
+				<figcaption>
+					Gana Dinero.
+				</figcaption>
+			</figure>
+		</article>
+		<article class="why">
+			<h1>Grandes Beneficios</h1>
+			<div class="cont">
+				<div class="box">
+					<h2>Transportistas</h2>
+					<p>
+						Podrán participar y ofertar en todas las publicaciones que concuerden con su perfil, así como también todos los transportistas participaran en concursos ya sea por el mejor récord o más frecuente en los cuales recibirá increíbles premios.
+					</p>
+				</div>
+				<div class="box">
+					<h2>Clientes</h2>
+					<p>
+						Sabemos que conseguir quien transporte tu mercancía la mayoría de los casos es una tarea muy difícil y en muchos casos muy costoso, en fletetodo nos encargamos de buscarte las mejores opciones tanto en precio como en calidad.
+					</p>
+				</div>
+			</div>
+		</article>
+		<article class="register">
+			<h1>¿Que esperas para ser parte de esta increible comunidad?</h1>
+			<%= link_to new_user_registration_path do%>
+	        	Registrate Gratuitamente
+	    	<% end %>
+		</article>
+	</section>
+	
+</body>
+</html>
