@@ -1,6 +1,7 @@
 //Colores base
 amarillo = #ffdf00 //provicional
 gris = #42444a
+gris_a = #2A2A2A
 gris_claro = #E6E6E6
 
 rojo_b = #E41A1D
@@ -71,8 +72,8 @@ main
 			text-align center
 			max-width 1000px
 			& .about
-				background gris
-				color white
+				background noen
+				color gris
 				border-radius 10px
 				line-height: 140%;
 				text-align left
@@ -80,9 +81,9 @@ main
 				padding 1em 1.5em
 				margin 1em
 				& span
-					background amarillo
+					background gris
 					border-radius 50%
-					color gris
+					color amarillo
 					font-size 4em
 					display block
 					text-align center
@@ -91,38 +92,29 @@ main
 					height 60px
 					width 60px
 	& .steps
-		background rojo_b2
-		padding 3em 0
+		padding 0
 		text-align center
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		justify-content: space-around;
 		width 100%
-		& figure
-			display inline-block
-			text-align center
-			margin 0 3em
-			max-width 180px
-			position relative
-			& .boxes-pasos
-				display none
-				color amarillo
-				background white
-				position absolute
-				top 0
-				left 0
-				padding 3em .3em 0 .3em
-				height 150px
-				width 100%
-				.close-des
-					cursor pointer
-					position absolute
-					right .3em
-					top .3em
-					font-size 1.3em
-			& img
-				width 100%
-			& figcaption
+		& .description
+			background gris
+			padding 5em 0
+			width 33.20%
+			&:nth-child(2)
+				border-left 2px solid gris_a
+				border-right 2px solid gris_a
+			& span
 				color white
-				font-size 1.3em
-				margin-top 1em
+				font-size 4em
+				padding 1em
+				border 2px solid white
+				border-radius 50%
 	& .why
 		background-attachment fixed
 		background url('back_truck.jpg') no-repeat center center fixed
@@ -156,12 +148,12 @@ main
 				p
 					text-align left
 	& .register
-		background verde_p
+		background white
 		padding 4em 0
 		text-align center
 		width 100%
 		& h1
-			color white
+			color gris
 			font: 300 16px/120% proxima-nova,sans-serif;
 			display block
 			font-size 2.3em
@@ -173,8 +165,10 @@ main
 		& a
 			border-radius .5em
 			display block
-			background #01090d
+			background gris
+			border-bottom 4px solid gris_a
 			color white
+			font-weight bold
 			padding 1.3em 1em
 			text-decoration none
 			margin 1em auto
@@ -312,15 +306,12 @@ main
 			float right
 			padding .3em 2em
 			& figure
-				border 2px solid white
-				border-radius 50%
 				height 40px
 				margin 0
-				overflow hidden
 				width 40px
-				& img
-					height 100%
-					width 100%
+				& span
+					font-size 3em
+					color gris
 		& .cont-actions-user
 			display none
 			background gris
@@ -335,7 +326,7 @@ main
 				margin-right: 10px;
 				width: 0px; 
 				height: 0px;
-				border:3px solid #FFFFFF;
+				border:3px solid gris;
 				border-right-color:transparent;
 				border-left-color:transparent;
 				border-width:0px 10px 11px;
@@ -352,6 +343,7 @@ main
 				padding .7em 1em
 				text-decoration none
 				&:hover
+					color gris
 					background #FAFAFA
 				& li
 					list-style none
@@ -510,19 +502,19 @@ main
 		padding 2em
 		position relative
 		& p
-			border-bottom 2px dotted amarillo
+			border-bottom 2px dotted gris
 			padding   1em 0
 			& strong
 				color gris
 		& .back-publication-show
-			color amarillo
+			color gris
 			font-size 1.6em
 			left .4em
 			position absolute
 			text-decoration none
 			top .4em
 		& .edit-publication-show
-			color amarillo
+			color gris
 			font-size 1.6em
 			right .4em
 			position absolute
@@ -1437,7 +1429,7 @@ main
 
 footer
 	display inline-block
-	background gris
+	background #01090d
 	color white
 	padding 1em 0 2em 0
 	width 100%
@@ -1493,7 +1485,9 @@ footer
 				& a
 					color white
 					font-size .6em
-					padding 0	
+					padding 0
+					& span
+						color rojo
 
 
 

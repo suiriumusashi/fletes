@@ -108,13 +108,10 @@
 
       <a href="#" class="show-actions-user">
         <figure>
-          <%= image_tag current_user.avatar, :alt => "Avatar", :title => "Avatar"%>
+          <span class="ion-ios-gear"></span>
         </figure>
       </a>
       <div class="cont-actions-user">
-        <a href="">
-          <li>Cambiar avatar</li>
-        </a>
          <%= link_to edit_user_registration_path, :class => 'li-standar' do%>
             <li>Editar perfil</li>
          <%end%> 
@@ -162,9 +159,6 @@
         </figure>
       </a>
       <div class="cont-actions-user">
-        <a href="">
-          <li>Cambiar avatar</li>
-        </a>
          <%= link_to edit_admin_registration_path, :class => 'li-standar' do%>
             <li>Editar perfil</li>
          <%end%> 
@@ -267,7 +261,7 @@
         </div>
         <div class="rules">
           <p>
-            <a href="http://dhomper.mx" target="_blank">Powered by Dhomper + Heptagram</a>
+            <a href="http://dhomper.mx" target="_blank">Made with <span class="ion-ios-heart"></span> by Heptagram</a>
           </p>
         </div>
       </div>
