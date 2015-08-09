@@ -68,6 +68,7 @@
                 <%= link_to 'Editar', edit_publication_path(publication) %>
                 <%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Estas seguro' } %>
                 <%= link_to 'Asignar', assign_path(publication), :class => "assign" %>
+                <%= link_to 'Participantes', competitorsp_path(publication), :class => "competitors" %>
               </div>
             </div>
             

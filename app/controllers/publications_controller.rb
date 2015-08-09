@@ -25,6 +25,9 @@ class PublicationsController < ApplicationController
   def assign
   end
 
+  def competitors
+  end
+
   def myoffers
     @competitor = Competitor.new
   end

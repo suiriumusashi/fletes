@@ -29,25 +29,34 @@
               <h3>$<%= publication.final_price %></h3>
             </div>
             <div class="conform">
-              <h1>¿Deseas Participar?</h1>
-              <%= form_for(@competitor) do |f| %>
-                <div class="content-tags">
-                  <h2>¿Estas de acuerdo con el precio estipulado?</h2>
-                  <p>
-                    <%= f.radio_button :conform, 'Si', :checked => true, :class => "yesconform" %>
-                    <%= label_tag(:conform, "De Acuerdo") %>
-                    <%= f.radio_button :conform, 'No', :class => "noconform" %>
-                    <%= label_tag(:conform, "Inconforme") %>
-                  </p>
-                  <h2 class="form-ocult">¿Cual es el costo por el cual realizarias el viaje?</h2>
-                  <p class="form-ocult">
-                    <%= f.number_field :price, :placeholder => "Costo de tu servicio", :value => publication.final_price, :required => true, :class => "thevalue" %>
-                  </p>
-                  
-                  <%= f.hidden_field :users_id, :value => current_user.id %>
-                  <%= f.hidden_field :publications_id, :value => publication.id %>
-                  <%= f.submit "Participar" %>
-                </div>
+            <% Competitor.all.each do |competitor| %>
+              <% if competitor.publications_id == publication.id && competitor.users_id == current_user.id %>
+                <% @register = "yes" %>
+              <% end %>
+            <% end %>
+              <% if @register == "yes" %>
+                <h1>Ya estas participando</h1>
+              <% else %>
+                <h1>¿Deseas Participar?</h1>
+                <%= form_for(@competitor) do |f| %>
+                  <div class="content-tags">
+                    <h2>¿Estas de acuerdo con el precio estipulado?</h2>
+                    <p>
+                      <%= f.radio_button :conform, 'Si', :checked => true, :class => "yesconform" %>
+                      <%= label_tag(:conform, "De Acuerdo") %>
+                      <%= f.radio_button :conform, 'No', :class => "noconform" %>
+                      <%= label_tag(:conform, "Inconforme") %>
+                    </p>
+                    <h2 class="form-ocult">¿Cual es el costo por el cual realizarias el viaje?</h2>
+                    <p class="form-ocult">
+                      <%= f.number_field :price, :placeholder => "Costo de tu servicio", :value => publication.final_price, :required => true, :class => "thevalue" %>
+                    </p>
+                    
+                    <%= f.hidden_field :users_id, :value => current_user.id %>
+                    <%= f.hidden_field :publications_id, :value => publication.id %>
+                    <%= f.submit "Participar" %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
             <%= link_to 'Ver más', publication, :class => "link_go" %>
