@@ -6,8 +6,13 @@
 		<%= @client.first_name %> <%= @client.last_name %>
 	</p>
 	<p>
-		<strong>Tipo de usuario: </strong>
-		<%= @client.role %>
+		<% if @client.role == "transportista" %>
+			<strong>Tipo de usuario: </strong>
+			Transportista Independiente
+		<% else %>
+			<strong>Tipo de usuario: </strong>
+			Empresa Transportista
+		<% end %>
 	</p>	
 	<p>
 		<strong>Correo electronico: </strong>
