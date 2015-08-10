@@ -4,6 +4,10 @@
 	<p>
 		<strong>Nombre: </strong>
 		<%= @client.first_name %> <%= @client.last_name %>
+	</p>
+	<p>
+		<strong>Tipo de usuario: </strong>
+		<%= @client.role %>
 	</p>	
 	<p>
 		<strong>Correo electronico: </strong>
@@ -22,7 +26,7 @@
 		<%= @client.phone_extra %>
 	</p>
 	<p>
-		<strong>Estodo: </strong>
+		<strong>Estado: </strong>
 		<%= @client.state_origin %>
 	</p>
 	<p>
