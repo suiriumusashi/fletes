@@ -9,6 +9,6 @@ class DriversController < ApplicationController
   	end
 
   	def search
-	  	@clients = User.where('city LIKE ?', "%{params[:q]}%")
+	  	@clients = User.where("state_origin LIKE ? OR city_origin like ?", "%#{params[:q]}%", "%#{params[:q]}%")
 	end
 end

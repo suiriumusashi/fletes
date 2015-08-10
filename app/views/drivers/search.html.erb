@@ -12,27 +12,31 @@
     </form>
     	<article class="register">
 				<div class="data">
-					<p>Nombre</p>
-		          	<p>Correo electronico</p>
-		          	<p>Telefono</p>
-		          	<p>Ver</p>
+					<p class="number">Nº</p>
+                    <p>Nombre</p>
+                    <p>Correo electronico</p>
+                    <p>Telefono</p>
+                    <p class="number">Ver</p>
 		        </div>
         	</article>
+        <% @a = 0 %>
 		<% @clients.each do |client| %>
+        <% @a = @a + 1 %>
 			<article class="register">
 				<div class="data">
-					<p><%= client.first_name %> <%= client.last_name %></p> 
-		          	<p><%= client.email %></p>
-		          	<% if client.phone == nil%>
-		          		<p>N/E</p>
-		          	<% else %>
-		          		<p><%= client.phone %></p>
-		          	<% end %>
-		          	<p>
-		          		<a href="/drivers/<%= client.id %>" class="link-action">
-			                <span class="icon-remove-red-eye"></span>
-			            </a>
-		          	</p>
+					<p class="number"><%= @a %></p>
+                    <p><%= client.first_name %> <%= client.last_name %></p> 
+                    <p><%= client.email %></p>
+                    <% if client.phone == nil%>
+                        <p>N/E</p>
+                    <% else %>
+                        <p><%= client.phone %></p>
+                    <% end %>
+                    <p class="number">
+                        <a href="/drivers/<%= client.id %>" class="link-action">
+                            <span class="icon-remove-red-eye"></span>
+                        </a>
+                    </p>
 		        </div>
         	</article>
         <% end %>
