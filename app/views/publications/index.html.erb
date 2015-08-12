@@ -13,7 +13,7 @@
               <% else %>
                 <span class="ion-android-cancel desactivate-publication"> Concluida</span>
               <% end %>
-              <h1><%= publication.title %></h1>
+              <h1><%= publication.id %><%= publication.id %><%= publication.title %></h1>
               <div>
                 <h2>Recoleccion</h2>
                 <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
@@ -72,7 +72,7 @@
               </div>
             </div>
             
-            <h1><%= publication.title %></h1>
+            <h1><%= publication.id %><%= publication.title %></h1>
             <div>
               <h2>Recoleccion</h2>
               <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
@@ -107,7 +107,7 @@
               </div>
             </div>
             
-            <h1><%= publication.title %></h1>
+            <h1><%= publication.id %><%= publication.title %></h1>
             <div>
               <h2>Recoleccion</h2>
               <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>

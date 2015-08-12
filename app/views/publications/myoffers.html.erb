@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
+
 <main id="publications-cont">
   <section class="cont">
     <h1 class="title-publications">Fuiste seleccionado en los siguientes viajes</h1>
 
     <%if defined? current_user.role %>
-        <% if current_user.role == "transportista" || current_user.role == "etransportista" && current_user.update_profile == "1" %>
+        <%if current_user.role == "transportista" || current_user.role == "etransportista" && current_user.update_profile == "1"%>
         <% current_user.publications.each do |publication| %>
           <article class="publication">
             <% if publication.status == "1"%>
@@ -12,7 +13,8 @@
             <% else %>
               <span class="ion-android-cancel desactivate-publication"> Concluida</span>
             <% end %>
-
+       
+            
             <h1><%= publication.title %></h1>
             <div>
               <h2>Recoleccion</h2>
@@ -32,9 +34,7 @@
                 <% @register = "yes" %>
               <% end %>
             <% end %>
-              <% if @register == "yes" %>
-                <h1>Ya estas participando</h1>
-              <% else %>
+              
                 <h1>¿Deseas Participar?</h1>
                 <%= form_for(@competitor) do |f| %>
                   <div class="content-tags">
@@ -54,7 +54,6 @@
                     <%= f.hidden_field :publications_id, :value => publication.id %>
                     <%= f.submit "Participar" %>
                   </div>
-                <% end %>
               <% end %>
             </div>
             <%= link_to 'Ver más', publication, :class => "link_go" %>

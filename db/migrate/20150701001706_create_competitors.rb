@@ -8,7 +8,7 @@ class CreateCompetitors < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :competitors, :users
+    add_foreign_key :competitors, :users, column: :user_id
     add_foreign_key :competitors, :publications
   end
 end
