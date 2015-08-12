@@ -2,7 +2,7 @@
     <h1>Participantes</h1>
     <section class="cont">    
         <% @competitors = Competitor.all %>
-        <% for competitors in @competitors.where(publications_id: params['id']) %>
+        <% for competitors in @competitors.where(publication_id: params['id']) %>
             <div class="data">
                 <% @name = User.where(:id => competitors.user_id).first %>
                 <h2><%= @name.first_name %></h2>
