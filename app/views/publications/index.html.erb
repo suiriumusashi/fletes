@@ -8,12 +8,13 @@
         <%if current_user.role == "transportista" || current_user.role == "etransportista" && current_user.update_profile == "1"%>
           <% @publications.each do |publication| %>
             <article class="publication">
+              <div class="folio">Folio. <%=publication.id %></div>
               <% if publication.status == "1"%>
                 <span class="ion-android-checkbox activate-publication"> Activada</span>
               <% else %>
                 <span class="ion-android-cancel desactivate-publication"> Concluida</span>
               <% end %>
-              <h1><%= publication.id %><%= publication.id %><%= publication.title %></h1>
+              <h1><%= publication.title %></h1>
               <div>
                 <h2>Recoleccion</h2>
                 <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
@@ -52,6 +53,7 @@
       <%if defined? current_admin.role %>
         <% if current_admin.role == "super"%>
           <article class="publication">
+            <div class="folio">Folio. <%=publication.id %></div>
             <% if publication.status == "1"%>
               <span class="ion-android-checkbox activate-publication"> Activada</span>
             <% else %>
@@ -72,7 +74,7 @@
               </div>
             </div>
             
-            <h1><%= publication.id %><%= publication.title %></h1>
+            <h1><%= publication.title %></h1>
             <div>
               <h2>Recoleccion</h2>
               <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
@@ -94,6 +96,7 @@
     <%if defined? current_user.role %>
       <% if publication.user_id == current_user.id && current_user.role == "cliente"%>
           <article class="publication">
+            <div class="folio">Folio. <%=publication.id %></div>
             <% if publication.status == "1"%>
               <span class="ion-android-checkbox activate-publication"> Activada</span>
             <% else %>
@@ -107,7 +110,7 @@
               </div>
             </div>
             
-            <h1><%= publication.id %><%= publication.title %></h1>
+            <h1><%= publication.title %></h1>
             <div>
               <h2>Recoleccion</h2>
               <p><%= publication.day_pickup %> a las <%= publication.time_pickup %></p>
