@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701001706) do
+ActiveRecord::Schema.define(version: 20150812160334) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 20150701001706) do
   create_table "competitors", force: :cascade do |t|
     t.string   "conform"
     t.string   "price"
-    t.integer  "users_id"
-    t.integer  "publications_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.integer  "publication_id"
   end
 
-  add_index "competitors", ["publications_id"], name: "index_competitors_on_publications_id"
-  add_index "competitors", ["users_id"], name: "index_competitors_on_users_id"
+  add_index "competitors", ["publication_id"], name: "index_competitors_on_publication_id"
+  add_index "competitors", ["user_id"], name: "index_competitors_on_user_id"
 
   create_table "inboxes", force: :cascade do |t|
     t.string   "subject"
