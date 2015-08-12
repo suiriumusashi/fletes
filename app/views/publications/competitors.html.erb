@@ -4,13 +4,13 @@
         <% @competitors = Competitor.all %>
         <% for competitors in @competitors.where(publications_id: params['id']) %>
             <div class="data">
-                <% @name = User.where(:id => competitors.users_id).first %>
+                <% @name = User.where(:id => competitors.user_id).first %>
                 <h2><%= @name.first_name %></h2>
                 <div>
                     <p><%=competitors.conform%> Conforme</p> 
                     <p>$<%=competitors.price %></p>
                 </div>
-                <a href="/drivers/<%=competitors.users_id %>">Ver Informacion</a>
+                <a href="/drivers/<%=competitors.user_id %>">Ver Informacion</a>
             </div>
         <% end %>
     </section>
