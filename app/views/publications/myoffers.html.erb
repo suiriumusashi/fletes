@@ -30,11 +30,13 @@
             </div>
             <div class="conform">
             <% Competitor.all.each do |competitor| %>
-              <% if competitor.publications_id == publication.id && competitor.users_id == current_user.id %>
+              <% if competitor.publication_id == publication.id && competitor.user_id == current_user.id %>
                 <% @register = "yes" %>
+              <% else %>
+                <% @register = "no" %>
               <% end %>
             <% end %>
-              
+              <% if @register == "no" %> 
                 <h1>¿Deseas Participar?</h1>
                 <%= form_for(@competitor) do |f| %>
                   <div class="content-tags">
@@ -50,11 +52,16 @@
                       <%= f.number_field :price, :placeholder => "Costo de tu servicio", :value => publication.final_price, :required => true, :class => "thevalue" %>
                     </p>
                     
-                    <%= f.hidden_field :users_id, :value => current_user.id %>
-                    <%= f.hidden_field :publications_id, :value => publication.id %>
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
+                    <%= f.hidden_field :publication_id, :value => publication.id %>
+                    <br>
                     <%= f.submit "Participar" %>
                   </div>
-              <% end %>
+                  <% end %>
+                <% else %>
+                  <h1>Ya estas participando</h1>
+                <% end %>
+              
             </div>
             <%= link_to 'Ver más', publication, :class => "link_go" %>
           </article>
