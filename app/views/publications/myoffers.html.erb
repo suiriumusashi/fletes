@@ -6,7 +6,9 @@
 
     <%if defined? current_user.role %>
         <%if current_user.role == "transportista" || current_user.role == "etransportista" && current_user.update_profile == "1"%>
+        
         <% current_user.publications.each do |publication| %>
+        <% @register = 0 %>
           <article class="publication">
             <% if publication.status == "1"%>
               <span class="ion-android-checkbox activate-publication"> Activada</span>
@@ -30,13 +32,14 @@
             </div>
             <div class="conform">
             <% Competitor.all.each do |competitor| %>
+            <% @register = 0 %>
               <% if competitor.publication_id == publication.id && competitor.user_id == current_user.id %>
-                <% @register = "yes" %>
+                <% @register = 1 %>
               <% else %>
-                <% @register = "no" %>
+                <% @register = 0 %>
               <% end %>
             <% end %>
-              <% if @register == "no" %> 
+              <% if @register == 0 %>
                 <h1>¿Deseas Participar?</h1>
                 <%= form_for(@competitor) do |f| %>
                   <div class="content-tags">
