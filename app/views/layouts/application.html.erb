@@ -33,7 +33,7 @@
             </p>
             <%= link_to edit_user_registration_path, :class => 'register' do%>
             Editar perfil
-            <%end%> 
+            <%end%>
           </div>
         <% end %>
       <% end %>
@@ -44,7 +44,7 @@
           @user.update(city: params[:city], state: params[:state])
         end
       %>
-        
+
         <div class="page-cont">
 
         <li>
@@ -104,7 +104,7 @@
             <%end%>
         </li>
         </div>
-      
+
 
       <a href="#" class="show-actions-user">
         <figure>
@@ -114,7 +114,7 @@
       <div class="cont-actions-user">
          <%= link_to edit_user_registration_path, :class => 'li-standar' do%>
             <li>Editar perfil</li>
-         <%end%> 
+         <%end%>
 
          <%= link_to destroy_user_session_path, method: :delete, :class => 'li-standar' do%>
             <li>Cerrar Sesion</li>
@@ -149,10 +149,10 @@
           <%else%>
             <%= link_to offers_pub_path, :class => 'li-standar' do%>
               <li>Ofertas</li>
-            <%end%> 
+            <%end%>
           <%end%>
-       </div>   
-          
+       </div>
+
       <a href="#" class="show-actions-user">
         <figure>
           <span class="ion-ios-gear"></span>
@@ -160,11 +160,11 @@
       </a>
       <div class="cont-actions-user">
          <%= link_to edit_admin_registration_path, :class => 'li-standar' do%>
-            <li>Editar perfil</li>
-         <%end%> 
-
+            <li>Editar perfil </li>
+         <%end%>
+          
          <%= link_to destroy_admin_session_path, method: :delete, :class => 'li-standar' do%>
-            <li>Cerrar Sesion</li>
+            <li> Cerrar Sesion</li>
          <%end%>
       </div>
     <% else %>
@@ -212,12 +212,12 @@
               </ul>
             </li>
         </li>
-        
+
       </div>
 
       <div class="sessions-cont">
-        <%= link_to new_user_registration_path, :class => 'link_sign' do%>
-        <li>Registrate</li>
+        <%= link_to new_user_registration_path, :class => 'link_log' do%>
+        <li>Registrate</li> 
        <% end %>
        <%= link_to new_user_session_path, :class => 'link_log' do%>
         <li>Inicia Sesion</li>
@@ -276,17 +276,17 @@
   </div>
   <p class="mision">Fletetodo.com tiene como misión la prestación de servicios de transporte de  carga a
 
-      nivel Nacional, buscando siempre satisfacer las necesidades de nuestros clientes, 
+      nivel Nacional, buscando siempre satisfacer las necesidades de nuestros clientes,
 
-      haciendo una conexión entre cliente y transportista, cumpliendo sin demoras con 
+      haciendo una conexión entre cliente y transportista, cumpliendo sin demoras con
 
-      cada entrega y asegurándonos que la mercancía de nuestros clientes llegue 
+      cada entrega y asegurándonos que la mercancía de nuestros clientes llegue
 
-      siempre de manera segura, confiable y oportuna, para así seguir creciendo en 
+      siempre de manera segura, confiable y oportuna, para así seguir creciendo en
 
       nuestra cartera de clientes satisfechos.
   </p>
-    
+
   <p class="vision">
     Ser reconocidos a nivel no solo nacional si no a nivel internacional como una empresa que ofrece
 
@@ -305,11 +305,11 @@
     <span>Oficina. 1.28.50.78</span>
     <span>Celular. 618.145.00.07</span>
   </p>
-    
+
   <p class="email">
     <span>contacto@fletetodo.com</span>
     <span>ventas@fletetodo.com</span>
-    <span>ayuda@fletetodo.com</span>    
+    <span>ayuda@fletetodo.com</span>
   </p>
   <p class="direccion">
     <b>Felipe Pescador #717 B pre local 1 Zona Centro 34000 Durango Dgo.</b>
@@ -339,7 +339,7 @@
     </span>
     <span>¿Qué esperas? Ven y forma parte de esta increíble plataforma.</span>
   </p>
-    
+
   <p class="clientes">
   </p>
   </div>
@@ -355,10 +355,10 @@
     <span>Oficina. 1.28.50.78</span>
     <span>Correo. gerente@fletetodo.com</span>
   </p>
-    
+
   <p class="sugerencias">
     <span>En fletetodo.com buscamos inovar y ofrecerte un servicio de alta calidad por lo cual toda sugerencia sera tomada en cuenta para ofrecerte un producto de alta calidad y desempeño. Para tus sugerencias favor de enviarnos un correo a la siguiente dirección.</span>
-    <span>gerente@fletetodo.com</span>  
+    <span>gerente@fletetodo.com</span>
   </p>
   <p class="soporte">
     <span>Si tienes algún problema con la aplicación en términos técnicos o encontraste algún error en la aplicación favor de comunicarse por los siguientes medios.</span>

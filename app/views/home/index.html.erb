@@ -9,7 +9,7 @@
 <body>
 
 		<header id="galeria">
-			<a href="#" class="btn-gl" id="anterior">
+			<!-- <a href="#" class="btn-gl" id="anterior">
 				<%= image_tag "btn-left.png", :alt => "Left", :title => "Left"%>
 			</a>
 			<div class="galeria">
@@ -28,24 +28,71 @@
 			</div>
 			<a href="#" class="btn-gl" id="siguiente">
 				<%= image_tag "btn-right.png", :alt => "Right", :title => "Right"%>
-			</a>
+			</a> -->
+			<div class="content">
+				<h1>¿BUSCAS UN VIAJE?</h1>
+				<h2>Contamos com mas de 1000 unidades listas para ti.</h2>
+				<a href="/users/sign_up" class="register">Registrate</a>
+				<a href="/users/sign_in" class="login">Inicia Sesion</a>
+			</div>
 		</header>
 
 	<section id="container-home">
 		<article class="features">
 			<div class="cont">
 				<div class="about">
-					<span class="ion-flash"></span>
-					En fletetodo te ofrecemos fluidez y calidad en cualquiera de nuestros servicios, evitando largas esperas. 
+					<span class="ion-ios-bolt-outline"></span>
+					<div>
+						<h2>RAPIDEZ Y CALIDAD</h2>
+						En fletetodo te ofrecemos fluidez y calidad en cualquiera de nuestros servicios, evitando largas esperas.
+					</div>					
 				</div>
 				<div class="about">
-					<span class="ion-cloud"></span>
-					Buscamos dentro de nuestra base de datos la mejor oferta que incluya calidad, fluidez y un buen precio.
+					<span class="ion-ios-cloud-outline"></span>
+					<div>
+						<h2>PRECIOS COMPETITIVOS</h2>
+						Buscamos dentro de nuestra base de datos la mejor oferta que incluya calidad, fluidez y un buen precio.
+					</div>
 				</div>
 				<div class="about">
-					<span class="ion-location"></span>
-					Contamos con cobertura en toda la republica mexicana sin importar el lugar o el clima ahi estaremos puntuales.
+					<span class="ion-ios-location-outline"></span>
+					<div>
+						<h2>COVERTURA EN TODA LA REPUBLICA</h2>
+						Contamos con cobertura en toda la republica mexicana sin importar el lugar o el clima ahi estaremos puntuales.
+					</div>					
 				</div>
+				<div class="about">
+					<span class="ion-ios-checkmark-outline"></span>
+					<div>
+						<h2>UNIDADES CERTIFICADAS</h2>
+						Contamos con mas de 1000 unidades listas para cualquier tipo de carga cada, garantizandote la mejor experiencia.
+					</div>
+				</div>
+				<div class="about">
+					<span class="ion-ios-list-outline"></span>
+					<div>
+						<h2>BENEFICIOS A NUESTROS AFILIADOS</h2>
+						Todos los transportistas y empresas transportistas tendran increibles beneficios al pertenecer a la comunidad FleteTodo.
+					</div>
+				</div>
+				<div class="about">
+					<span class="ion-ios-telephone-outline"></span>
+					<div>
+						<h2>SERVICIO LAS 24H</h2>
+						Atendemos cualquier servicio que requieras las 24H y los 7 dias de la semana, brindandote asi la mejor experiencia en logistica.
+					</div>
+				</div>
+			</div>
+		</article>
+		<article class="professional">
+			<div class="content">
+				<h2>UN EQUIPO CERTIFICADO Y PROFESIONAL</h2>
+				<p>
+					FleteTodo es una empresa de innovación logística que se encarga de ofrecer a sus clientes servicio de clase mundial a muy bajo costo en transporte de carga a nivel nacional, contando con afiliados de gran renombre en el ramo del transporte poniendo sus unidades a nuestra disposición y así poder ofrecer a nuestros clientes una cobertura casi  total de la república mexicana.
+				</p>
+				<p>
+					Somos una empresa de solución emergente a tu empresa, pues al no contar en determinado momento con tu proveedor primario siempre estaremos nosotros para solucionar tu problema de  transporte y ayudarte a mantener una buena imagen con tu cartera de clientes además de darte más cobertura nacional.
+				</p>
 			</div>
 		</article>
 		<article class="why">
@@ -66,12 +113,14 @@
 			</div>
 		</article>
 		<article class="register">
-			<h1>¿Que esperas para ser parte de esta increible comunidad?</h1>
-			<%= link_to new_user_registration_path do%>
-	        	Registrate Gratuitamente
-	    	<% end %>
+			<div class="content">
+				<h1>¿Que esperas para ser parte de esta increible comunidad?</h1>
+				<%= link_to new_user_registration_path do%>
+		        	REGISTRATE
+		    	<% end %>
+			</div>
 		</article>
 	</section>
-	
+
 </body>
 </html>

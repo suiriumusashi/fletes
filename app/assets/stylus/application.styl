@@ -1,6 +1,6 @@
 //Colores base
-amarillo = #ffdf00 //provicional
-gris = #42444a
+amarillo = #FFB400 //provicional
+gris = #191F26
 gris_a = #2A2A2A
 gris_claro = #E6E6E6
 
@@ -12,7 +12,7 @@ verde_p = #90c695
 verde = #21af7d
 rojo = #DC303A
 
-html, body 
+html, body
     height 100%
     width 100%
     padding 0
@@ -39,8 +39,8 @@ main
 	left 1em
 	padding 1em
 	text-align center
-	width 300px	
-	
+	width 300px
+
 #alert-danger
 	background white
 	box-shadow 0px 0px 3px rojo
@@ -51,7 +51,7 @@ main
 	left 1em
 	padding 1em
 	text-align center
-	width 300px	
+	width 300px
 
 #container-home
 	width 100%
@@ -70,27 +70,40 @@ main
 			justify-content: space-around;
 			margin 0 auto
 			text-align center
-			max-width 1000px
+			max-width 1200px
 			& .about
 				background noen
 				color gris
 				border-radius 10px
 				line-height: 140%;
 				text-align left
-				max-width 250px
+				max-width 540px
 				padding 1em 1.5em
-				margin 1em
+				margin 1em .6em
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-flex-flow: row wrap;
+				justify-content: space-around;
 				& span
-					background gris
+					border 1px solid gris
 					border-radius 50%
-					color amarillo
+					color gris
 					font-size 4em
 					display block
 					text-align center
 					margin .3em auto
-					padding .3em 
+					padding .3em
 					height 60px
 					width 60px
+				& div
+					margin-left 2em
+					width 400px
+					& h2
+						font-size 1.1em
+						color amarillo
 	& .steps
 		padding 0
 		text-align center
@@ -115,22 +128,44 @@ main
 				padding 1em
 				border 2px solid white
 				border-radius 50%
-	& .why
-		background-attachment fixed
-		background url('back_truck.jpg') no-repeat center center fixed
+	& .professional
+		background-color #191F26 !important
+		background url('cover-two.png') no-repeat center center 
 		background-position center
 		background-repeat no-repeat
 		background-size cover
 		min-height 400px
 		padding 1em 0
 		width 100%
+		& .content
+			max-width 850px
+			margin 0 auto
+			& h2
+				display block
+				color white
+				text-align center
+				font-weight 500
+				padding 2em 0 .5em 0
+				font-size 39px
+				line-height 39px
+				max-width 850px
+			& p
+				padding: 0 10% 30px
+				text-align justify
+				color white 
+				font-size 1.1em
+				margin 1em auto
+	& .why
+		background-color #fff
+		min-height 400px
+		padding 1em 0
+		width 100%
 		& h1
-			color white
+			color gris
 			display block
 			font: 300 16px/120% proxima-nova,sans-serif;
 			font-size 3em
 			text-align center
-			text-shadow 1px 1px 2px rgba(0, 0, 0, .55)
 			margin 0
 			padding .5em 0
 		& .cont
@@ -139,102 +174,150 @@ main
 			max-width 900px
 			& .box
 				display inline-block
-				color white
+				color gris
 				margin 1em
 				max-width 400px
-				text-shadow 2px 2px 2px rgba(0, 0, 0, .85)
 				h2
-					text-align center
+					color amarillo
+					font-weight normal
+					text-align left
 				p
 					text-align left
+					font-weight lighter
 	& .register
-		background white
+		background amarillo
 		padding 4em 0
 		text-align center
 		width 100%
-		& h1
-			color gris
-			font: 300 16px/120% proxima-nova,sans-serif;
-			display block
-			font-size 2.3em
-			text-align center
-			text-shadow 1px 1px 2px rgba(0, 0, 0, .55)
+		& .content
+			max-width 850px
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-flow: row wrap;
+			justify-content: space-around;
 			margin 0 auto
-			padding .5em 0
-			max-width 500px
-		& a
-			border-radius .5em
-			display block
-			background gris
-			border-bottom 4px solid gris_a
-			color white
-			font-weight bold
-			padding 1.3em 1em
-			text-decoration none
-			margin 1em auto
-			width 230px
-	
+			& h1
+				color white
+				font: 300 16px/120% proxima-nova,sans-serif;
+				display block
+				font-size 1.9em
+				text-align center
+				text-shadow 1px 1px 2px rgba(0, 0, 0, .55)
+				margin 0 auto
+				padding .5em 0
+				max-width 500px
+			& a
+				border-radius .2em
+				display block
+				background gris
+				border-bottom 4px solid gris_a
+				color white
+				font-weight normal
+				padding 1.3em 1em
+				text-decoration none
+				margin 1em auto
+				font-size 1.2em
+				width 230px
+
 
 #galeria
-	margin 0 auto
-	text-align center
-	position relative
-	width 100%
-	& .btn-gl
-		color #fff
-		font-size 5em
-		text-shadow 1px 1px 3px #000
-		display inline-block
-		height 72px
-		vertical-align middle
-		line-height 72px
-		top 40%
-		text-decoration none
-		position absolute
-		width 72px
-		z-index 888
-		&#siguiente
-			right 35px
-			&:hover
-				right 25px
-		&#anterior
-			left 35px
-			&:hover
-				left 25px
-	.galeria
-		box-shadow 0px -2px 11px rgba(0, 0, 0, .50)
-		vertical-align middle
-		overflow hidden
-		position relative
-		width 100%
-		margin 0 auto
-		z-index 5
-		& ul
-			margin 0
-			padding 0
-			position relative
-			& li
-				float left
-				font-size 25px
-				list-style none
-				line-height -160px
-				overflow hidden
-				position relative
-				width 100vw
-				& img
-					display block
-					height 100%
-					width 100%
+	background: url("cover.jpg") center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 100vh;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	text-align: center;
+	padding: 7% 0;
+	padding: 2em 0;
+	width: 100%;
+	& .content
+		color: #fff;
+		padding-top: 24%;
+		text-align: center;
+		& h1
+			font-size 4em
+			text-shadow 1px 1px 2px rgba(0, 0, 0, .45)
+		& a
+			padding .9em 1.5em
+			display inline-block
+			margin 2em .5em
+			font-weight normal
+			font-size 1.2em
+		& .register
+			background white
+			color gris
+			text-decoration none
+		& .login
+			background amarillo
+			color white
+			text-decoration none
+			
+	// margin 0 auto
+	// text-align center
+	// position relative
+	// width 100%
+	// & .btn-gl
+	// 	color #fff
+	// 	font-size 5em
+	// 	text-shadow 1px 1px 3px #000
+	// 	display inline-block
+	// 	height 72px
+	// 	vertical-align middle
+	// 	line-height 72px
+	// 	top 40%
+	// 	text-decoration none
+	// 	position absolute
+	// 	width 72px
+	// 	z-index 888
+	// 	&#siguiente
+	// 		right 35px
+	// 		&:hover
+	// 			right 25px
+	// 	&#anterior
+	// 		left 35px
+	// 		&:hover
+	// 			left 25px
+	// .galeria
+	// 	box-shadow 0px -2px 11px rgba(0, 0, 0, .50)
+	// 	vertical-align middle
+	// 	overflow hidden
+	// 	position relative
+	// 	width 100%
+	// 	margin 0 auto
+	// 	z-index 5
+	// 	& ul
+	// 		margin 0
+	// 		padding 0
+	// 		position relative
+	// 		& li
+	// 			float left
+	// 			font-size 25px
+	// 			list-style none
+	// 			line-height -160px
+	// 			overflow hidden
+	// 			position relative
+	// 			width 100vw
+	// 			& img
+	// 				display block
+	// 				height 100%
+	// 				width 100%
 
 .bg-white
 	background gris !important
 	color amarillo !important
 
-	
+
 
 #menu-off
-	background amarillo
-	position relative
+	top 0
+	left 0
+	position absolute
 	width 100%
 	& ul ol
 		list-style none
@@ -250,17 +333,16 @@ main
 			margin-bottom -.2em
 			& li:hover > ul
 				display block
-			& li 
+			& li
 				float left
 				a
-					color gris
+					color #F9F9F9
 					display block
-					font-weight bold
+					font-weight normal
 					text-decoration none
 					padding 1.5em .8em
+					font-size 1.1em
 					text-decoration none
-					&:hover
-						box-shadow inset 0 -6px 0 0  gris
 				& ul
 					box-shadow 0px 0px 3px rgba(0, 0, 0, .5)
 					color amarillo
@@ -277,7 +359,7 @@ main
 						display: inline-block;
 						vertical-align: middle;
 						margin-right: 10px;
-						width: 0px; 
+						width: 0px;
 						height: 0px;
 						border:3px solid gris;
 						border-right-color:transparent;
@@ -324,7 +406,7 @@ main
 				display: inline-block;
 				vertical-align: middle;
 				margin-right: 10px;
-				width: 0px; 
+				width: 0px;
 				height: 0px;
 				border:3px solid gris;
 				border-right-color:transparent;
@@ -352,22 +434,14 @@ main
 			margin-right 30px
 			font-size 0em
 			float right
-			& .link_sign
-				li
-					background gris
-					border-bottom 4px solid #272727
-					border-radius .5em
-					font-weight bold
-					color amarillo
-					padding 12px 1.1em
-					margin-right .5em
-					&:hover
-						background #3F4045
 			& .link_log
 				li
 					border-radius 0 5px 5px 0
-					color gris
-					padding 6px
+					color whitesmoke
+					padding .8em .8em
+					font-size 1.1rem
+				&:nth-child(1)
+					border-right 1px solid white
 			& a
 				color white
 				display inline-block
@@ -417,7 +491,7 @@ main
 				padding .5em 0
 				text-align center
 				width 100%
-			
+
 
 #cont-forms-controllers
 	border-top 15em solid gris
@@ -659,7 +733,7 @@ main
 					padding .3em .5em
 					margin .3em .5em
 			& .submit-edit-user
-				border none 
+				border none
 				outline none
 				background gris
 				border-bottom 5px solid #272727
@@ -709,7 +783,7 @@ main
 		text-decoration none
 		text-align center
 		padding .5em 1em
-				
+
 #create-user-cont
 	border-top 15em solid gris
 	padding-bottom 10em
@@ -785,7 +859,7 @@ main
 					padding .4em .5em
 					width 100%
 			& .submit-edit-user
-				border none 
+				border none
 				outline none
 				background gris
 				border-bottom 5px solid #272727
@@ -798,7 +872,7 @@ main
 				margin-top 1em
 				&:hover
 					background #3F4045
-			
+
 #log-in-user-cont
 	border-top 15em solid gris
 	padding-bottom 10em
@@ -870,7 +944,7 @@ main
 					text-align left
 					font-size 1.1em
 			& .submit-log-in-user
-				border none 
+				border none
 				outline none
 				background gris
 				border-bottom 5px solid #272727
@@ -883,7 +957,7 @@ main
 				margin-top 1em
 				&:hover
 					background #3F4045
-				
+
 #publications-cont
 	border-top 15em solid gris
 	padding-bottom 10em
@@ -918,7 +992,7 @@ main
 			margin 0 0 1em 0
 			padding .5em 0
 			width 100%
-		& .publication 
+		& .publication
 			box-shadow 0px 0px 5px rgba(0, 0, 0, .75)
 			color gris
 			display inline-block
@@ -988,7 +1062,7 @@ main
 				width 100% !important
 				& h1
 					background #E83939
-					color white 
+					color white
 					padding .7em 0
 					margin .3em 0
 				& .content-tags
@@ -1006,7 +1080,7 @@ main
 							border 1.5px solid #4D4D4D
 							color #4D4D4D
 							font-size 1.1em
-							width 70% 
+							width 70%
 					& .form-ocult
 						display none
 					& input[type="submit"]
@@ -1033,7 +1107,7 @@ main
 					font-size 1.4em
 			& .link_go
 				background gris
-				display block 
+				display block
 				color amarillo
 				font-size 1.1em
 				padding .6em 0
@@ -1091,7 +1165,7 @@ main
 				& .link-action
 					color gris
 					text-decoration none
-					
+
 .assign
 	border-top 1px solid gris
 	border-bottom 1px solid gris
@@ -1133,7 +1207,7 @@ main
 				text-align left
 				width 95%
 				& .number
-					width 8%		
+					width 8%
 				& p
 					display inline-block
 					width 35%
@@ -1180,7 +1254,7 @@ main
 				color #fff !important
 				& p a
 					color #fff !important
-			
+
 
 #cortina
 	display none
@@ -1191,7 +1265,7 @@ main
 	left 0
 	width 100%
 	z-index 1000
-	
+
 
 #politicas
 	display none
@@ -1222,7 +1296,7 @@ main
 		font-size .8em
 	& ul li
 		font-size .8em
-		
+
 #terminos
 	display none
 	background white
@@ -1275,7 +1349,7 @@ main
 		& h1
 			color #c3c2b9
 			cursor pointer
-			background #F8F7EE 
+			background #F8F7EE
 			display inline-block
 			font-size 1.2em
 			margin 0
@@ -1301,7 +1375,7 @@ main
 		margin 1.5em 2em
 		padding 2em 0
 		text-align left
-		
+
 
 #contacto
 	display none
@@ -1324,7 +1398,7 @@ main
 		& h1
 			color #c3c2b9
 			cursor pointer
-			background #F8F7EE 
+			background #F8F7EE
 			display inline-block
 			font-size 1.2em
 			margin 0
@@ -1366,7 +1440,7 @@ main
 			max-width 300px
 			& iframe
 				width 100% !important
-				
+
 #ayuda
 	display none
 	box-shadow 0px 0px 7px rgba(0, 0, 0, .75)
@@ -1388,7 +1462,7 @@ main
 		& h1
 			color #c3c2b9
 			cursor pointer
-			background #F8F7EE 
+			background #F8F7EE
 			display inline-block
 			font-size 1.2em
 			margin 0
@@ -1447,7 +1521,7 @@ main
 		& h1
 			color #c3c2b9
 			cursor pointer
-			background #F8F7EE 
+			background #F8F7EE
 			display inline-block
 			font-size 1.2em
 			margin 0
@@ -1543,12 +1617,3 @@ footer
 
 #notice
 	position absolute
-	
-
-
-
-
-
-
-
-
