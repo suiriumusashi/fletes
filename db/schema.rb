@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812160334) do
+ActiveRecord::Schema.define(version: 20150911124526) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20150812160334) do
 
   add_index "competitors", ["publication_id"], name: "index_competitors_on_publication_id"
   add_index "competitors", ["user_id"], name: "index_competitors_on_user_id"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "web"
+    t.string   "subject"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "inboxes", force: :cascade do |t|
     t.string   "subject"

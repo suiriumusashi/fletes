@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :contacts
+
   resources :competitors
 
   root :to => 'home#index'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   get 'drivers/:id' => 'drivers#show'
 
   get 'nosotros' => 'home#about'
+  get 'contacto' => 'contacts#new'
 
   
   resources :dashboard

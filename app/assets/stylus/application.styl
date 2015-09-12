@@ -213,7 +213,6 @@ main
 				border-radius .2em
 				display block
 				background gris
-				border-bottom 4px solid gris_a
 				color white
 				font-weight normal
 				padding 1.3em 1em
@@ -450,6 +449,145 @@ main
 				& li
 					font-size 16px
 					list-style none
+
+#about
+	background gris
+	padding-top 69px
+	width 100%
+	& .title
+		margin 0
+		padding 1.5em 3em
+		background amarillo
+		color white
+		font-weight normal
+	& .vision
+		background white
+		color gris
+		padding 3em 0
+		& .content
+			max-width 1000px
+			margin 0 auto
+			& h1
+				font-size 1.5em
+				color amarillo
+			& p
+				font-size 1.2em
+	& .mision
+		background #E3DDCD
+		color gris
+		padding 3em 0
+		& .content
+			max-width 1000px
+			margin 0 auto
+			& h1
+				font-size 1.5em
+			& p
+				font-size 1.2em
+	& .description
+		background #fff
+		color gris
+		padding 3em 0
+		& .content
+			max-width 1000px
+			margin 0 auto
+			& h1
+				color amarillo
+				font-size 1.5em
+			& p
+				font-size 1.2em
+
+#contact
+	background gris
+	padding-top 69px
+	width 100%
+	& .title
+		margin 0
+		padding 1.5em 3em
+		background amarillo
+		color white
+		font-weight normal
+	& .map
+		& iframe
+			display block
+	& .form
+		color gris
+		background #EDEDDC
+		padding 3em 0
+		& .content
+			max-width 1000px
+			margin 0 auto
+			& h1
+				padding 0 1em !important
+				font-size 1.3em
+			& p
+				padding 0 1.2em !important
+			& form
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-flex-flow: row wrap;
+				& .field
+					margin .6em 1.2em
+					width 46%
+					& label
+						display block
+						margin 0 0 .6em 0
+					& input[type="text"]
+						display: block;
+						padding: 12px 15px;
+						font-size: 15px;
+						width: 100%;
+						box-sizing: border-box;
+						-webkit-box-sizing:border-box;
+						-moz-box-sizing: border-box;
+						border: 1px solid #DFDFD0;
+						color: #34394A;
+						-webkit-border-radius: 3px;
+						-moz-border-radius: 3px;
+						border-radius: 3px;
+				& .full
+					width 100% !important
+				& .field-message
+					display block
+					margin .6em auto
+					width 96%
+					& label
+						display block
+						margin 0 0 .6em 0
+						width 100%
+					& textarea
+						display: block;
+						padding: 12px 15px;
+						font-size: 15px;
+						width: 100%;
+						box-sizing: border-box;
+						-webkit-box-sizing:border-box;
+						-moz-box-sizing: border-box;
+						border: 1px solid #DFDFD0;
+						color: #34394A;
+						height 250px
+						-webkit-border-radius: 3px;
+						-moz-border-radius: 3px;
+						border-radius: 3px;
+				& .actions
+					width 100%
+					padding 1em 0
+					text-align center
+					& input[type="submit"]
+						cursor pointer
+						border none
+						border-radius: .2em;
+						display: block;
+						background: #191f26;
+						color: #fff;
+						font-weight: normal;
+						padding: .8em 1em;
+						text-decoration: none;
+						margin: 1em auto;
+						width: 200px;
+						font-size 1.1em
 
 #competitors-publications
 	width 100%
@@ -746,8 +884,6 @@ main
 				margin-top 1em
 				&:hover
 					background #3F4045
-
-
 
 .alert-registration
 	background white

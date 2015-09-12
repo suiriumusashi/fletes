@@ -175,29 +175,29 @@
 		$("#cortina, #politicas").show();
 	});
 
-    $(".open-nosotros").click(function(e){
-        e.preventDefault();
-        window.scrollTo(0, 0);  
-        $("#cortina, #nosotros").show();
-    });
+    // $(".open-nosotros").click(function(e){
+    //     e.preventDefault();
+    //     window.scrollTo(0, 0);  
+    //     $("#cortina, #nosotros").show();
+    // });
 
-    $(".open-contact").click(function(e){
-        e.preventDefault();
-        window.scrollTo(0, 0);  
-        $("#cortina, #contacto").show();
-    });
+    // $(".open-contact").click(function(e){
+    //     e.preventDefault();
+    //     window.scrollTo(0, 0);  
+    //     $("#cortina, #contacto").show();
+    // });
 
-    $(".open-ayuda").click(function(e){
-        e.preventDefault();
-        window.scrollTo(0, 0);  
-        $("#cortina, #ayuda").show();
-    });
+    // $(".open-ayuda").click(function(e){
+    //     e.preventDefault();
+    //     window.scrollTo(0, 0);  
+    //     $("#cortina, #ayuda").show();
+    // });
 
-    $(".open-como").click(function(e){
-        e.preventDefault();
-        window.scrollTo(0, 0);  
-        $("#cortina, #comof").show();
-    });
+    // $(".open-como").click(function(e){
+    //     e.preventDefault();
+    //     window.scrollTo(0, 0);  
+    //     $("#cortina, #comof").show();
+    // });
 
 	$(".close, #cortina").click(function(e){
 		e.preventDefault();
