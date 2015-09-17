@@ -7,5 +7,8 @@ class HomeController < ApplicationController
 
 	def contact
 	end
+
+	def cobertura
+	end
 	
 end

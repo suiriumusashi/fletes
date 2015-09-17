@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'nosotros' => 'home#about'
   get 'contacto' => 'contacts#new'
+  get 'cobertura' => 'home#cobertura'
 
   
   resources :dashboard

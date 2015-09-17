@@ -58,6 +58,9 @@
           <% end %>
         </li>
         <li>
+          <a href="/cobertura">Cobertura</a>
+        </li>
+        <li>
           <%= link_to "/contacto" ,:class => 'open-contact li-standar' do%>
           Contactanos
         <% end %>
@@ -68,7 +71,7 @@
           <% end %>
         </li>
         <li>
-            <li><a>Más</a>
+            <!-- <li><a>Más</a>
               <ul class="more">
                 <li>
                   <%= link_to "" ,:class => 'li-standar open-ayuda' do%>
@@ -86,7 +89,7 @@
                   <% end %>
                 </li>
               </ul>
-            </li>
+            </li> -->
             <%if current_user.role == "cliente"%>
               <li><%= link_to publications_path, :class => 'li-standar bg-white' do%>
                 Publicaciones
@@ -146,6 +149,9 @@
               <li><%= link_to loads_path, :class => 'li-standar' do%>
                 Cargas
               <%end%></li>
+              <li><%= link_to contacts_path, :class => 'li-standar' do%>
+                Mensajes
+              <%end%></li>
           <%else%>
             <%= link_to offers_pub_path, :class => 'li-standar' do%>
               <li>Ofertas</li>
@@ -182,6 +188,9 @@
           <% end %>
         </li>
         <li>
+          <a href="/cobertura">Cobertura</a>
+        </li>
+        <li>
           <%= link_to "/contacto" ,:class => 'open-contact li-standar' do%>
           Contactanos
         <% end %>
@@ -192,7 +201,7 @@
           <% end %>
         </li>
         <li>
-            <li><a>Más</a>
+            <!-- <li><a>Más</a>
               <ul class="more">
                 <li>
                   <%= link_to "" ,:class => 'li-standar open-ayuda' do%>
@@ -210,7 +219,7 @@
                   <% end %>
                 </li>
               </ul>
-            </li>
+            </li> -->
         </li>
 
       </div>

@@ -1,37 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Contacts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Web</th>
-      <th>Subject</th>
-      <th>Message</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.phone %></td>
-        <td><%= contact.web %></td>
-        <td><%= contact.subject %></td>
-        <td><%= contact.message %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Contact', new_contact_path %>
+<section id="messages">
+  <h1 class="title">
+    Mensajes recibidos
+  </h1>
+  <article class="all-messages">
+    <div class="content">
+      <% @contacts.each do |contact| %>
+        <div class="row">
+          <div class="controls">
+            <%= link_to contact do %>
+              <span class="ion-android-open"></span>
+            <% end %><%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <span class="ion-android-delete"></span>
+            <% end %>
+          </div>
+          <p class="data">
+            Nombre: <%= contact.name %>
+          </p>
+          <p class="data">
+            Email: <%= contact.email %>
+          </p>
+          <p class="data">
+            Telefono: <%= contact.phone %>
+          </p>
+          <p class="data">
+            Asunto: <%= contact.subject %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</section>
