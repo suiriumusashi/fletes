@@ -1281,23 +1281,23 @@ main
 					background azul
 
 #publications-cont
-	border-top 15em solid gris
+	border-top 18em solid gris
 	padding-bottom 10em
 	width 100%
 	& .cont
 		box-shadow 0px 0px 10px rgba(0, 0, 0, .4)
-		max-width 1100px
+		max-width 1000px
 		background white
 		margin -10em auto 1em auto
 		padding 0 0 2em 0
 		text-align center
 		& .link-more-publication
-			background gris
+			background azul_light
 			box-shadow 0px 0px 5px rgba(0, 0, 0, .4)
 			border-radius 50%
 			box-sizing border-box
 			display block
-			color amarillo
+			color white
 			font-size 3em
 			height 80px
 			margin 0 auto -1.5em auto
@@ -1308,49 +1308,49 @@ main
 				display block
 				line-height 80px
 		& .title-publications
-			background gris_claro
-			color gris
+			background amarillo
+			text-shadow 1px 1px 2px rgba(0, 0, 0, .35)
+			color white
 			font-size 1.6em
-			margin 0 0 1em 0
-			padding .5em 0
+			margin 0 0 2em 0
+			padding .8em 0
 			width 100%
 		& .publication
-			box-shadow 0px 0px 5px rgba(0, 0, 0, .75)
+			box-shadow 0px 0px 5px rgba(0, 0, 0, .25)
 			color gris
+			border-radius .6em
 			display inline-block
 			margin 1em
-			max-width 460px
+			max-width 400px
 			padding 3em 0 0 0
 			position relative
 			& .activate-publication
-				color white
-				box-shadow 1px -1px 2px rgba(0, 0, 0, .45)
+				color #00D76B
 				position absolute
 				top 0
 				left 0
-				background #00D76B
+				border-bottom 1px dashed #00D76B
 				padding 1em 0
 				text-align center
 				width 100%
 			& .folio
 				position absolute
-				color white
+				color gris
 				font-weight bold
-				top .5em
+				top .6em
 				left -3.5em
 				z-index 200
 			& .desactivate-publication
-				color white
-				box-shadow 1px -1px 2px rgba(0, 0, 0, .45)
+				color rojo
 				position absolute
 				top 0
 				left 0
-				background rojo
+				border-bottom 1px dashed rojo
 				padding 1em 0
 				text-align center
 				width 100%
 			& .active-actions-pub
-				color white
+				color gris
 				cursor pointer
 				font-size 1.9em
 				right .2em
@@ -1360,7 +1360,9 @@ main
 				& .cont-actions-pub
 					display none
 					background white
-					box-shadow 0px 0px 4px rgba(0, 0, 0, .4)
+					box-shadow 0px 0px 4px rgba(0, 0, 0, .25)
+					border-radius .7em
+					border 1px solid azul_light
 					box-sizing border-box
 					font-size 16px
 					position absolute
@@ -1375,9 +1377,12 @@ main
 						text-decoration none
 						width 100%
 						&:nth-child(1)
-							border-bottom 1px solid gris
+							border-bottom 1px solid azul_light
 						&:nth-child(3)
-							border-top 1px solid gris
+							border-top 1px solid azul_light
+						&:nth-child(4)
+							border-top 1px solid azul_light
+							border-bottom 1px solid azul_light
 			& .conform
 				display block !important
 				margin .5em 0 !important
@@ -1428,12 +1433,13 @@ main
 				& h3
 					font-size 1.4em
 			& .link_go
-				background gris
+				background azul_light
 				display block
-				color amarillo
+				color white
 				font-size 1.1em
 				padding .6em 0
 				text-decoration none
+				border-radius 0 0 .6em .6em
 				width 100%
 
 #services-cont
@@ -1506,12 +1512,13 @@ main
 		margin -10em auto 1em auto
 		padding 0 0 2em 0
 		text-align center
+		border-radius .7em
 		& .title-publications
-			background gris_claro
+			background amarillo
 			color gris
 			font-size 1.6em
 			margin 0 0 1em 0
-			padding .5em 0
+			padding .8em 0
 			width 100%
 		& .register
 			cursor pointer
