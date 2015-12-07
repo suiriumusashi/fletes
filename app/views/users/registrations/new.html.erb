@@ -1,19 +1,47 @@
-<main id="create-user-cont">
-  <div class="alert-registration">
-    <span class="ion-android-cancel close-recomend"></span>
-    <h1>Recomendacion</h1>
-    <p>
-      Hola amigo transportista bienvenido a esta tu plataforma FleteTodo.com te recomendamos que al rigistrarte inmediatamente actualices tus datos, es muy facil ya que cuentas con pestañas de ayuda que te guiaran durante el proceso, tambien te recomendamos que permitas a la aplicacion rastrear tu ubicacion ya que esto ayudara que te encontremos viajes de manera mas precisa. 
-      <br>
-      Tambien te recomendamos que accedas continuamente a la plataforma para que puedas ver los viajes que estan disponibles en el apartado de de ofertas.
-    </p>
-  </div>
-  <section class="cont">
+<section id="signup">
+  <div class="content">
     <figure>
-      <%= image_tag "logo.png", :alt => "Logo", :title => "Logo"%>
+      <a href="/">
+        <%= image_tag "logo_noletter.png" %>
+      </a>
     </figure>
+    <h1>Regístrate gratis y experimenta todos los beneficios</h1>
+    <hr>
+    <div class="container">
+      <div class="about">
+        <div>
+          <h2>Comienza a explorar</h2>
+          <p>Registrate completamente gratis y explora las ventajas que obtendras al usar Fletetodo.
+          </p>
+          <p>
+            Para poder disfutar de todos los beneficios que Fletetodo tiene para ti registra todos tus datos completamente y correctamente.
+          </p>
+        </div>
+        <div>
+          <h2>Transportista</h2>
+          <p>
+            Una vez que te hayas registrado y accedido a la plataforma, dirigete al apartado de editar perfil y llena todos los campos vacios, esto con la finalidad de poderte asignar viajes segun el perfil con el que cuentes.
+          </p>
+        </div>
+        <div>
+          <h2>Clientes</h2>
+          <p>
+            Una vez que te hayas registrado y accedido a la plataforma, podras registrar el servicio que requieres en el apartado de publicaciones. Te sugerimos que sea de manera correcta y lo mas completo posible.
+          </p>
+        </div>
+      </div>
+      <div class="form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
+
+        <div class="cont_fields">
+        <%= f.label :role, "Tipo de usuario" %><br />
+          <%= f.select(:role) do %>
+            <% [['Empresa Transportista', "etransportista"],['Transportista Independiente', "transportista"],['Cliente', "cliente"]].each do |c| -%>
+              <%= content_tag(:option, c.first, value: c.last) %>
+            <% end %>
+          <% end %>
+        </div>
 
         <div class="cont_fields">
           <%= f.label :email, "Correo electronico" %><br />
@@ -30,14 +58,7 @@
           <%= f.text_field :last_name, autocomplete: "off"%>
         </div>
         
-        <div class="cont_fields">
-        <%= f.label :role, "Tipo de usuario" %><br />
-          <%= f.select(:role) do %>
-            <% [['Empresa Transportista', "etransportista"],['Transportista Independiente', "transportista"],['Cliente', "cliente"]].each do |c| -%>
-              <%= content_tag(:option, c.first, value: c.last) %>
-            <% end %>
-          <% end %>
-        </div>
+        
 
         <div class="cont_fields">
           <%= f.label :city, "Ciudad" %><br />
@@ -67,6 +88,11 @@
           <%= f.submit "Registrarme", :class => "submit-edit-user" %>
         </div>
       <% end %>
-
+      <div class="login">
+          <span>¿Ya estas registrado?</span> <%= render "users/shared/links" %>
+       </div>
+      </div>
+    </div>
+    
+  </div>
 </section>
-</main>

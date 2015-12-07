@@ -326,5 +326,20 @@
             checkboxes.prop('checked', false);
         }
     });
+
+    $(".open-menu-link").click(function(){
+        $("#cortina").fadeIn(500)
+         $("#menu-logout").animate({
+            left : "0px"
+         },500);
+    })
+    
+    $(".close-menu, #cortina").click(function(){
+        $("#cortina").fadeOut(500)
+         $("#menu-logout").animate({
+            left : "-250px"
+         },500);
+    })
+
    
 })()

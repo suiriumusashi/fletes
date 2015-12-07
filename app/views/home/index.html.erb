@@ -30,10 +30,16 @@
 				<%= image_tag "btn-right.png", :alt => "Right", :title => "Right"%>
 			</a> -->
 			<div class="content">
+				<figure>
+					<%= image_tag "logo_noletter.png" %>
+				</figure>
 				<h1>¿BUSCAS UN VIAJE?</h1>
 				<h2>Contamos com mas de 1000 unidades listas para ti.</h2>
-				<a href="/users/sign_up" class="register">Registrate</a>
-				<a href="/users/sign_in" class="login">Inicia Sesion</a>
+				<% if user_signed_in? || admin_signed_in?%>
+				<% else %>
+					<a href="/users/sign_up" class="register">Registrate</a>
+					<a href="/users/sign_in" class="login">Inicia Sesion</a>
+				<% end %>
 			</div>
 		</header>
 
@@ -113,7 +119,7 @@
 			</div>
 		</article>
 		<article class="video">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/fsD2yeU_pmI?controls=0&rel=0&autoplay=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/fsD2yeU_pmI?controls=0&rel=0&autoplay=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 		</article>
 		<article class="register">
 			<div class="content">

@@ -1,3 +1,13 @@
+<div class="sessions-cont">
+  <%= link_to :back, :class => 'link_log' do%>
+    <li>Regresar</li>
+  <%end%>
+
+  <%= link_to destroy_user_session_path, method: :delete, :class => 'link_log' do%>
+    <li>Cerrar Sesion</li>
+  <%end%>
+</div>
+
 <main id="edit-user-cont">
   <section class="cont">
     <figure>
@@ -155,12 +165,12 @@
       <% end -%>
       <div class="cont_fields">
         <%= f.label :password, "Contraseña" %> <i>(Si no deseas cambiar tu contraseña dejala en blanco)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", :required => true %>
       </div>
 
       <div class="cont_fields">
         <%= f.label :password_confirmation, "Repetir contraseña" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", :required => true %>
       </div>
 
       <div class="cont_fields">
@@ -178,10 +188,6 @@
     <h3>Cancelar mi cuenta</h3>
 
     <p><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro" }, method: :delete, :class => "submit-edit-user" %></p>
-
-    <%= link_to :back, :class => "link-back-edit-user" do%>
-      <span class="icon-reply"></span>
-    <% end %>
    
  </section>
 </main>

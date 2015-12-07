@@ -1,8 +1,8 @@
 <main id="log-in-user-cont">
   <section class="cont">
-    <figure>
+    <a href="/" class="logo-t">
       <%= image_tag "logo.png", :alt => "Logo", :title => "Logo"%>
-    </figure>
+    </a>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="cont_fields">

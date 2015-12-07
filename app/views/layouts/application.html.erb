@@ -10,7 +10,9 @@
   <%= stylesheet_link_tag  'jquery-ui.min'%>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<% if current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(edit_user_registration_path) || current_page?(administrator_path) || current_page?(edit_admin_registration_path) %>
+<body id="gradiant">
+<% else %>
 
 <% if notice %>
   <p id="alert-success"><%=notice%></p>
@@ -18,11 +20,19 @@
 <% if alert%>
   <p id="alert-danger"><%= alert %></p>
 <% end %>
-<nav id="menu-off">
-  <ul class="content">
-    <% if user_signed_in? %>
 
-      <% if current_user.role == "transportista"  || current_user.role == "etransportista" %>
+<body>
+
+<div class="open-menu">
+  <a href="/" class="logo">
+    <%= image_tag "logo_noletter.png" %>
+  </a>
+  <span class="ion-drag open-menu-link"></span>
+</div>
+
+<% if user_signed_in? %>
+
+  <% if current_user.role == "transportista"  || current_user.role == "etransportista" %>
         <% if current_user.update_profile == "0" || current_user.update_profile == nil %>
           <div class="alert-registration">
             <span class="ion-android-cancel close-recomend"></span>
@@ -45,9 +55,22 @@
         end
       %>
 
-        <div class="page-cont">
 
-        <li>
+    <div class="sessions-cont">
+      <%= link_to edit_user_registration_path, :class => 'link_log' do%>
+        <li>Editar perfil</li>
+      <%end%>
+
+      <%= link_to destroy_user_session_path, method: :delete, :class => 'link_log' do%>
+        <li>Cerrar Sesion</li>
+      <%end%>
+    </div>
+
+    <nav id="menu-logout">
+      <div class="close-menu">
+        <span class="ion-ios-close-empty"></span>
+      </div>
+      <li>
           <%= link_to "/" ,:class => 'li-standar' do%>
             Inicio
           <% end %>
@@ -71,61 +94,41 @@
           <% end %>
         </li>
         <li>
-            <!-- <li><a>Más</a>
-              <ul class="more">
-                <li>
-                  <%= link_to "" ,:class => 'li-standar open-ayuda' do%>
-                    Ayuda
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "" ,:class => 'li-standar' do%>
-                    Preguntas Frecuentes
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "" ,:class => 'li-standar open-como' do%>
-                   ¿Como Funciona?
-                  <% end %>
-                </li>
-              </ul>
-            </li> -->
             <%if current_user.role == "cliente"%>
-              <li><%= link_to publications_path, :class => 'li-standar bg-white' do%>
+              <li><%= link_to publications_path, :class => 'li-standar bg-gray' do%>
                 Publicaciones
               <%end%>
               </li>
             <%else%>
-              <li><%= link_to offers_pub_path, :class => 'li-standar bg-white' do%>
+              <li><%= link_to offers_pub_path, :class => 'li-standar bg-gray' do%>
                 Ofertas
               <%end%>
               </li>
-              <li><%= link_to my_offers_path, :class => 'li-standar bg-white br-left' do%>
+              <li><%= link_to my_offers_path, :class => 'li-standar bg-gray br-top' do%>
                 Mis Ofertas
               <%end%>
               </li>
             <%end%>
         </li>
-        </div>
+    </nav>
 
+<% elsif admin_signed_in? %>
 
-      <a href="#" class="show-actions-user">
-        <figure>
-          <span class="ion-ios-gear"></span>
-        </figure>
-      </a>
-      <div class="cont-actions-user">
-         <%= link_to edit_user_registration_path, :class => 'li-standar' do%>
-            <li>Editar perfil</li>
+    <div class="sessions-cont">
+      <%= link_to edit_admin_registration_path, :class => 'link_log' do%>
+            <li>Editar perfil </li>
          <%end%>
-
-         <%= link_to destroy_user_session_path, method: :delete, :class => 'li-standar' do%>
-            <li>Cerrar Sesion</li>
+          
+         <%= link_to destroy_admin_session_path, method: :delete, :class => 'link_log' do%>
+            <li> Cerrar Sesion</li>
          <%end%>
+    </div>
+
+    <nav id="menu-logout">
+      <div class="close-menu">
+        <span class="ion-ios-close-empty"></span>
       </div>
-    <% elsif admin_signed_in? %>
-        <div class="page-cont">
-          <li>
+      <li>
             <%= link_to "/" ,:class => 'li-standar' do%>
               Inicio
             <% end %>
@@ -157,84 +160,50 @@
               <li>Ofertas</li>
             <%end%>
           <%end%>
-       </div>
+    </nav>
 
-      <a href="#" class="show-actions-user">
-        <figure>
-          <span class="ion-ios-gear"></span>
-        </figure>
-      </a>
-      <div class="cont-actions-user">
-         <%= link_to edit_admin_registration_path, :class => 'li-standar' do%>
-            <li>Editar perfil </li>
-         <%end%>
-          
-         <%= link_to destroy_admin_session_path, method: :delete, :class => 'li-standar' do%>
-            <li> Cerrar Sesion</li>
-         <%end%>
-      </div>
-    <% else %>
-
-      <div class="page-cont">
-
-        <li>
-          <%= link_to "/" ,:class => 'li-standar' do%>
-            Inicio
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "/nosotros" ,:class => 'li-standar open-nosotros' do%>
-            Nosotros
-          <% end %>
-        </li>
-        <li>
-          <a href="/cobertura">Cobertura</a>
-        </li>
-        <li>
-          <%= link_to "/contacto" ,:class => 'open-contact li-standar' do%>
-          Contactanos
-        <% end %>
-        </li>
-        <li>
-          <%= link_to "tel:6181450007" ,:class => 'li-standar' do%>
-            Llamanos
-          <% end %>
-        </li>
-        <li>
-            <!-- <li><a>Más</a>
-              <ul class="more">
-                <li>
-                  <%= link_to "" ,:class => 'li-standar open-ayuda' do%>
-                    Ayuda
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "" ,:class => 'li-standar' do%>
-                    Preguntas Frecuentes
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "" ,:class => 'li-standar open-como' do%>
-                   ¿Como Funciona?
-                  <% end %>
-                </li>
-              </ul>
-            </li> -->
-        </li>
-
-      </div>
-
-      <div class="sessions-cont">
-        <%= link_to new_user_registration_path, :class => 'link_log' do%>
-        <li>Registrate</li> 
-       <% end %>
-       <%= link_to new_user_session_path, :class => 'link_log' do%>
-        <li>Inicia Sesion</li>
-       <%end%>
-      </div>
+<% else %>
+  <div class="sessions-cont">
+    <%= link_to new_user_registration_path, :class => 'link_log' do%>
+      <li>Registrate</li> 
     <% end %>
-  </ul>
-</nav>
+    <%= link_to new_user_session_path, :class => 'link_log' do%>
+      <li>Inicia Sesion</li>
+    <%end%>
+  </div>
+
+  <nav id="menu-logout">
+    <div class="close-menu">
+      <span class="ion-ios-close-empty"></span>
+    </div>
+    <li>
+      <%= link_to "/" ,:class => 'li-standar' do%>
+        Inicio
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "/nosotros" ,:class => 'li-standar open-nosotros' do%>
+        Nosotros
+      <% end %>
+    </li>
+    <li>
+      <a href="/cobertura">Cobertura</a>
+    </li>
+    <li>
+      <%= link_to "/contacto" ,:class => 'open-contact li-standar' do%>
+      Contactanos
+    <% end %>
+    </li>
+    <li>
+      <%= link_to "tel:6181450007" ,:class => 'li-standar' do%>
+        Llamanos
+      <% end %>
+    </li>
+  </nav>
+<% end %>
+
+<% end %>
+
 
 <%= yield %>
 
@@ -270,7 +239,7 @@
         </div>
         <div class="rules">
           <p>
-            <a href="http://dhomper.mx" target="_blank">Made with <span class="ion-ios-heart"></span> by Heptagram</a>
+            <a href="http://heptagram.com.mx" target="_blank">Made with <span class="ion-ios-heart"></span> by Heptagram</a>
           </p>
         </div>
       </div>

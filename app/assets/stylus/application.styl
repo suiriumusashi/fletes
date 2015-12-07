@@ -3,14 +3,12 @@ amarillo = #FFB400 //provicional
 gris = #191F26
 gris_a = #2A2A2A
 gris_claro = #E6E6E6
-
-rojo_b = #E41A1D
-rojo_b2 = #F74B57
-
-verde_p = #90c695
+azul = #006A7F
+azul_light = #14ADCC
 // Colores alertas
 verde = #21af7d
-rojo = #DC303A
+rojo = #E6344A
+
 
 html, body
     height 100%
@@ -28,6 +26,17 @@ body
 
 main
 	min-height 80%
+
+#gradiant
+    background-color: #FFB400;
+    background-image: -webkit-radial-gradient(0% bottom,rgba(254,217, 78, .9) 0,rgba(48, 148, 184,0) 60%),-webkit-radial-gradient(90% bottom,#FFB400 0,rgba(82, 109, 255,0) 40%),-webkit-radial-gradient(50% top,rgba(255,180,67,0.6) 0,rgba(255,180,67,0) 75%),-webkit-radial-gradient(right top,#EFD342 0,rgba(254,217, 78,0) 57%);
+    background-image: radial-gradient(at 0 bottom,rgba(254,217, 78, .9) 0,rgba(48, 148, 184,0) 60%),radial-gradient(at 90% bottom,#FFB400 0,rgba(82, 109, 255,0) 40%),radial-gradient(at 50% top,rgba(255,180,67,0.6) 0,rgba(255,180,67,0) 75%),radial-gradient(at right top,#EFD342 0,rgba(254,217, 78,0) 57%);
+    background-size: auto,auto,100% 1000px,100% 1000px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+*
+	box-sizing: border-box;
 
 #alert-success
 	background white
@@ -91,16 +100,15 @@ main
 					border 1px solid gris
 					border-radius 50%
 					color gris
-					font-size 4em
+					font-size 3.5em
 					display block
 					text-align center
-					margin .3em auto
 					padding .3em
-					height 60px
-					width 60px
+					height 90px
+					width 90px
 				& div
 					margin-left 2em
-					width 400px
+					width 370px
 					& h2
 						font-size 1.1em
 						color amarillo
@@ -234,7 +242,7 @@ main
 
 
 #galeria
-	background: url("cover.jpg") center center;
+	background: url("cover2.jpg") center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	height: 100vh;
@@ -248,10 +256,17 @@ main
 	width: 100%;
 	& .content
 		color: #fff;
-		padding-top: 24%;
+		padding-top: 10%;
 		text-align: center;
+		& figure
+			margin 0 auto
+			width 200px
+			& img
+				width 100%
 		& h1
 			font-size 4em
+			text-shadow 1px 1px 2px rgba(0, 0, 0, .45)
+		& h2
 			text-shadow 1px 1px 2px rgba(0, 0, 0, .45)
 		& a
 			padding .9em 1.5em
@@ -259,6 +274,7 @@ main
 			margin 2em .5em
 			font-weight normal
 			font-size 1.2em
+			box-shadow 1px 1px 2px rgba(0, 0, 0, .35)
 		& .register
 			background white
 			color gris
@@ -318,99 +334,105 @@ main
 	// 				height 100%
 	// 				width 100%
 
-.bg-white
+.bg-gray
 	background gris !important
 	color amarillo !important
-
-
-
-#menu-off
-	top 0
-	left 0
+.br-top
+	border-top 1px solid amarillo
+	
+.open-menu
 	position absolute
-	width 100%
-	& ul ol
+	left 16px
+	top 25px
+	& .logo
+		float left
+		width 40px
+		& img
+			width 100%
+	& span
+		cursor pointer
+		float left
+		font-size 2em
+		margin-left .5em
+		margin-top 8px
+		color white
+
+.sessions-cont
+	display inline-block
+	font-size 0em
+	position absolute
+	right 16px
+	top 20px
+	& .link_log
+		transition all .3s ease
+		li
+			color whitesmoke
+			padding .8em 1em
+			font-size 1.1rem
+			transition all .3s ease
+		&:nth-child(1)
+			border-radius 30px
+			border 1px solid white
+			&:hover
+				background white
+			&:hover > li
+				color amarillo
+	& a
+		color white
+		display inline-block
+		text-decoration none
+		& li
+			font-size 16px
+			list-style none
+
+
+#menu-logout
+	background-color: #FFB400;
+	background-image: -webkit-radial-gradient(0% bottom,rgba(254,217, 78, .9) 0,rgba(48, 148, 184,0) 60%),-webkit-radial-gradient(90% bottom,#FFB400 0,rgba(82, 109, 255,0) 40%),-webkit-radial-gradient(50% top,rgba(255,180,67,0.6) 0,rgba(255,180,67,0) 75%),-webkit-radial-gradient(right top,#EFD342 0,rgba(254,217, 78,0) 57%);
+	background-image: radial-gradient(at 0 bottom,rgba(254,217, 78, .9) 0,rgba(48, 148, 184,0) 60%),radial-gradient(at 90% bottom,#FFB400 0,rgba(82, 109, 255,0) 40%),radial-gradient(at 50% top,rgba(255,180,67,0.6) 0,rgba(255,180,67,0) 75%),radial-gradient(at right top,#EFD342 0,rgba(254,217, 78,0) 57%);
+	background-size: auto,auto,100% 1000px,100% 1000px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow auto
+	position fixed
+	left -250px
+	top 0
+	bottom 0
+	height 100%
+	width 250px
+	padding-top 4em
+	z-index 1100
+	& .close-menu
+		position absolute
+		top .5em
+		right 1.5em
+		& span
+			color white
+			cursor pointer
+			font-size 3em
+	& li
 		list-style none
-		margin 0
-		padding 0
-	& .content
-		list-style none
-		margin 0
-		padding 0
-		& .page-cont
-			display inline-block
-			margin-left 2em
-			margin-bottom -.2em
-			& li:hover > ul
-				display block
-			& li
-				float left
-				a
-					color #F9F9F9
-					display block
-					font-weight normal
-					text-decoration none
-					padding 1.5em .8em
-					font-size 1.1em
-					text-decoration none
-				& ul
-					box-shadow 0px 0px 3px rgba(0, 0, 0, .5)
-					color amarillo
-					display none
-					background gris
-					position absolute
-					max-width 250px
-					margin 0
-					padding 0
-					transition all 1s ease-in-out
-					z-index 999
-					&:after
-						content: "";
-						display: inline-block;
-						vertical-align: middle;
-						margin-right: 10px;
-						width: 0px;
-						height: 0px;
-						border:3px solid gris;
-						border-right-color:transparent;
-						border-left-color:transparent;
-						border-width:0px 10px 11px;
-						position absolute
-						top -.7em
-						left 1.1em
-						z-index 999
-					li
-						display block
-						list-style none
-						width 100%
-						&:nth-child(2)
-							border-top 1px solid amarillo
-							border-bottom 1px solid amarillo
-						a
-							color amarillo
-							list-style none
-							display block
-							padding .6em .9em
-							&:hover
-								color gris
-								background amarillo
-		& .show-actions-user
-			float right
-			padding .3em 2em
-			& figure
-				height 40px
-				margin 0
-				width 40px
-				& span
-					font-size 3em
-					color gris
-		& .cont-actions-user
+		&:hover
+			background rgba(0, 0, 0, .10)
+		& a
+			color #F9F9F9
+			display block
+			font-weight normal
+			text-decoration none
+			padding 1.5em 0 1.5em 1.5em
+			font-size 1.4em
+			text-decoration none
+		& ul
+			box-shadow 0px 0px 3px rgba(0, 0, 0, .5)
+			color amarillo
 			display none
 			background gris
 			position absolute
-			right 2em
-			top 4em
-			z-index 10000000
+			max-width 250px
+			margin 0
+			padding 0
+			transition all 1s ease-in-out
+			z-index 999
 			&:after
 				content: "";
 				display: inline-block;
@@ -423,52 +445,34 @@ main
 				border-left-color:transparent;
 				border-width:0px 10px 11px;
 				position absolute
-				top -.6em
-				right .2em
-				z-index 1000
-			& a:nth-child(2n)
-				border-top 1px solid amarillo
-				border-bottom 1px solid amarillo
-			& a
-				color amarillo
+				top -.7em
+				left 1.1em
+				z-index 999
+			li
 				display block
-				padding .7em 1em
-				text-decoration none
-				&:hover
-					color gris
-					background #FAFAFA
-				& li
+				list-style none
+				width 100%
+				&:nth-child(2)
+					border-top 1px solid amarillo
+					border-bottom 1px solid amarillo
+				a
+					color amarillo
 					list-style none
-		& .sessions-cont
-			display inline-block
-			margin-right 30px
-			font-size 0em
-			float right
-			& .link_log
-				li
-					border-radius 0 5px 5px 0
-					color whitesmoke
-					padding .8em .8em
-					font-size 1.1rem
-				&:nth-child(1)
-					border-right 1px solid white
-			& a
-				color white
-				display inline-block
-				text-decoration none
-				padding 10px 0
-				& li
-					font-size 16px
-					list-style none
+					display block
+					padding .6em .9em
+					&:hover
+						color gris
+						background amarillo
+
 
 #about
 	background gris
-	padding-top 69px
+	padding-top 79px
 	width 100%
 	& .title
 		margin 0
 		padding 1.5em 3em
-		background amarillo
+		background gris
 		color white
 		font-weight normal
 	& .vision
@@ -509,12 +513,12 @@ main
 
 #cobertura
 	background gris
-	padding-top 69px
+	padding-top 79px
 	width 100%
 	& .title
 		margin 0
 		padding 1.5em 3em
-		background amarillo
+		background gris
 		color white
 		font-weight normal
 	& .map
@@ -528,12 +532,12 @@ main
 
 #messages
 	background gris
-	padding-top 69px
+	padding-top 79px
 	width 100%
 	& .title
 		margin 0
 		padding 1.5em 3em
-		background amarillo
+		background gris
 		color white
 		font-weight normal
 	& .all-messages
@@ -567,12 +571,12 @@ main
 
 #contact
 	background gris
-	padding-top 69px
+	padding-top 79px
 	width 100%
 	& .title
 		margin 0
 		padding 1.5em 3em
-		background amarillo
+		background gris
 		color white
 		font-weight normal
 	& .map
@@ -845,7 +849,7 @@ main
 			top .4em
 
 #edit-user-cont
-	border-top 15em solid gris
+	padding-top 20em
 	padding-bottom 10em
 	width 100%
 	& .cont
@@ -942,17 +946,17 @@ main
 			& .submit-edit-user
 				border none
 				outline none
-				background gris
-				border-bottom 5px solid #272727
+				background azul_light
+				border-bottom 5px solid azul
 				border-radius .3em
 				cursor pointer
-				color amarillo
+				color white
 				font-size 1.1em
 				padding .4em 1.4em
 				transition all .5s ease
 				margin-top 1em
 				&:hover
-					background #3F4045
+					background azul
 
 .alert-registration
 	background white
@@ -989,105 +993,218 @@ main
 		text-align center
 		padding .5em 1em
 
-#create-user-cont
-	border-top 15em solid gris
-	padding-bottom 10em
-	width 100%
-	& .cont
-		box-shadow 0px 0px 10px rgba(0, 0, 0, .4)
-		border-radius .5em
-		max-width 600px
-		background white
-		margin -5em auto 1em auto
-		padding 120px 0 2em 0
-		position relative
-		text-align center
-		& .link-back-edit-user
-			color amarillo
-			font-size 1.6em
-			left .4em
-			position absolute
-			text-decoration none
-			top .5em
-		& figure
-			border-radius 50%
-			border 3px solid gris
-			background white
-			line-height: 21;
-			height 200px
-			position absolute
-			left 0
-			right 0
-			top -100px
-			margin 0 auto
-			width 200px
-			& img
-				line-height 200px
-				width 120px
-		& form
-			margin 0 auto
-			max-width 500px
-			& .cont_fields
-				text-align left
-				& label
-					color gris
-					display inline-block
-					text-align left
-					font-size 1.1em
-					margin-top 1em
-					margin-left 1em
-				& a
-					color amarillo
-					display inline-block
-					font-size 1.1em
-				& input
-					background white
-					border 1px solid #999
-					border-radius .25em
-					box-sizing border-box
-					color gris
-					font-size 1.1em
-					outline none
-					margin .5em 0
-					padding .4em .5em
-					width 100%
-				& select
-					background white
-					border 1px solid #999
-					border-radius .25em
-					box-sizing border-box
-					color gris
-					height 40px
-					font-size 1.1em
-					outline none
-					margin .5em 0
-					padding .4em .5em
-					width 100%
-			& .submit-edit-user
-				border none
-				outline none
-				background gris
-				border-bottom 5px solid #272727
-				border-radius .3em
-				cursor pointer
-				color amarillo
-				font-size 1.1em
-				padding .4em 1.4em
-				transition all .5s ease
-				margin-top 1em
-				&:hover
-					background #3F4045
+// #create-user-cont
+// 	border-top 15em solid gris
+// 	padding-bottom 10em
+// 	width 100%
+// 	& .cont
+// 		box-shadow 0px 0px 10px rgba(0, 0, 0, .4)
+// 		border-radius .5em
+// 		max-width 600px
+// 		background white
+// 		margin -5em auto 1em auto
+// 		padding 120px 0 2em 0
+// 		position relative
+// 		text-align center
+// 		& .link-back-edit-user
+// 			color amarillo
+// 			font-size 1.6em
+// 			left .4em
+// 			position absolute
+// 			text-decoration none
+// 			top .5em
+// 		& figure
+// 			border-radius 50%
+// 			border 3px solid gris
+// 			background white
+// 			line-height: 21;
+// 			height 200px
+// 			position absolute
+// 			left 0
+// 			right 0
+// 			top -100px
+// 			margin 0 auto
+// 			width 200px
+// 			& img
+// 				line-height 200px
+// 				width 120px
+// 		& form
+// 			margin 0 auto
+// 			max-width 500px
+// 			& .cont_fields
+// 				text-align left
+// 				& label
+// 					color gris
+// 					display inline-block
+// 					text-align left
+// 					font-size 1.1em
+// 					margin-top 1em
+// 					margin-left 1em
+// 				& a
+// 					color amarillo
+// 					display inline-block
+// 					font-size 1.1em
+// 				& input
+// 					background white
+// 					border 1px solid #999
+// 					border-radius .25em
+// 					box-sizing border-box
+// 					color gris
+// 					font-size 1.1em
+// 					outline none
+// 					margin .5em 0
+// 					padding .4em .5em
+// 					width 100%
+// 				& select
+// 					background white
+// 					border 1px solid #999
+// 					border-radius .25em
+// 					box-sizing border-box
+// 					color gris
+// 					height 40px
+// 					font-size 1.1em
+// 					outline none
+// 					margin .5em 0
+// 					padding .4em .5em
+// 					width 100%
+// 			& .submit-edit-user
+// 				border none
+// 				outline none
+// 				background gris
+// 				border-bottom 5px solid #272727
+// 				border-radius .3em
+// 				cursor pointer
+// 				color amarillo
+// 				font-size 1.1em
+// 				padding .4em 1.4em
+// 				transition all .5s ease
+// 				margin-top 1em
+// 				&:hover
+// 					background #3F4045
+
+#signup
+    padding 4em 0 2em 0
+    width 100%
+    & .content
+        max-width 700px
+        margin 0 auto
+        & figure
+            text-align center
+            padding 1em 0 1.5em 0
+            width 100%
+            & a
+                display block
+                margin 0 auto
+                max-width 220px
+                & img
+                    width 100%
+        & h1
+            color white
+            font-size 1.9em
+            text-align center
+            font-weight normal
+            width 100%
+        & hr
+            height: 2px;
+            border: none;
+            background-color: none;
+            background-image: -webkit-linear-gradient(left,rgba(136,136,144,0) 0,#f3f3f8 5%,#f3f3f8 95%,rgba(136,136,144,0) 100%);
+            background-image: -moz-linear-gradient(left,rgba(136,136,144,0) 0,#f3f3f8 5%,#f3f3f8 95%,rgba(136,136,144,0) 100%);
+            background-image: -ms-linear-gradient(left,rgba(136,136,144,0) 0,#f3f3f8 5%,#f3f3f8 95%,rgba(136,136,144,0) 100%);
+            background-image: linear-gradient(to right,rgba(136,136,144,0) 0,#f3f3f8 5%,#f3f3f8 95%,rgba(136,136,144,0) 100%);
+            display: block;
+            margin-top: 1.4rem;
+            margin-bottom: 1.4rem;
+            margin-left: -20px;
+            margin-right: -20px;
+            opacity: .6;
+        & .container
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            justify-content: space-around;
+            width 100%
+            & .about
+                width 50%
+                & div
+                    color gris
+                    margin-bottom 2.4em
+                    & h2
+                        font-weight normal
+                        font-size 1.2em
+                        margin-bottom .5em
+                    & p
+                        font-size 1em
+            & .form
+                width 40%
+                & form
+                    & label
+                        color gris
+                        font-weight 500
+                    & input[type="text"], input[type="email"], input[type="password"]
+                        border none
+                        color gris
+                        outline none
+                        background white
+                        border-radius .3em
+                        font-size 1.1em
+                        padding .7em .5em
+                        margin .5em 0
+                        width 100%
+                    & select
+                        border none
+                        display block
+                        color gris
+                        outline none
+                        background white
+                        border-radius .3em
+                        font-size 1.1em
+                        padding 1em .5em
+                        margin .5em 0 1em 0
+                        webkit-appearance none
+                        appearance none
+                        width 100%
+                    & input[type=submit]
+                        -webkit-appearance: button;
+                        cursor: pointer;
+                        border none
+                        outline none
+                        background-color: #e4ddef;
+                        background-image: linear-gradient(#fff,#e7e4ee);
+                        color azul_light
+                        border-radius .3em
+                        font-size 1.4em
+                        font-weight bold
+                        padding .6em 0
+                        margin .6em 0
+                        width 100%
+                & .login
+                    display block
+                    margin 1.5em 0
+                    & span
+                        color white
+                        font-size 1.1em
+                    & a
+                        color white
+                        background azul_light
+                        font-weight bold
+                        padding .7em 1em
+                        margin-left .5em
+                        border-radius .3em
+                        &:hover
+                            background azul
 
 #log-in-user-cont
-	border-top 15em solid gris
-	padding-bottom 10em
 	width 100%
 	& .cont
 		box-shadow 0px 0px 10px rgba(0, 0, 0, .4)
 		border-radius .5em
-		max-width 600px
+		max-width 400px
 		background white
-		margin -5em auto 1em auto
+		margin 10em auto 0em auto
 		padding 120px 0 2em 0
 		position relative
 		text-align center
@@ -1098,7 +1215,7 @@ main
 			position absolute
 			text-decoration none
 			top .5em
-		& figure
+		& .logo-t
 			border-radius 50%
 			border 3px solid gris
 			background white
@@ -1115,7 +1232,7 @@ main
 				width 120px
 		& form
 			margin 0 auto
-			max-width 500px
+			max-width 350px
 			& .cont_fields
 				text-align left
 				& label
@@ -1151,17 +1268,17 @@ main
 			& .submit-log-in-user
 				border none
 				outline none
-				background gris
-				border-bottom 5px solid #272727
+				background azul_light
+				border-bottom 5px solid azul
 				border-radius .3em
 				cursor pointer
-				color amarillo
+				color white
 				font-size 1.1em
 				padding .4em 1.4em
 				transition all .5s ease
 				margin-top 1em
 				&:hover
-					background #3F4045
+					background azul
 
 #publications-cont
 	border-top 15em solid gris
@@ -1462,6 +1579,7 @@ main
 
 
 #cortina
+	cursor pointer
 	display none
 	background rgba(0,0,0,0.6)
 	height 100%
@@ -1758,7 +1876,7 @@ main
 
 footer
 	display inline-block
-	background #01090d
+	background gris
 	color white
 	padding 1em 0 2em 0
 	width 100%
