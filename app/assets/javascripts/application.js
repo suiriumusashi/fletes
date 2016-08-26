@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 (function(){
@@ -31,10 +30,10 @@
 		$(object).find(".cont-actions-pub").slideToggle(200);
 	});
 
-	setInterval(function(){ 
+	setInterval(function(){
 		$("#alert-success, #alert-danger").animate({
 			 opacity: 0
-		},600); 
+		},600);
 	}, 3000);
 
 			var geo = navigator.geolocation;
@@ -95,18 +94,18 @@
                 var tiempo = 8000;
                 var $pause = false
             }
-            
+
             $container.css('width', (cantidad + visible) * incremento);
-            
+
             console.log(incremento)
-            
+
             for(var i = 0; i < visible; i++){
                 $container.append($fotos.eq(i).clone());
             }
 
 
             $(sig).click(function(e){
-                
+
                 e.preventDefault();
 
                 if(!estaMoviendo){
@@ -166,42 +165,42 @@
 
     $(".show-terminos").click(function(e){
 		e.preventDefault();
-		window.scrollTo(0, 0); 
+		window.scrollTo(0, 0);
 		$("#cortina, #terminos").show();
 	});
 	$(".show-politicas").click(function(e){
 		e.preventDefault();
-		window.scrollTo(0, 0);  
+		window.scrollTo(0, 0);
 		$("#cortina, #politicas").show();
 	});
 
     // $(".open-nosotros").click(function(e){
     //     e.preventDefault();
-    //     window.scrollTo(0, 0);  
+    //     window.scrollTo(0, 0);
     //     $("#cortina, #nosotros").show();
     // });
 
     // $(".open-contact").click(function(e){
     //     e.preventDefault();
-    //     window.scrollTo(0, 0);  
+    //     window.scrollTo(0, 0);
     //     $("#cortina, #contacto").show();
     // });
 
     // $(".open-ayuda").click(function(e){
     //     e.preventDefault();
-    //     window.scrollTo(0, 0);  
+    //     window.scrollTo(0, 0);
     //     $("#cortina, #ayuda").show();
     // });
 
     // $(".open-como").click(function(e){
     //     e.preventDefault();
-    //     window.scrollTo(0, 0);  
+    //     window.scrollTo(0, 0);
     //     $("#cortina, #comof").show();
     // });
 
 	$(".close, #cortina").click(function(e){
 		e.preventDefault();
-		window.scrollTo(0, 0);  
+		window.scrollTo(0, 0);
 		$("#cortina, #politicas, #terminos, #nosotros, #contacto, #ayuda, #comof").hide();
 	});
 
@@ -317,7 +316,7 @@
         $(".thevalue").val("");
         $(".form-ocult").show();
     })
-    
+
     $('#select_all').change(function() {
         var checkboxes = $(this).closest('form').find(':checkbox');
         if($(this).is(':checked')) {
@@ -333,7 +332,7 @@
             left : "0px"
          },500);
     })
-    
+
     $(".close-menu, #cortina").click(function(){
         $("#cortina").fadeOut(500)
          $("#menu-logout").animate({
@@ -341,5 +340,5 @@
          },500);
     })
 
-   
+
 })()

@@ -1,0 +1,158 @@
+.open-menu
+	position absolute
+	left 16px
+	top 25px
+	& .logo
+		float left
+		width 40px
+		& img
+			width 100%
+	& span
+		cursor pointer
+		float left
+		font-size 2em
+		margin-left .5em
+		margin-top 8px
+		color white
+
+
+#menu-logout
+	background-color: #FFB400;
+	background-image: -webkit-radial-gradient(0% bottom,rgba(254,217, 78, .9) 0,rgba(48, 148, 184,0) 60%),-webkit-radial-gradient(90% bottom,#FFB400 0,rgba(82, 109, 255,0) 40%),-webkit-radial-gradient(50% top,rgba(255,180,67,0.6) 0,rgba(255,180,67,0) 75%),-webkit-radial-gradient(right top,#EFD342 0,rgba(254,217, 78,0) 57%);
+	background-image: radial-gradient(at 0 bottom,rgba(254,217, 78, .9) 0,rgba(48, 148, 184,0) 60%),radial-gradient(at 90% bottom,#FFB400 0,rgba(82, 109, 255,0) 40%),radial-gradient(at 50% top,rgba(255,180,67,0.6) 0,rgba(255,180,67,0) 75%),radial-gradient(at right top,#EFD342 0,rgba(254,217, 78,0) 57%);
+	background-size: auto,auto,100% 1000px,100% 1000px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow auto
+	position fixed
+	left -250px
+	top 0
+	bottom 0
+	height 100%
+	width 250px
+	padding-top 4em
+	z-index 1100
+	& .close-menu
+		position absolute
+		top .5em
+		right 1.5em
+		& span
+			color white
+			cursor pointer
+			font-size 3em
+	& li
+		list-style none
+		&:hover
+			background rgba(0, 0, 0, .10)
+		& a
+			color #F9F9F9
+			display block
+			font-weight normal
+			text-decoration none
+			padding 1.5em 0 1.5em 1.5em
+			font-size 18px
+			text-decoration none
+		& ul
+			box-shadow 0px 0px 3px rgba(0, 0, 0, .5)
+			color amarillo
+			display none
+			background gris
+			position absolute
+			max-width 250px
+			margin 0
+			padding 0
+			transition all 1s ease-in-out
+			z-index 999
+			&:after
+				content: "";
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 10px;
+				width: 0px;
+				height: 0px;
+				border:3px solid gris;
+				border-right-color:transparent;
+				border-left-color:transparent;
+				border-width:0px 10px 11px;
+				position absolute
+				top -.7em
+				left 1.1em
+				z-index 999
+			li
+				display block
+				list-style none
+				width 100%
+				&:nth-child(2)
+					border-top 1px solid amarillo
+					border-bottom 1px solid amarillo
+				a
+					color amarillo
+					list-style none
+					display block
+					padding .6em .9em
+					&:hover
+						color gris
+						background amarillo
+
+
+footer
+	display inline-block
+	background gris
+	color white
+	padding 1em 0 2em 0
+	width 100%
+	& a
+		text-decoration none
+	& .cont
+		max-width 1000px
+		margin 0 auto
+		text-align center
+		& .menu
+			padding 1em 0 .5em 0
+			width 100%
+			& .right-slide::after
+				content: '/';
+				padding: 0 19px;
+				color: #fff
+			& p
+				display inline-block
+				& a
+					color white
+		& .social
+			margin .5em 0
+			width 100%
+			& a
+				background white
+				border-radius 50%
+				display inline-block
+				margin 0 .6em
+				height 30px
+				text-align center
+				transition all .25s ease
+				width 30px
+				&:hover
+					box-shadow 0px 0px 5px white
+				& span
+					color amarillo_negro
+					font-size 1em
+					line-height 30px
+		& .copy
+			margin-top .5em
+			& p
+				margin 0
+				font-size .8em
+		& .rules
+			width 100%
+			& .right-slide::after
+				content: '|';
+				padding: 0 4px;
+				color: #fff
+			& p
+				display inline-block
+				margin .2em 0
+				& a
+					color white
+					font-size .6em
+					padding 0
+					& span
+						color rojo

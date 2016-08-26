@@ -1,135 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Fletes Durango | Rapido - Barato - Seguro</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-</head>
-<body>
+<header id="galeria">
+	<!-- <a href="#" class="btn-gl" id="anterior">
+		<%= image_tag "btn-left.png", :alt => "Left", :title => "Left"%>
+	</a>
+	<div class="galeria">
+		<ul>
+			<li><%= image_tag "slide-1.png", :alt => "Slide1", :title => "Slide1"%></li>
+			<li>
+				<%= image_tag "slide-2.png", :alt => "Slide2", :title => "Slide2"%>
+			</li>
+			<li>
+				<%= image_tag "slide-3.png", :alt => "Slide3", :title => "Slide3"%>
+			</li>
+			<li>
+				<%= image_tag "slide-4.png", :alt => "Slide4", :title => "Slide4"%>
+			</li>
+		</ul>
+	</div>
+	<a href="#" class="btn-gl" id="siguiente">
+		<%= image_tag "btn-right.png", :alt => "Right", :title => "Right"%>
+	</a> -->
+	<div class="content">
+		<figure>
+			<%= image_tag "logo_noletter.png" %>
+		</figure>
+		<h1>¿BUSCAS UN VIAJE?</h1>
+		<h2>Contamos com mas de 1000 unidades listas para ti.</h2>
+		<% if user_signed_in? || admin_signed_in?%>
+		<% else %>
+			<a href="/users/sign_up" class="register">Registrate</a>
+			<a href="/users/sign_in" class="login">Inicia Sesion</a>
+		<% end %>
+	</div>
+</header>
 
-		<header id="galeria">
-			<!-- <a href="#" class="btn-gl" id="anterior">
-				<%= image_tag "btn-left.png", :alt => "Left", :title => "Left"%>
-			</a>
-			<div class="galeria">
-				<ul>
-					<li><%= image_tag "slide-1.png", :alt => "Slide1", :title => "Slide1"%></li>
-					<li>
-						<%= image_tag "slide-2.png", :alt => "Slide2", :title => "Slide2"%>
-					</li>
-					<li>
-						<%= image_tag "slide-3.png", :alt => "Slide3", :title => "Slide3"%>
-					</li>
-					<li>
-						<%= image_tag "slide-4.png", :alt => "Slide4", :title => "Slide4"%>
-					</li>
-				</ul>
-			</div>
-			<a href="#" class="btn-gl" id="siguiente">
-				<%= image_tag "btn-right.png", :alt => "Right", :title => "Right"%>
-			</a> -->
-			<div class="content">
-				<figure>
-					<%= image_tag "logo_noletter.png" %>
-				</figure>
-				<h1>¿BUSCAS UN VIAJE?</h1>
-				<h2>Contamos com mas de 1000 unidades listas para ti.</h2>
-				<% if user_signed_in? || admin_signed_in?%>
-				<% else %>
-					<a href="/users/sign_up" class="register">Registrate</a>
-					<a href="/users/sign_in" class="login">Inicia Sesion</a>
-				<% end %>
-			</div>
-		</header>
-
-	<section id="container-home">
-		<article class="features">
-			<div class="cont">
-				<div class="about">
-					<span class="ion-ios-bolt-outline"></span>
-					<div>
-						<h2>RAPIDEZ Y CALIDAD</h2>
-						En fletetodo te ofrecemos fluidez y calidad en cualquiera de nuestros servicios, evitando largas esperas.
-					</div>					
-				</div>
-				<div class="about">
-					<span class="ion-ios-cloud-outline"></span>
-					<div>
-						<h2>PRECIOS COMPETITIVOS</h2>
-						Buscamos dentro de nuestra base de datos la mejor oferta que incluya calidad, fluidez y un buen precio.
-					</div>
-				</div>
-				<div class="about">
-					<span class="ion-ios-location-outline"></span>
-					<div>
-						<h2>COVERTURA EN TODA LA REPUBLICA</h2>
-						Contamos con cobertura en toda la republica mexicana sin importar el lugar o el clima ahi estaremos puntuales.
-					</div>					
-				</div>
-				<div class="about">
-					<span class="ion-ios-checkmark-outline"></span>
-					<div>
-						<h2>UNIDADES CERTIFICADAS</h2>
-						Contamos con mas de 1000 unidades listas para cualquier tipo de carga cada, garantizandote la mejor experiencia.
-					</div>
-				</div>
-				<div class="about">
-					<span class="ion-ios-list-outline"></span>
-					<div>
-						<h2>BENEFICIOS A NUESTROS AFILIADOS</h2>
-						Todos los transportistas y empresas transportistas tendran increibles beneficios al pertenecer a la comunidad FleteTodo.
-					</div>
-				</div>
-				<div class="about">
-					<span class="ion-ios-telephone-outline"></span>
-					<div>
-						<h2>SERVICIO LAS 24H</h2>
-						Atendemos cualquier servicio que requieras las 24H y los 7 dias de la semana, brindandote asi la mejor experiencia en logistica.
-					</div>
+<section id="container-home">
+	<article class="features">
+		<div class="cont">
+			<div class="about">
+				<span class="ion-ios-bolt-outline"></span>
+				<div>
+					<h2>RAPIDEZ Y CALIDAD</h2>
+					En fletetodo te ofrecemos fluidez y calidad en cualquiera de nuestros servicios, evitando largas esperas.
 				</div>
 			</div>
-		</article>
-		<article class="professional">
-			<div class="content">
-				<h2>UN EQUIPO CERTIFICADO Y PROFESIONAL</h2>
+			<div class="about">
+				<span class="ion-ios-cloud-outline"></span>
+				<div>
+					<h2>PRECIOS COMPETITIVOS</h2>
+					Buscamos dentro de nuestra base de datos la mejor oferta que incluya calidad, fluidez y un buen precio.
+				</div>
+			</div>
+			<div class="about">
+				<span class="ion-ios-location-outline"></span>
+				<div>
+					<h2>COVERTURA EN TODA LA REPUBLICA</h2>
+					Contamos con cobertura en toda la republica mexicana sin importar el lugar o el clima ahi estaremos puntuales.
+				</div>
+			</div>
+			<div class="about">
+				<span class="ion-ios-checkmark-outline"></span>
+				<div>
+					<h2>UNIDADES CERTIFICADAS</h2>
+					Contamos con mas de 1000 unidades listas para cualquier tipo de carga cada, garantizandote la mejor experiencia.
+				</div>
+			</div>
+			<div class="about">
+				<span class="ion-ios-list-outline"></span>
+				<div>
+					<h2>BENEFICIOS A NUESTROS AFILIADOS</h2>
+					Todos los transportistas y empresas transportistas tendran increibles beneficios al pertenecer a la comunidad FleteTodo.
+				</div>
+			</div>
+			<div class="about">
+				<span class="ion-ios-telephone-outline"></span>
+				<div>
+					<h2>SERVICIO LAS 24H</h2>
+					Atendemos cualquier servicio que requieras las 24H y los 7 dias de la semana, brindandote asi la mejor experiencia en logistica.
+				</div>
+			</div>
+		</div>
+	</article>
+	<article class="professional">
+		<div class="content">
+			<h2>UN EQUIPO CERTIFICADO Y PROFESIONAL</h2>
+			<p>
+				FleteTodo es una empresa de innovación logística que se encarga de ofrecer a sus clientes servicio de clase mundial a muy bajo costo en transporte de carga a nivel nacional, contando con afiliados de gran renombre en el ramo del transporte poniendo sus unidades a nuestra disposición y así poder ofrecer a nuestros clientes una cobertura casi  total de la república mexicana.
+			</p>
+			<p>
+				Somos una empresa de solución emergente a tu empresa, pues al no contar en determinado momento con tu proveedor primario siempre estaremos nosotros para solucionar tu problema de  transporte y ayudarte a mantener una buena imagen con tu cartera de clientes además de darte más cobertura nacional.
+			</p>
+		</div>
+	</article>
+	<article class="why">
+		<h1>Grandes Beneficios</h1>
+		<div class="cont">
+			<div class="box">
+				<h2>Transportistas</h2>
 				<p>
-					FleteTodo es una empresa de innovación logística que se encarga de ofrecer a sus clientes servicio de clase mundial a muy bajo costo en transporte de carga a nivel nacional, contando con afiliados de gran renombre en el ramo del transporte poniendo sus unidades a nuestra disposición y así poder ofrecer a nuestros clientes una cobertura casi  total de la república mexicana.
+					Podrán participar y ofertar en todas las publicaciones que concuerden con su perfil, así como también todos los transportistas participaran en concursos ya sea por el mejor récord o más frecuente en los cuales recibirá increíbles premios.
 				</p>
+			</div>
+			<div class="box">
+				<h2>Clientes</h2>
 				<p>
-					Somos una empresa de solución emergente a tu empresa, pues al no contar en determinado momento con tu proveedor primario siempre estaremos nosotros para solucionar tu problema de  transporte y ayudarte a mantener una buena imagen con tu cartera de clientes además de darte más cobertura nacional.
+					Sabemos que conseguir quien transporte tu mercancía la mayoría de los casos es una tarea muy difícil y en muchos casos muy costoso, en fletetodo nos encargamos de buscarte las mejores opciones tanto en precio como en calidad.
 				</p>
 			</div>
-		</article>
-		<article class="why">
-			<h1>Grandes Beneficios</h1>
-			<div class="cont">
-				<div class="box">
-					<h2>Transportistas</h2>
-					<p>
-						Podrán participar y ofertar en todas las publicaciones que concuerden con su perfil, así como también todos los transportistas participaran en concursos ya sea por el mejor récord o más frecuente en los cuales recibirá increíbles premios.
-					</p>
-				</div>
-				<div class="box">
-					<h2>Clientes</h2>
-					<p>
-						Sabemos que conseguir quien transporte tu mercancía la mayoría de los casos es una tarea muy difícil y en muchos casos muy costoso, en fletetodo nos encargamos de buscarte las mejores opciones tanto en precio como en calidad.
-					</p>
-				</div>
-			</div>
-		</article>
-		<article class="video">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/fsD2yeU_pmI?controls=0&rel=0&autoplay=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-		</article>
-		<article class="register">
-			<div class="content">
-				<h1>¿Que esperas para ser parte de esta increible comunidad?</h1>
-				<%= link_to new_user_registration_path do%>
-		        	REGISTRATE
-		    	<% end %>
-			</div>
-		</article>
-	</section>
-
-</body>
-</html>
+		</div>
+	</article>
+	<article class="video">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/fsD2yeU_pmI?controls=0&rel=0&autoplay=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+	</article>
+	<article class="register">
+		<div class="content">
+			<h1>¿Que esperas para ser parte de esta increible comunidad?</h1>
+			<%= link_to new_user_registration_path do%>
+	        	REGISTRATE
+	    	<% end %>
+		</div>
+	</article>
+</section>

@@ -4,8 +4,8 @@
   <title>Fletes</title>
   <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
-  
+  <%= stylesheet_link_tag  'application'%>
+
   <%= stylesheet_link_tag "fonts"%>
   <%= stylesheet_link_tag  'jquery-ui.min'%>
   <%= csrf_meta_tags %>
@@ -27,7 +27,7 @@
   <a href="/" class="logo">
     <%= image_tag "logo_noletter.png" %>
   </a>
-  <span class="ion-drag open-menu-link"></span>
+  <span class="ion-drag open-menu-link">fdgsfg</span>
 </div>
 
 <% if user_signed_in? %>
@@ -118,7 +118,7 @@
       <%= link_to edit_admin_registration_path, :class => 'link_log' do%>
             <li>Editar perfil </li>
          <%end%>
-          
+
          <%= link_to destroy_admin_session_path, method: :delete, :class => 'link_log' do%>
             <li> Cerrar Sesion</li>
          <%end%>
@@ -126,7 +126,7 @@
 
     <nav id="menu-logout">
       <div class="close-menu">
-        <span class="ion-ios-close-empty"></span>
+        <span class="ion-ios-close-empty">sss</span>
       </div>
       <li>
             <%= link_to "/" ,:class => 'li-standar' do%>
@@ -165,7 +165,7 @@
 <% else %>
   <div class="sessions-cont">
     <%= link_to new_user_registration_path, :class => 'link_log' do%>
-      <li>Registrate</li> 
+      <li>Registrate</li>
     <% end %>
     <%= link_to new_user_session_path, :class => 'link_log' do%>
       <li>Inicia Sesion</li>
@@ -1036,7 +1036,7 @@
   </p>
 </div>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application' %>
 
 <script>
   $(function() {
