@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
 	def index
+		@contact = Contact.new
 	end
 
 	def about
@@ -10,5 +11,5 @@ class HomeController < ApplicationController
 
 	def cobertura
 	end
-	
+
 end

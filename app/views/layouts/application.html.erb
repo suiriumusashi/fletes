@@ -11,7 +11,7 @@
   <%= csrf_meta_tags %>
 </head>
 <% if current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(edit_user_registration_path) || current_page?(administrator_path) || current_page?(edit_admin_registration_path) %>
-<body id="gradiant">
+<body>
 <% else %>
 
 <% if notice %>
@@ -27,7 +27,6 @@
   <a href="/" class="logo">
     <%= image_tag "logo_noletter.png" %>
   </a>
-  <span class="ion-drag open-menu-link">fdgsfg</span>
 </div>
 
 <% if user_signed_in? %>

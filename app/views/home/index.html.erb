@@ -24,7 +24,7 @@
 			<%= image_tag "logo_noletter.png" %>
 		</figure>
 		<h1>¿BUSCAS UN VIAJE?</h1>
-		<h2>Contamos com mas de 1000 unidades listas para ti.</h2>
+		<h2>Contamos con más de 1000 unidades listas para ti.</h2>
 		<% if user_signed_in? || admin_signed_in?%>
 		<% else %>
 			<a href="/users/sign_up" class="register">Registrate</a>
@@ -79,6 +79,9 @@
 				</div>
 			</div>
 		</div>
+		<figure class="separator">
+			<%= image_tag("separator.png")%>
+		</figure>
 	</article>
 	<article class="professional">
 		<div class="content">
@@ -111,6 +114,56 @@
 	<article class="video">
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/fsD2yeU_pmI?controls=0&rel=0&autoplay=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 	</article>
+	<article id="map">
+    <iframe style="pointer-events:none; border:0; display:block;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7463.004415930585!2d-104.67002918733472!3d24.034359158512906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bc83a97d2306b%3A0xe43462ad96aa3657!2sFelipe+Pescador+717%2C+Zona+Centro%2C+34000+Durango%2C+Dgo.!5e0!3m2!1ses!2smx!4v1441917140672" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </article>
+  <article class="form">
+    <div class="content">
+      <h1>Dejanos tu mensaje</h1>
+      <p>Si tiene alguna duda, sugerencia o problema contactanos y en la brevedad posible te estaremos contestando, para nuestro equipo es muy importante tu opinion no dudes en ponerte en contacto con nosotros.</p>
+        <%= form_for(@contact) do |f| %>
+          <% if @contact.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+              <ul>
+              <% @contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :name, "Nombre *" %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :email, "Correo Electronico *" %>
+            <%= f.text_field :email %>
+          </div>
+          <div class="field">
+            <%= f.label :phone, "Telefono *" %>
+            <%= f.text_field :phone %>
+          </div>
+          <div class="field">
+            <%= f.label :web, "Pagina Web" %>
+            <%= f.text_field :web %>
+          </div>
+          <div class="field full">
+            <%= f.label :subject, "Asunto *" %>
+            <%= f.text_field :subject %>
+          </div>
+          <div class="field-message">
+            <%= f.label :message, "Mensaje *" %>
+            <%= f.text_area :message %>
+          </div>
+          <div class="actions">
+            <%= f.submit "ENVIAR" %>
+          </div>
+        <% end %>
+    </div>
+ </article>
 	<article class="register">
 		<div class="content">
 			<h1>¿Que esperas para ser parte de esta increible comunidad?</h1>
